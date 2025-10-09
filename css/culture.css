@@ -2,9 +2,7 @@
 
 .section *{
     width: 50%;
-    margin: 10px auto;
-    font-size: 1.2em;
-    line-height: 1.7em;
+    margin: 1% auto;
 }
 .nav ul li a:hover{
     color: white;
@@ -14,7 +12,6 @@ video {
     width: 10%;
     height: 5%;
     margin: 10px auto;
-    
 }
 
 .section video,.section img{
@@ -27,4 +24,8 @@ video {
 
 .date {
     color: gray;
+}
+
+.section span.firstword{
+    font-weight: bold;
 }
