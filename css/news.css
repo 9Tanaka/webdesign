@@ -35,23 +35,29 @@ h2{
 }
 @media screen and (max-width: 768px) {
    
-.newsbox img{
+.d-flex img{
         width: 80%;
         height: 140px;
-        margin: 2%;
+       
     }
 
-
-    .box {
-    width: 100%;
-    margin: 0 auto; 
+.textbox {
+        margin: 0;
+        padding: 2% 0;
     }
 
-    .textbox h2{
-        font-size: 1.5em;
+    
+
+    .textbox h2 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        font-size: 1em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -webkit-line-clamp: 5;
     }
-    .newsbox{
-        font-size: 0.5em;
+
+  .textbox p{
+        display: none;
     }
-   
 }

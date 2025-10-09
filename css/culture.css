@@ -1,0 +1,30 @@
+@import url(headerfooter.css);
+
+.section *{
+    width: 50%;
+    margin: 10px auto;
+    font-size: 1.2em;
+    line-height: 1.7em;
+}
+.nav ul li a:hover{
+    color: white;
+    transition: 0.3s;
+}
+video {
+    width: 10%;
+    height: 5%;
+    margin: 10px auto;
+    
+}
+
+.section video,.section img{
+    display: block;         
+    width: 30%;             
+    margin: 10px auto;      
+    border-radius: 10px;  
+
+}
+
+.date {
+    color: gray;
+}
