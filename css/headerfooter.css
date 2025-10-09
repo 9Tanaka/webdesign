@@ -1,0 +1,131 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'mitr', sans-serif;
+   
+}
+
+@font-face {
+    font-family: 'mitr';
+    src: url(font/Mitr-Light.ttf);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #FF8ECE; 
+}
+.header img,.footer img{
+    border-radius: 10px;
+}
+.navbar-collapse {
+    display: flex;
+    gap: 0.4em;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffffff; 
+    padding: 5px 10px;
+}
+
+.nav-link:hover {
+    color: #007bff; 
+}
+
+
+.nav-link a:hover {
+    color: #007bff; 
+}
+
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+main {
+    flex: 1; 
+}
+
+.footer {
+    background-color: #50B3FF; 
+    padding: 20px;
+}
+ 
+
+.navbar-collapse a img{
+    vertical-align: baseline;
+}
+
+.bar{
+    width: 28px;
+    height: 4px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: 0.4s;
+    border-radius: 2px;
+}
+
+.navbar-collapse.active{
+    transform: translateY(0%) !important;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger.open .bar:nth-child(1){
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.hamburger.open .bar:nth-child(2){
+    opacity: 0;
+}
+.hamburger.open .bar:nth-child(3){
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
+.container {
+       width: 40%;
+       margin: 0 auto; 
+   }
+
+
+
+.footer .container {
+    width: 80%; 
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .navbar-collapse {
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        top: 10%;
+        left: 0;
+        background-color: #FF8ECE;
+        padding: 10px 0;
+        text-align: center;
+        transform: translateY(-120%);
+        z-index: 10;
+        transition: transform 0.3s ease-in-out;
+    }
+    .nav-link {
+        padding: 10px 0;
+    }
+    .hamburger {
+        display: block;
+        margin-top: 4%;
+    }
+}
+

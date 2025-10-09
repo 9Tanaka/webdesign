@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/news.css">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/hamburger.js" defer></script>
+    <title>News|home</title>
 </head>
-<body>
-    <header>
 
-    </header>
-    
+<body>
+    <!-- header -->
+    <div class="header">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
+        </a>
+        <nav class="navbar-collapse">
+            <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
+            <a class="nav-link" aria-label="go to Vtuber page" href="news.html">Vtuber</a>
+            <a class="nav-link" aria-label="go to Community page" href="">Community</a>
+            <a class="nav-link" aria-label="go to news page" href="contact.html">News</a>
+            <a class="nav-link" aria-label="go to about us page" href="about.html">About us</a>
+            <a class="nav-link" href="search.html"><img src="img/icon/search.png" alt="search" width="30" height="30"></a>
+    </nav>
+    <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+    </div>
+    <!-- End header -->
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">News</li>
+        </ol>
+    <div class="section">
+        <h1>News</h1>
+        <div class="box">
+            <hr>
+            <div class="newsbox">
+                <img src="" alt="" width="300" height="200">
+                <div class="textbox">
+                    <h2>VTuber Cosplay Gathering at Anime Expo 2025</h2>
+                    <p>VTubers, Flags, Happi Coats and Plushies!</p>
+                    <p class="date">Jul 19, 2025</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+        <a href="index.html"><img src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+        <p>Contact Us</p>
+        <div class="d-flex">
+            <div class="first">
+                <a href="">Home</a>
+                <a href="">News</a>
+                <a href="">About us</a>
+                <a href="">What is vtuber?</a>
+            </div>
+            <div class="second">
+                <a href="">Community</a>
+                <a href="">FAQ</a>
+                <a href="">Top Vtuber</a>
+            </div>
+        </div>
+        </div>
+    </div>
 </body>
+
 </html>
