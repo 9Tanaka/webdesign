@@ -1,0 +1,222 @@
+    *{
+    margin: 0;
+    padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    
+    .register-container {
+      width: 100%;
+      max-width: 350px;
+      position: relative;
+    }
+    
+    /* Mobile Portrait (< 768px) - ไม่มีกรอบ */
+    @media (max-width: 767px) {
+      .register-container {
+        max-width: 100%;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      
+      .register-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+      }
+      
+      .submit-btn {
+        padding: 10px;
+        font-size: 15px;
+      }
+      
+      .register-container::before {
+        display: none;
+      }
+    }
+    
+    /* Tablet Portrait (768px - 1023px) - ไม่มีกรอบ */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .register-container {
+        max-width: 450px;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      
+      .register-title {
+        font-size: 30px;
+        margin-bottom: 35px;
+      }
+      
+      .submit-btn {
+        padding: 13px;
+        font-size: 17px;
+      }
+      
+      .register-container::before {
+        display: none;
+      }
+    }
+    
+    /* PC Landscape (>= 1024px) - มีกรอบ */
+    @media (min-width: 1024px) {
+      .register-container {
+        max-width: 500px;
+        padding: 45px 40px;
+        background: white;
+        border-radius: 22px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      
+      .register-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+      
+      .submit-btn {
+        padding: 14px;
+        font-size: 18px;
+      }
+      
+      .register-container::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(135deg, #f3e7f7, #d4f1f9);
+        border-radius: 22px;
+        z-index: -1;
+      }
+    }
+    
+    .register-title {
+      color: #ff9f6d;
+      text-align: center;
+      font-size: 28px;
+      font-weight: 300;
+      margin-bottom: 30px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 8px 12px;
+      background: white;
+    }
+    
+    .input-icon {
+      color: #666;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+    
+    .form-control {
+      border: none;
+      box-shadow: none;
+      padding: 5px;
+      font-size: 14px;
+      width: 100%;
+    }
+    
+    .form-control:focus {
+      outline: none;
+    }
+    
+    .password-toggle {
+      cursor: pointer;
+      color: #666;
+      font-size: 16px;
+      margin-left: 5px;
+    }
+    
+    .password-wrapper {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    
+    .toggle-checkbox {
+      display: none;
+    }
+    
+    .password-field {
+      flex: 1;
+    }
+    
+    .toggle-checkbox:checked + .password-wrapper .password-field {
+      font-family: Arial, sans-serif;
+    }
+    
+    .toggle-checkbox:not(:checked) + .password-wrapper .password-field {
+      font-family: text-security-disc;
+      -webkit-text-security: disc;
+    }
+    
+    .terms-check {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    
+    .terms-check input[type="checkbox"] {
+      margin-right: 8px;
+      margin-top: 3px;
+    }
+    
+    .terms-check label {
+      font-size: 13px;
+      color: #666;
+      margin: 0;
+      line-height: 1.4;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      background: #ff88cc ;
+      border: 1px solid #ddd;
+      color: white;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 136, 204, 0.4);
+    }
+    
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .login-link a {
+      color: #ff88cc;
+      text-decoration: none;
+    }
+    
+    .login-link a:hover {
+      text-decoration: underline;
+    }
