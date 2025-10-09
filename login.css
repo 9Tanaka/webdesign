@@ -2,7 +2,6 @@
         margin: 0;
         padding: 0;
     }
-
     body {
       min-height: 100vh;
       display: flex;
@@ -138,26 +137,10 @@
       outline: none;
     }
     
-    .password-toggle-wrapper {
-      position: relative;
-    }
-    
-    #togglePassword {
-      display: none;
-    }
-    
     .password-toggle {
       cursor: pointer;
       color: #666;
       font-size: 16px;
-    }
-    
-    #togglePassword:checked ~ .input-wrapper #eyeIcon::before {
-      content: "\f341";
-    }
-    
-    #togglePassword:not(:checked) ~ .input-wrapper #eyeIcon::before {
-      content: "\f06e";
     }
     
     .remember-check {
@@ -178,7 +161,7 @@
     
     .submit-btn {
       width: 100%;
-      background: #ff88cc;
+      background: #ff88cc ;
       border: 1px solid #ddd;
       color: white;
       padding: 12px;
