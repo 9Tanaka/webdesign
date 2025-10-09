@@ -1,6 +1,6 @@
     *{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     }
 
     body {
@@ -10,6 +10,7 @@
       align-items: center;
       font-family: Arial, sans-serif;
       padding: 20px;
+      background-image: url(../../img/background.jpg);
     }
     
     .register-container {
@@ -165,11 +166,6 @@
       font-family: Arial, sans-serif;
     }
     
-    .toggle-checkbox:not(:checked) + .password-wrapper .password-field {
-      font-family: text-security-disc;
-      -webkit-text-security: disc;
-    }
-    
     .terms-check {
       display: flex;
       align-items: flex-start;
@@ -179,6 +175,7 @@
     .terms-check input[type="checkbox"] {
       margin-right: 8px;
       margin-top: 3px;
+      accent-color: #2196F3;
     }
     
     .terms-check label {

@@ -11,39 +11,40 @@
 </head>
 
 <body>
-    <div class="login-container">
-        <h1 class="login-title">Login</h1>
 
-        <form>
-            <div class="form-group">
-                <div class="input-wrapper">
-                    <i class="bi bi-envelope input-icon"></i>
-                    <input type="email" class="form-control" placeholder="Email" required>
+        <div class="login-container">
+            <h1 class="login-title">Login</h1>
+
+            <form>
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <i class="bi bi-envelope input-icon"></i>
+                        <input type="email" class="form-control" placeholder="Email" required>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <div class="input-wrapper">
-                    <i class="bi bi-lock input-icon"></i>
-                    <input type="password" class="form-control" id="passwordInput" placeholder="Password"
-                        required>
-                    <i class="bi bi-eye-slash toggle-password" id="togglePassword"
-                        onclick="togglePasswordVisibility('passwordInput', 'togglePassword')"></i>
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <i class="bi bi-lock input-icon"></i>
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Password"
+                            required>
+                        <i class="bi bi-eye-slash toggle-password" id="togglePassword"
+                            onclick="togglePasswordVisibility('passwordInput', 'togglePassword')"></i>
+                    </div> 
+                </div>              
+
+                <div class="remember-check">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember</label>
                 </div>
-            </div>
 
-            <div class="remember-check">
-                <input type="checkbox" id="remember">
-                <label for="remember">Remember</label>
-            </div>
+                <button type="submit" class="submit-btn">submit</button>
 
-            <button type="submit" class="submit-btn">submit</button>
-
-            <div class="register-link">
-                Don't have an account? <a href="register.html">Register</a>
-            </div>
-        </form>
-    </div>
+                <div class="register-link">
+                    Don't have an account? <a href="register.html">Register</a>
+                </div>
+            </form>
+        </div>
 
     <script>
 

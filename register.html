@@ -1,90 +1,86 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/register.css">
 </head>
+
 <body>
-  <div class="register-container">
-    <h1 class="register-title">Register</h1>
-    
-    <form>
-      <div class="form-group">
-        <div class="input-wrapper">
-          <i class="bi bi-person input-icon"></i>
-          <input type="text" class="form-control" placeholder="Enter your name" required>
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <div class="input-wrapper">
-          <i class="bi bi-envelope input-icon"></i>
-          <input type="email" class="form-control" placeholder="Enter your email" required>
-        </div>
-      </div>
-      
-<div class="form-group">
-    <div class="input-wrapper">
-        <i class="bi bi-lock input-icon"></i>
-        <input type="password" class="form-control" id="passwordInput" placeholder="Create a password" required>
-        <i class="bi bi-eye-slash toggle-password" id="togglePassword" onclick="togglePasswordVisibility('passwordInput', 'togglePassword')"></i>
+    <div class="register-container">
+        <h1 class="register-title">Register</h1>
+
+        <form>
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <i class="bi bi-person input-icon"></i>
+                    <input type="text" class="form-control" placeholder="Enter your name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <i class="bi bi-envelope input-icon"></i>
+                    <input type="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <i class="bi bi-lock input-icon"></i>
+                    <input type="password" class="form-control" id="passwordInput" placeholder="Create a password"
+                        required>
+                    <i class="bi bi-eye-slash toggle-password" id="togglePassword"
+                        onclick="togglePasswordVisibility('passwordInput', 'togglePassword')"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-wrapper">
+                    <i class="bi bi-lock input-icon"></i>
+                    <input type="password" class="form-control" id="confirmPasswordInput"
+                        placeholder="Confirm a password" required>
+                    <i class="bi bi-eye-slash toggle-password" id="toggleConfirmPassword"
+                        onclick="togglePasswordVisibility('confirmPasswordInput', 'toggleConfirmPassword')"></i>
+                </div>
+            </div>
+
+            <div class="terms-check">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I accept all terms&Conditions</label>
+            </div>
+
+            <button type="submit" class="submit-btn">submit</button>
+
+            <div class="login-link">
+                Already have an account? <a href="login.html">Login</a>
+            </div>
+        </form>
     </div>
-</div>
 
-<div class="form-group">
-    <div class="input-wrapper">
-        <i class="bi bi-lock input-icon"></i>
-        <input type="password" class="form-control" id="confirmPasswordInput" placeholder="Confirm a password" required>
-        <i class="bi bi-eye-slash toggle-password" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPasswordInput', 'toggleConfirmPassword')"></i>
-    </div>
-</div>
-      
-      <div class="terms-check">
-        <input type="checkbox" id="terms" required>
-        <label for="terms">I accept all terms&Conditions</label>
-      </div>
-      
-      <button type="submit" class="submit-btn">submit</button>
-      
-      <div class="login-link">
-        Already have an account? <a href="login.html">Login</a>
-      </div>
-    </form>
-  </div>
-  
-<script>
-// ฟังก์ชันนี้ต้องรับพารามิเตอร์ 2 ตัว: ID ของช่องรหัสผ่าน และ ID ของไอคอนสลับ
-function togglePasswordVisibility(passwordId, toggleIconId) {
-    // 1. เข้าถึงช่องรหัสผ่าน โดยใช้ ID ที่ส่งมา (passwordId)
-    const passwordField = document.getElementById(passwordId);
-    // 2. เข้าถึงไอคอนปุ่มสลับ โดยใช้ ID ที่ส่งมา (toggleIconId)
-    const toggleIcon = document.getElementById(toggleIconId);
-
-    // ตรวจสอบประเภทปัจจุบันของช่อง input
-    if (passwordField.type === 'password') {
-        // ถ้าซ่อนอยู่ ให้เปลี่ยนเป็น 'text' (แสดง)
-        passwordField.type = 'text';
-        
-        // เปลี่ยนไอคอนจากตาปิด (eye-slash) เป็นตาเปิด (eye)
-        toggleIcon.classList.remove('bi-eye-slash');
-        toggleIcon.classList.add('bi-eye');
-    } else {
-        // ถ้าแสดงอยู่ ให้เปลี่ยนกลับเป็น 'password' (ซ่อน)
-        passwordField.type = 'password';
-        
-        // เปลี่ยนไอคอนจากตาเปิด (eye) กลับเป็นตาปิด (eye-slash)
-        toggleIcon.classList.remove('bi-eye');
-        toggleIcon.classList.add('bi-eye-slash');
-    }
-}
-</script>
-
+    <script>
+        function togglePasswordVisibility(passwordId, toggleIconId) {
+            const passwordField = document.getElementById(passwordId);
+            const toggleIcon = document.getElementById(toggleIconId);
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('bi-eye-slash');
+                toggleIcon.classList.add('bi-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('bi-eye');
+                toggleIcon.classList.add('bi-eye-slash');
+            }
+        }
+    </script>
 
 
 
 </body>
+
 </html>
