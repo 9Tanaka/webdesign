@@ -21,7 +21,7 @@ body{
     padding: 10px 20px;
     background-color: #FF8ECE; 
 }
-.header img {
+.header img,.footer img{
     border-radius: 10px;
 }
 .navbar-collapse {
@@ -39,16 +39,23 @@ body{
     color: #007bff; 
 }
 
+
+.nav-link a:hover {
+    color: #007bff; 
+}
+
+
 .hamburger {
     display: none;
+    cursor: pointer;
 }
 
 main {
     flex: 1; 
 }
 
-footer {
-    background-color: #333; 
+.footer {
+    background-color: #50B3FF; 
     padding: 20px;
 }
  
@@ -58,15 +65,46 @@ footer {
 }
 
 .bar{
-    width: 25px;
-    height: 3px;
+    width: 28px;
+    height: 4px;
     background-color: #fff;
-    margin: 4px 0;
+    margin: 5px 0;
     transition: 0.4s;
+    border-radius: 2px;
 }
+
+.navbar-collapse.active{
+    transform: translateY(0%) !important;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger.open .bar:nth-child(1){
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.hamburger.open .bar:nth-child(2){
+    opacity: 0;
+}
+.hamburger.open .bar:nth-child(3){
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
+.container {
+       width: 40%;
+       margin: 0 auto; 
+   }
+
+
+
+.footer .container {
+    width: 80%; 
+    margin: 0 auto;
+}
+
+
 @media screen and (max-width: 768px) {
     .header {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
     }
     .navbar-collapse {
@@ -78,12 +116,16 @@ footer {
         background-color: #FF8ECE;
         padding: 10px 0;
         text-align: center;
+        transform: translateY(-120%);
+        z-index: 10;
+        transition: transform 0.3s ease-in-out;
     }
     .nav-link {
         padding: 10px 0;
     }
     .hamburger {
         display: block;
+        margin-top: 4%;
     }
 }
 

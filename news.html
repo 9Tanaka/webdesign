@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/headerfooter.css">
+    <link rel="stylesheet" href="css/news.css">
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/hamburger.js" defer></script>
     <title>News|home</title>
 </head>
 
 <body>
+    <!-- header -->
     <div class="header">
         <a href="index.html">
             <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
@@ -29,20 +31,46 @@
                 <div class="bar"></div>
             </div>
     </div>
-    <nav aria-label="breadcrumb">
+    <!-- End header -->
+
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">News</li>
         </ol>
-    </nav>
     <div class="section">
         <h1>News</h1>
-        <div class="container">
+        <div class="box">
+            <hr>
+            <div class="newsbox">
+                <img src="" alt="" width="300" height="200">
+                <div class="textbox">
+                    <h2>VTuber Cosplay Gathering at Anime Expo 2025</h2>
+                    <p>VTubers, Flags, Happi Coats and Plushies!</p>
+                    <p class="date">Jul 19, 2025</p>
+                </div>
+            </div>
+            <hr>
         </div>
     </div>
 
     <div class="footer">
+        <div class="container">
         <a href="index.html"><img src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+        <p>Contact Us</p>
+        <div class="d-flex">
+            <div class="first">
+                <a href="">Home</a>
+                <a href="">News</a>
+                <a href="">About us</a>
+                <a href="">What is vtuber?</a>
+            </div>
+            <div class="second">
+                <a href="">Community</a>
+                <a href="">FAQ</a>
+                <a href="">Top Vtuber</a>
+            </div>
+        </div>
+        </div>
     </div>
 </body>
 
