@@ -1,4 +1,4 @@
-const navElement = document.querySelector(".navbar-collapse");
+const navElement = document.querySelector(".navbar");
 const hamburger = document.querySelector(".hamburger");
 
 hamburger.addEventListener("click", () => {

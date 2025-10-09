@@ -60,7 +60,7 @@ main {
 }
  
 
-.navbar-collapse a img{
+.navbar a img{
     vertical-align: baseline;
 }
 
@@ -73,7 +73,7 @@ main {
     border-radius: 2px;
 }
 
-.navbar-collapse.active{
+.navbar.active{
     transform: translateY(0%) !important;
     transition: transform 0.3s ease-in-out;
 }
@@ -89,7 +89,7 @@ main {
     transform: rotate(45deg) translate(-6px, -6px);
 }
 
-.container {
+.containert {
        width: 40%;
        margin: 0 auto; 
    }
@@ -101,17 +101,24 @@ main {
     margin: 0 auto;
 }
 
+.first a, .second a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 1em;
+}
+
 
 @media screen and (max-width: 768px) {
     .header {
         flex-direction: row;
         align-items: flex-start;
     }
-    .navbar-collapse {
+    .navbar {
         flex-direction: column;
         width: 100%;
         position: fixed;
-        top: 10%;
+        top: 8%;
         left: 0;
         background-color: #FF8ECE;
         padding: 10px 0;
@@ -127,5 +134,9 @@ main {
         display: block;
         margin-top: 4%;
     }
+
+    .containert {
+        width: 70%;
+   }
 }
 
