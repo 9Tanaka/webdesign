@@ -1,6 +1,6 @@
     *{
-        margin: 0;
-        padding: 0;
+        margin: 0px;
+        padding: 0px;
     }
     body {
       min-height: 100vh;
@@ -9,6 +9,7 @@
       align-items: center;
       font-family: Arial, sans-serif;
       padding: 20px;
+      background-image: url(../../img/background.jpg);
     }
     
     .login-container {
@@ -143,6 +144,8 @@
       font-size: 16px;
     }
     
+    
+
     .remember-check {
       display: flex;
       align-items: center;
@@ -151,6 +154,8 @@
     
     .remember-check input[type="checkbox"] {
       margin-right: 8px;
+      accent-color: #2196F3;
+      ;
     }
     
     .remember-check label {
