@@ -43,7 +43,8 @@ h2{
 
 .textbox {
         margin: 0;
-        padding: 2% 0;
+        width: 90%;
+        padding: 0;
     }
 
     
@@ -60,4 +61,20 @@ h2{
   .textbox p{
         display: none;
     }
+}
+
+@media screen and (max-width: 574px) {
+    .d-flex img{
+        width: 80%;
+        height: 110px;
+        margin: 0.2em;
+       
+    }
+    .textbox {
+        width: 90%;
+        padding: 2% 0;
+        font-size: 0.8em;
+    }
+    
+
 }

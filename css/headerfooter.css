@@ -124,6 +124,7 @@ main {
 
         .dropdown-submenu:hover > .dropdown-menu {
             display: block;
+
         }
 
         .dropdown-menu {
@@ -163,7 +164,7 @@ main {
         }
 
         .navbar .dropdown-item:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(161, 125, 125, 0.2);
             color: #007bff;
         }
 
@@ -184,6 +185,12 @@ main {
         position: relative;
     }
     
+
+    .footer .textbox2 img{
+        width:91%;
+        height: 100px;
+     
+    }
     .hamburger {
         display: block;
         position: absolute;
