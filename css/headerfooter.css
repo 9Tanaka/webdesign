@@ -109,6 +109,68 @@ main {
 }
 
 
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-top: 0;
+            margin-left: 0;
+            display: none;
+        }
+
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+        }
+
+        .dropdown-item {
+            position: relative;
+            padding-right: 2rem;
+        }
+
+        .dropdown-submenu > .dropdown-item::after {
+            content: "▶";
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.7em;
+        }
+
+        
+        .navbar .dropdown-menu {
+            z-index: 1000;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            z-index: 1001;
+        }
+
+        .navbar .dropdown-menu {
+            background-color: #FF8ECE;
+            border: none;
+        }
+
+        .navbar .dropdown-item {
+            color: #ffffff;
+        }
+
+        .navbar .dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #007bff;
+        }
+
+        .navbar .dropdown-submenu .dropdown-menu {
+            background-color: #FF8ECE;
+        }
+
 @media screen and (max-width: 768px) {
     .header {
         flex-direction: row;
@@ -138,5 +200,28 @@ main {
     .containert {
         width: 70%;
    }
+
+
+    .dropdown-submenu .dropdown-menu {
+                position: static;
+                left: 0;
+                margin-left: 1rem;
+                box-shadow: none;
+                border-left: 2px solid #dee2e6;
+    }
+
+     .dropdown-submenu:hover > .dropdown-menu {
+                display: none;
+    }
+
+    .dropdown-submenu.show > .dropdown-menu {
+                display: block;
+    }
+
+    .dropdown-submenu > .dropdown-item::after {
+                content: "▼";
+    }
+    
+
 }
 
