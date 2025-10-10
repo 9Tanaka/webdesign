@@ -3,6 +3,7 @@
 .section *{
     width: 50%;
     margin: 1% auto;
+    
 }
 .nav ul li a:hover{
     color: white;
@@ -29,3 +30,4 @@ video {
 .section span.firstword{
     font-weight: bold;
 }
+
