@@ -185,11 +185,14 @@ main {
         position: relative;
     }
     
-
-    .footer .textbox2 img{
-        width:91%;
+    .con{
+        width: 3%;
+        height: auto;
+    }
+    .footer .textbox2 a img{
+        width:80%;
         height: 100px;
-     
+        justify-content: center;
     }
     .hamburger {
         display: block;
