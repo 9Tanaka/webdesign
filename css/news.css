@@ -63,7 +63,7 @@ h2{
         font-size: 1em;
         text-overflow: ellipsis;
         overflow: hidden;
-        -webkit-line-clamp: 5;
+        -webkit-line-clamp: 4;
     }
 
   .textbox1 p{
@@ -74,14 +74,14 @@ h2{
 
 @media screen and (max-width: 574px) {
     .d-flex .newimg{
-        width: 50%;
-        height: 110px;
+        max-width: 45%;
+        max-height: 5em;
         margin: 0.2em;
        
     }
     .textbox1 {
         width: 90%;
-        padding: 2% 0;
+        padding: 0;
         font-size: 0.8em;
     }
     
