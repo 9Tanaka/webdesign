@@ -1,11 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    
+    <div class="home-container">
+        <div class="home-title">
+            <svg viewBox="0 0 600 200">
+                <defs>
+                    <path id="curve1" d="M 50,90 Q 300,-20 550,90"/>
+                    <path id="curve2" d="M 50,150 Q 300,40 550,150"/>
+                </defs>
+                <!-- Line 1: Found Your -->
+                <text class="line1">
+                    <textPath href="#curve1" startOffset="50%" text-anchor="middle">
+                        Found Your
+                    </textPath>
+                </text>
+                <!-- Line 2: Favorite Vtuber -->
+                <text class="line2">
+                    <textPath href="#curve2" startOffset="50%" text-anchor="middle">
+                        Favorite Vtuber
+                    </textPath>
+                </text>
+            </svg>
+        </div>
+        
+        <div class="search-wrapper">
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search...">
+            </div>
+        </div>
+    </div>
 </body>
 </html>
