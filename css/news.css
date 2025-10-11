@@ -40,6 +40,7 @@ h2{
 }
 .d-flex .newimg{
       border-radius: 10px;
+    
     }
 
 .newsec {
@@ -47,12 +48,12 @@ h2{
     display: block;
     padding: 10px;
     transition: background-color 0.3s ease;
-    border-bottom: 2px solid rgb(143, 143, 143);
+    border-bottom: 2px solid rgb(87, 87, 87);
     color: black;
 }
 
 .newsec:hover {
-    background-color: rgba(255, 170, 237, 0.2);
+    background-color: rgba(184, 184, 184, 0.2);
 }
 @media screen and (max-width: 768px) {
    
