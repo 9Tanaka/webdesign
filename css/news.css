@@ -41,7 +41,13 @@ h2{
       border-radius: 10px;
     }
 
+.newsec {
+    text-decoration: none;
+}
 
+.newsec:hover {
+    background-color: rgb(251, 138, 255,0.3);
+}
 @media screen and (max-width: 768px) {
    
 .d-flex .newimg{

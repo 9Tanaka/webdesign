@@ -32,9 +32,19 @@ video {
 }
 
 .banner {
-    background: linear-gradient(to top, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    url("../img/suibg.jpg") no-repeat;
-    background-position: 0% 20%; 
+    background:url("../img/kizuna.jpg") no-repeat;
+    background-position: 0% 40%; 
     background-size: cover;
-    height: 15em;
+    height: 10em;
+}
+
+@media screen and (max-width: 768px) {
+    .section *{
+    width: 80%;
+    margin: 1% auto;
+    overflow-wrap: break-word;
+}
+
+
+
 }
