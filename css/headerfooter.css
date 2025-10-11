@@ -1,3 +1,5 @@
+
+
 body{
     margin: 0;
     padding: 0;
@@ -60,14 +62,11 @@ main {
 }
  
 
-.navbar a img{
-    vertical-align: baseline;
-}
 
 .bar{
     width: 28px;
     height: 4px;
-    background-color: #fff;
+    background-color: #ffffff;
     margin: 5px 0;
     transition: 0.4s;
     border-radius: 2px;
@@ -185,6 +184,15 @@ main {
         position: relative;
     }
     
+    .profile{
+        display: block;
+        position: absolute;
+        right: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        
+    }
+
     .con{
         width: 3%;
         height: auto;
@@ -192,8 +200,9 @@ main {
     .footer .textbox2 a img{
         width:80%;
         height: 100px;
-        justify-content: center;
+        margin-bottom: 0.7em;
     }
+
     .hamburger {
         display: block;
         position: absolute;
@@ -228,7 +237,7 @@ main {
         width: 70%;
     }
 
-    /* Mobile Dropdown Styles */
+   
     .navbar .dropdown {
         width: 100%;
     }
@@ -252,7 +261,7 @@ main {
         padding: 10px 20px;
     }
 
-    /* Submenu Styles for Mobile */
+    
     .dropdown-submenu .dropdown-menu {
         position: static !important;
         left: 0;

@@ -3,38 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Vfan</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/news.css">
-    <title>News|home</title>
-
+    <link rel="stylesheet" href="css/quiz.css">
 </head>
 <body>
-    <!-- header -->
+    <!-- Header -->
     <div class="header">
         <a href="index.html">
             <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
         </a>
         <nav class="navbar">
             <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
-    
+            
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Vtuber
                 </a>
                 <ul class="dropdown-menu">
-                    
                     <li class="dropdown-submenu">
                         <a class="dropdown-item" href="#">Introduction</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Culture</a></li>
                         </ul>
                     </li>
-                    
-                 
                     <li class="dropdown-submenu">
                         <a class="dropdown-item" href="#">Agency</a>
                         <ul class="dropdown-menu">
-                         
                             <li class="dropdown-submenu">
                                 <a class="dropdown-item" href="#">Talent</a>
                                 <ul class="dropdown-menu">
@@ -43,27 +38,24 @@
                             </li>
                         </ul>
                     </li>
-                    
                     <li><a class="dropdown-item" href="#">Independent</a></li>
                     <li><a class="dropdown-item" href="#">Event Calendar</a></li>
                     <li><a class="dropdown-item" href="#">Stats</a></li>
                 </ul>
             </div>
 
-        
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Community
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Discuss</a></li>
-                    <li><a class="dropdown-item" href="#">Gallery</a></li>
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
+                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
                 </ul>
             </div>
 
             <a class="nav-link" aria-label="go to news page" href="contact.html">News</a>
             
-           
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     About us
@@ -75,89 +67,67 @@
 
             <a class="nav-link" href="search.html"><img src="img/icon/search.png" alt="search" width="30" height="30"></a>
         </nav>
-        <a href=""><img class= "profile" src="img/avatar.png" alt="profile" width="30" height="30"></a>
         <div class="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
     </div>
+    <!-- End Header -->
 
-    <!-- End header -->
+    <!-- Quiz Container -->
+    <div class="quiz-container">
+        <form class="quiz-form" action="quiz-result.html" method="GET">
+            <!-- Quiz Question -->
+            <div class="quiz-question">
+                <h2 class="question-title">1. What's your personality like?</h2>
+                <div class="quiz-options">
+                    <label class="radio-option-quiz">
+                        <input type="radio" name="personality" value="cheerful" required>
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">Cheerful and outgoing</span>
+                    </label>
+                    
+                    <label class="radio-option-quiz">
+                        <input type="radio" name="personality" value="calm">
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">Calm and mysterious</span>
+                    </label>
+                    
+                    <label class="radio-option-quiz">
+                        <input type="radio" name="personality" value="playful">
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">Playful and silly</span>
+                    </label>
+                    
+                    <label class="radio-option-quiz">
+                        <input type="radio" name="personality" value="serious">
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">Serious and goal-oriented</span>
+                    </label>
+                    
+                    <label class="radio-option-quiz">
+                        <input type="radio" name="personality" value="quiet">
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">Quiet and introspective</span>
+                    </label>
+                </div>
+            </div>
 
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">News</li>
-    </ol>
-
-    <div class="section">
-        <div class="text-center">
-            <h1>News</h1>
-        </div>
-        <div class="box">
-            <hr>
-            <div class="d-flex">
-                <img class="newimg" src="img/News/new2.jpg" alt="VTuber Cosplay Gathering at Anime Expo 2025" width="300" height="200">
-                <div class="textbox1">
-                    <h2>VTuber Cosplay Gathering at Anime Expo 2025</h2>
-                    <p>VTubers, Flags, Happi Coats and Plushies!</p>
-                    <p class="date">Jul 19, 2025</p>
-                </div>
+            <!-- Navigation -->
+            <div class="quiz-navigation">
+                <button type="submit" class="quiz-btn primary">next</button>
             </div>
-            <hr>
-            <div class="d-flex">
-                <img class="newimg" src="img/News/new1.jpg" alt="Wei Chuan Dragons × hololive night Brings Record-Breaking Crowds to Taipei Dome" width="300" height="200">
-                <div class="textbox1">
-                    <h2>Wei Chuan Dragons × hololive night Brings Record-Breaking Crowds to Taipei Dome</h2>
-                    <p>VTubers, Flags, Happi Coats and Plushies!</p>
-                    <p class="date">Jul 19, 2025</p>
-                </div>
-            </div>
-            <hr>
-            <div class="d-flex">
-                <img class="newimg" src="img/News/nippon.jpg" alt="ClaN Entertainment Expands to International Market with C+ Global, Izigenia" width="300" height="200">
-                <div class="textbox1">
-                    <h2>ClaN Entertainment Expands to International Market with C+ Global, Izigenia</h2>
-                    <p>Nippon TV group company to carry C+ program outside Japan, open auditions for new Izigenia VTuber project</p>
-                    <p class="date">July 11, 2025</p>
-                </div>
-            </div>
-            <hr>
-            <div class="d-flex">
-                <img class="newimg" src="" alt="" width="300" height="200">
-                <div class="textbox1">
-                    <h2>Anime Expo 2025 Updates — Day 3</h2>
-                    <p>Major events for VTuber fans are happening around AX!: hololive Night at the Dodgers Stadium and oshiSPARK's Virtual Vacation concert.</p>
-                    <p class="date">July 05, 2025</p>
-                </div>
-            </div>
-            <hr>
-            <div class="d-flex">
-                <img class="newimg"  src="" alt="" width="300" height="200">
-                <div class="textbox1">
-                    <h2>Anime Expo 2025 Updates — Day 2</h2>
-                    <p>Updates on VShojo NOVA and Ironmouse, plus VTubers touring the Expo!</p>
-                    <p class="date">July 04, 2025</p>
-                </div>
-            </div>
-            <hr>
-            <div class="page">
-                <a href="#">&laquo;</a>
-                <a href="#">1</a>
-                <a href="#">2</a>
-                ...
-                <a href="#">4</a>
-                <a href="#">&raquo;</a>
-            </div>
-        </div>
+        </form>
     </div>
 
+    <!-- Footer -->
     <div class="footer">
         <div class="containert">
             <div class="d-flex flex-wrap">
                 <div class="textbox2">
                     <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
-                    <p>Contact Us</p>
+                    <p>Contact us</p>
                     <img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30">
                     <img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30">
                     <img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30">

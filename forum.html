@@ -83,7 +83,97 @@
     </div>
     <!-- End header -->
 
+<!-- Forum Container -->
+    <div class="forum-container">
+        <!-- Sidebar -->
+        <aside class="forum-sidebar">
+            <div class="category-widget">
+                <h2 class="widget-title">Category Activity</h2>
+                <ul class="category-list">
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <div class="category-name">
+                                <span class="category-indicator"></span>
+                                General
+                            </div>
+                            <span class="category-count">1008 posts</span>
+                        </a>
+                        <div class="category-meta">New post 2d ago</div>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <div class="category-name">
+                                <span class="category-indicator"></span>
+                                Requests/Suggestions
+                            </div>
+                            <span class="category-count">367 posts</span>
+                        </a>
+                        <div class="category-meta">New post 2d ago</div>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <div class="category-name">
+                                <span class="category-indicator"></span>
+                                Moderation
+                            </div>
+                            <span class="category-count">8 posts</span>
+                        </a>
+                        <div class="category-meta">New post 2d ago</div>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <div class="category-name">
+                                <span class="category-indicator"></span>
+                                Management
+                            </div>
+                            <span class="category-count">35 posts</span>
+                        </a>
+                        <div class="category-meta">New post 2d ago</div>
+                    </li>
+                    <li class="category-item">
+                        <a href="#" class="category-link">
+                            <div class="category-name">
+                                <span class="category-indicator"></span>
+                                Staff board
+                            </div>
+                            <span class="category-count">4 posts</span>
+                        </a>
+                        <div class="category-meta">New today on 23/3/2024</div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
 
+        <!-- Main Content -->
+        <main class="forum-main">
+            <!-- Create Post Box -->
+            <div class="create-post">
+                <div class="create-post-header">
+                    <img src="img/default-avatar.jpg" alt="User Avatar" class="user-avatar">
+                    <input type="text" class="create-post-input" placeholder="What is on your mind?">
+                </div>
+                <div class="post-options">
+                    <button class="option-btn">
+                        <img src="img/icon/text.png" alt="text"> text
+                    </button>
+                    <button class="option-btn">
+                        <img src="img/icon/poll.png" alt="poll"> poll
+                    </button>
+                </div>
+            </div>
+
+            <!-- Forum Posts Container -->
+            <div class="forum-posts" id="forumPosts">
+                <!-- Posts will be dynamically loaded here -->
+            </div>
+
+            <!-- Loading Indicator -->
+            <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>Loading more posts...</p>
+            </div>
+        </main>
+    </div>
 
 
 

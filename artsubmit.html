@@ -3,38 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Gallery - Vfan</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/news.css">
-    <title>News|home</title>
-
+    <link rel="stylesheet" href="css/artsubmit.css">
 </head>
 <body>
-    <!-- header -->
+    <!-- Header -->
     <div class="header">
         <a href="index.html">
             <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
         </a>
         <nav class="navbar">
             <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
-    
+            
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Vtuber
                 </a>
                 <ul class="dropdown-menu">
-                    
                     <li class="dropdown-submenu">
                         <a class="dropdown-item" href="#">Introduction</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Culture</a></li>
                         </ul>
                     </li>
-                    
-                 
                     <li class="dropdown-submenu">
                         <a class="dropdown-item" href="#">Agency</a>
                         <ul class="dropdown-menu">
-                         
                             <li class="dropdown-submenu">
                                 <a class="dropdown-item" href="#">Talent</a>
                                 <ul class="dropdown-menu">
@@ -43,27 +38,24 @@
                             </li>
                         </ul>
                     </li>
-                    
                     <li><a class="dropdown-item" href="#">Independent</a></li>
                     <li><a class="dropdown-item" href="#">Event Calendar</a></li>
                     <li><a class="dropdown-item" href="#">Stats</a></li>
                 </ul>
             </div>
 
-        
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Community
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Discuss</a></li>
-                    <li><a class="dropdown-item" href="#">Gallery</a></li>
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
+                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
                 </ul>
             </div>
 
             <a class="nav-link" aria-label="go to news page" href="contact.html">News</a>
             
-           
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     About us
@@ -75,89 +67,92 @@
 
             <a class="nav-link" href="search.html"><img src="img/icon/search.png" alt="search" width="30" height="30"></a>
         </nav>
-        <a href=""><img class= "profile" src="img/avatar.png" alt="profile" width="30" height="30"></a>
         <div class="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
     </div>
+    <!-- End Header -->
 
-    <!-- End header -->
+    <!-- Gallery Upload Container -->
+    <div class="gallery-container">
+        <form class="upload-form" id="galleryUploadForm">
+            <!-- Image Upload Section -->
+            <div class="image-upload-section">
+                <label for="imageUpload" class="upload-button">add image</label>
+                <input type="file" id="imageUpload" class="file-input" accept="image/jpeg,image/gif,image/png" multiple>
+                <div class="upload-info">
+                    JPEG / GIF / PNG<br>
+                    You can upload up to 32 MB per file and a maximum of 200 files<br>
+                    (the total file size must be less than 200 MB)
+                </div>
+                <div class="image-preview" id="imagePreview"></div>
+            </div>
 
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">News</li>
-    </ol>
+            <!-- Title Field -->
+            <div class="form-group">
+                <label for="title" class="form-label">title</label>
+                <input type="text" id="title" class="form-input" placeholder="Enter title">
+            </div>
 
-    <div class="section">
-        <div class="text-center">
-            <h1>News</h1>
-        </div>
-        <div class="box">
-            <hr>
-            <div class="d-flex">
-                <img class="newimg" src="img/News/new2.jpg" alt="VTuber Cosplay Gathering at Anime Expo 2025" width="300" height="200">
-                <div class="textbox1">
-                    <h2>VTuber Cosplay Gathering at Anime Expo 2025</h2>
-                    <p>VTubers, Flags, Happi Coats and Plushies!</p>
-                    <p class="date">Jul 19, 2025</p>
+            <!-- Caption Field -->
+            <div class="form-group">
+                <label for="caption" class="form-label">caption</label>
+                <textarea id="caption" class="form-input form-textarea" placeholder="Enter caption"></textarea>
+            </div>
+
+            <!-- Tags Field -->
+            <div class="form-group">
+                <label for="tags" class="form-label">tags</label>
+                <input type="text" id="tags" class="form-input" placeholder="Enter tags (separated by commas)">
+            </div>
+
+            <!-- AI-Generated Work Section -->
+            <div class="ai-work-section">
+                <div class="form-label">AI-generated work</div>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="aiYes" name="aiGenerated" value="yes">
+                        <label for="aiYes">Yes</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="aiNo" name="aiGenerated" value="no" checked>
+                        <label for="aiNo">No</label>
+                    </div>
                 </div>
             </div>
-            <hr>
-            <div class="d-flex">
-                <img class="newimg" src="img/News/new1.jpg" alt="Wei Chuan Dragons × hololive night Brings Record-Breaking Crowds to Taipei Dome" width="300" height="200">
-                <div class="textbox1">
-                    <h2>Wei Chuan Dragons × hololive night Brings Record-Breaking Crowds to Taipei Dome</h2>
-                    <p>VTubers, Flags, Happi Coats and Plushies!</p>
-                    <p class="date">Jul 19, 2025</p>
+
+            <!-- Toggle Switches Section -->
+            <div class="toggle-section">
+                <div class="toggle-item">
+                    <span class="toggle-label">Original work</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="originalWork" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="toggle-item">
+                    <span class="toggle-label">allow other user to edit tags</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="allowEditTags">
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
-            <hr>
-            <div class="d-flex">
-                <img class="newimg" src="img/News/nippon.jpg" alt="ClaN Entertainment Expands to International Market with C+ Global, Izigenia" width="300" height="200">
-                <div class="textbox1">
-                    <h2>ClaN Entertainment Expands to International Market with C+ Global, Izigenia</h2>
-                    <p>Nippon TV group company to carry C+ program outside Japan, open auditions for new Izigenia VTuber project</p>
-                    <p class="date">July 11, 2025</p>
-                </div>
-            </div>
-            <hr>
-            <div class="d-flex">
-                <img class="newimg" src="" alt="" width="300" height="200">
-                <div class="textbox1">
-                    <h2>Anime Expo 2025 Updates — Day 3</h2>
-                    <p>Major events for VTuber fans are happening around AX!: hololive Night at the Dodgers Stadium and oshiSPARK's Virtual Vacation concert.</p>
-                    <p class="date">July 05, 2025</p>
-                </div>
-            </div>
-            <hr>
-            <div class="d-flex">
-                <img class="newimg"  src="" alt="" width="300" height="200">
-                <div class="textbox1">
-                    <h2>Anime Expo 2025 Updates — Day 2</h2>
-                    <p>Updates on VShojo NOVA and Ironmouse, plus VTubers touring the Expo!</p>
-                    <p class="date">July 04, 2025</p>
-                </div>
-            </div>
-            <hr>
-            <div class="page">
-                <a href="#">&laquo;</a>
-                <a href="#">1</a>
-                <a href="#">2</a>
-                ...
-                <a href="#">4</a>
-                <a href="#">&raquo;</a>
-            </div>
-        </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button">Post</button>
+        </form>
     </div>
 
+    <!-- Footer -->
     <div class="footer">
         <div class="containert">
             <div class="d-flex flex-wrap">
                 <div class="textbox2">
                     <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
-                    <p>Contact Us</p>
+                    <p>Contact us</p>
                     <img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30">
                     <img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30">
                     <img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30">
@@ -182,5 +177,6 @@
 
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/hamburger.js"></script>
+
 </body>
 </html>

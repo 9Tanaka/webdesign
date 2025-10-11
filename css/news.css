@@ -8,7 +8,7 @@
     background-attachment: fixed;
     background-size: cover;
  }
-.textbox {
+.textbox1 {
     padding: 10px 20px; 
 }
 
@@ -33,23 +33,31 @@ h2{
     text-align: center;
     margin: 3em 0;
 }
-@media screen and (max-width: 768px) {
-   
-.d-flex img{
-        width: 80%;
-        height: 140px;
-       
+
+.page a {
+    text-decoration: none;
+}
+.d-flex .newimg{
+      border-radius: 10px;
     }
 
-.textbox {
-        margin: 0;
+
+@media screen and (max-width: 768px) {
+   
+.d-flex .newimg{
+        max-height: 6.5em;
+        max-width: 33%;
+    }
+
+.textbox1 {
+        margin: 1em;
         width: 90%;
         padding: 0;
     }
 
     
 
-    .textbox h2 {
+    .textbox1 h2 {
         display: -webkit-box;
         -webkit-box-orient: vertical;
         font-size: 1em;
@@ -58,19 +66,20 @@ h2{
         -webkit-line-clamp: 5;
     }
 
-  .textbox p{
+  .textbox1 p{
         display: none;
     }
 }
 
+
 @media screen and (max-width: 574px) {
-    .d-flex img{
-        width: 80%;
+    .d-flex .newimg{
+        width: 50%;
         height: 110px;
         margin: 0.2em;
        
     }
-    .textbox {
+    .textbox1 {
         width: 90%;
         padding: 2% 0;
         font-size: 0.8em;

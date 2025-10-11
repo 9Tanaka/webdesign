@@ -31,3 +31,10 @@ video {
     font-weight: bold;
 }
 
+.banner {
+    background: linear-gradient(to top, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    url("../img/suibg.jpg") no-repeat;
+    background-position: 0% 20%; 
+    background-size: cover;
+    height: 15em;
+}
