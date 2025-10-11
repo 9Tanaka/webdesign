@@ -19,6 +19,7 @@
 
 h2{
     color: #FFB554;
+    font-size: 1.4em;
 }
 
 .box {
@@ -43,10 +44,15 @@ h2{
 
 .newsec {
     text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    border-bottom: 2px solid rgb(143, 143, 143);
+    color: black;
 }
 
 .newsec:hover {
-    background-color: rgb(251, 138, 255,0.3);
+    background-color: rgba(255, 170, 237, 0.2);
 }
 @media screen and (max-width: 768px) {
    
