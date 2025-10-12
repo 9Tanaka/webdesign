@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         submenuItems.forEach(item => {
             const clickHandler = function(e) {
-                // Don't prevent default if this is a real link
+           
                 if (this.href && this.href !== '#') {
                     return;
                 }
