@@ -5,36 +5,561 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VTuber Ranking - Vfan</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/ranking.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 1.3em;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'mitr', sans-serif;
+            background-image: url(img/background.jpg);
+            overflow-x: hidden;
+        }
+
+        @font-face {
+            font-family: 'mitr';
+            src: url(font/Mitr-Light.ttf);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #FF8ECE;
+        }
+
+        .header img, .footer img {
+            border-radius: 10px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 5px 10px;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .profile-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #50B3FF;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bar {
+            width: 28px;
+            height: 4px;
+            background-color: #ffffff;
+            margin: 5px 0;
+            transition: 0.4s;
+            border-radius: 2px;
+        }
+
+        .navbar.active {
+            transform: translateY(0%) !important;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hamburger.open .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+
+        .hamburger.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        .first a, .second a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            margin: 5px 1em;
+        }
+
+        /* Dropdown Styles */
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-top: 0;
+            display: none;
+        }
+
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+        }
+
+        .navbar .dropdown-menu {
+            z-index: 1000;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            z-index: 1001;
+        }
+
+        .navbar .dropdown-menu {
+            background-color: #FF8ECE;
+            border: none;
+        }
+
+        .navbar .dropdown-item {
+            color: #ffffff;
+            position: relative;
+            padding-right: 2rem;
+        }
+
+        .navbar .dropdown-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #007bff;
+        }
+
+        .dropdown-submenu > .dropdown-item::after {
+            content: "▶";
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.7em;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 0.4em;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-container {
+            padding: 15px 20px;
+            background: white;
+            font-size: 0.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .breadcrumb-container a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .breadcrumb-container a:hover {
+            color: #FF8ECE;
+        }
+
+        .date-download {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .download-btn {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .download-btn:hover {
+            background: #e0e0e0;
+        }
+
+        /* Ranking Table */
+        .ranking-container {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .ranking-table {
+            width: 100%;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 80px 1fr 200px;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            font-weight: 600;
+            font-size: 0.75em;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .table-header > div:last-child {
+            text-align: right;
+            padding-right: 60px;
+        }
+
+        .ranking-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 200px;
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .ranking-row:hover {
+            background: #f8f9fa;
+        }
+
+        .rank-number {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+        }
+
+        .channel-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .channel-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .channel-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .channel-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .channel-name {
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .channel-tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.6em;
+            color: #666;
+        }
+
+        .subscribers {
+            font-size: 0.8em;
+            color: #333;
+            text-align: right;
+            padding-right: 60px;
+        }
+
+        .new-subscribers {
+            display: none;
+        }
+
+        .video-thumbnails {
+            display: none;
+        }
+
+        .video-thumb {
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #50B3FF;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-logo-section img {
+            border-radius: 10px;
+        }
+
+        .footer-logo-section p {
+            color: white;
+            margin: 10px 0 5px 0;
+            font-size: 0.9em;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons svg {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .social-icons svg:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 8px 0;
+            font-size: 0.85em;
+        }
+
+        .footer-column a:hover {
+            color: #FF8ECE;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 1em;
+            }
+
+            .header {
+                flex-direction: row;
+                align-items: center;
+                position: relative;
+            }
+
+            .profile {
+                display: block;
+                position: absolute;
+                right: 60px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 11;
+                margin-top: 0;
+            }
+
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                position: fixed;
+                top: 8%;
+                left: 0;
+                background-color: #FF8ECE;
+                padding: 10px 0;
+                text-align: center;
+                transform: translateY(-120%);
+                z-index: 10;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .nav-link {
+                padding: 10px 0;
+                width: 100%;
+            }
+
+            .navbar .dropdown {
+                width: 100%;
+            }
+
+            .navbar .dropdown-menu {
+                position: static !important;
+                transform: none !important;
+                width: 100%;
+                border: none;
+                box-shadow: none;
+                display: none;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .navbar .dropdown-menu.show {
+                display: block;
+            }
+
+            .navbar .dropdown-item {
+                text-align: center;
+                padding: 10px 20px;
+            }
+
+            .dropdown-submenu .dropdown-menu {
+                position: static !important;
+                left: 0;
+                margin-left: 0;
+                box-shadow: none;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.15);
+                padding-left: 20px;
+            }
+
+            .dropdown-submenu.show > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu > .dropdown-item::after {
+                content: "▼";
+            }
+
+            .dropdown-toggle::after {
+                display: inline-block;
+                margin-left: 0.3em;
+            }
+
+            .date-download {
+                display: none;
+            }
+
+            .table-header {
+                display: none;
+            }
+
+            .ranking-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .rank-number {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                font-size: 0.9em;
+            }
+
+            .channel-info {
+                margin-top: 30px;
+            }
+
+            .channel-avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            .subscribers {
+                text-align: left;
+                padding-right: 0;
+                margin-top: 10px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- header -->
+    <!-- Header -->
     <div class="header">
         <a href="index.html">
             <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
         </a>
         <nav class="navbar">
-            <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
-    
+            <a class="nav-link" href="index.html">Home</a>
+
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Vtuber
                 </a>
                 <ul class="dropdown-menu">
-                    
                     <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="introduction.html">Introduction</a>
+                        <a class="dropdown-item" href="#">Introduction</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
+                            <li><a class="dropdown-item" href="#">Culture</a></li>
                         </ul>
                     </li>
-                    
-                 
                     <li class="dropdown-submenu">
                         <a class="dropdown-item" href="#">Agency</a>
                         <ul class="dropdown-menu">
-                         
                             <li class="dropdown-submenu">
                                 <a class="dropdown-item" href="#">Talent</a>
                                 <ul class="dropdown-menu">
@@ -43,27 +568,24 @@
                             </li>
                         </ul>
                     </li>
-                    
                     <li><a class="dropdown-item" href="#">Independent</a></li>
                     <li><a class="dropdown-item" href="#">Event Calendar</a></li>
-                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
+                    <li><a class="dropdown-item" href="#">Stats</a></li>
                 </ul>
             </div>
 
-        
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Community
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
+                    <li><a class="dropdown-item" href="#">Discuss</a></li>
                     <li><a class="dropdown-item" href="#">Gallery</a></li>
                 </ul>
             </div>
 
-            <a class="nav-link" aria-label="go to news page" href="contact.html">News</a>
-            
-           
+            <a class="nav-link" href="contact.html">News</a>
+
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     About us
@@ -72,16 +594,19 @@
                     <li><a class="dropdown-item" href="#">Rules</a></li>
                 </ul>
             </div>
+
+            <a class="nav-link" href="search.html">
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
+                    <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
+                    <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
         </nav>
-   
-         <div class="icon-container">
-        <a class="nav-link" href="search.html">
-            <img src="img/icon/search.png" alt="search" width="30" height="30">
+        <a href="#" class="profile">
+            <div class="profile-image">
+                <img src="img/profile.jpg" alt="Profile">
+            </div>
         </a>
-        <a href="">
-            <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
-        </a>
-    </div>
         <div class="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -89,17 +614,17 @@
         </div>
     </div>
 
-    <!-- End header -->
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">agency</a></li>
-        <li class="breadcrumb-item"><a href="#">Talent</a></li>
-        <li class="breadcrumb-item active" aria-current="#">Ranking</li>
-    </ol>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <a href="#">agency</a> > <span>Talent</span> > <span>Ranking</span>
+        <div class="date-download">
+            <button class="download-btn">⬇</button>
+        </div>
+    </div>
 
     <!-- Main Content -->
-<main>
-    <div class="ranking-container">
-        <div class="table-wrapper">
+    <main>
+        <div class="ranking-container">
             <div class="ranking-table">
                 <!-- Table Header -->
                 <div class="table-header">
@@ -113,7 +638,7 @@
                     <div class="rank-number">1</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/Gura.png" alt="Gawr Gura">
+                            <img src="https://via.placeholder.com/60" alt="Gawr Gura">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Gawr Gura Ch. hololive-EN</div>
@@ -131,7 +656,7 @@
                     <div class="rank-number">2</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/Marine.png" alt="Marine">
+                            <img src="https://via.placeholder.com/60" alt="Marine">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Marine Ch. 宝鐘マリン</div>
@@ -149,7 +674,7 @@
                     <div class="rank-number">3</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/holo_profile.png" alt="hololive">
+                            <img src="https://via.placeholder.com/60" alt="hololive">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">hololive ホロライブ - VTuber Group</div>
@@ -167,7 +692,7 @@
                     <div class="rank-number">4</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/suisei_ranking.png" alt="Suisei">
+                            <img src="https://via.placeholder.com/60" alt="Suisei">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Suisei Channel</div>
@@ -185,7 +710,7 @@
                     <div class="rank-number">5</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/pekora_ranking.png" alt="Pekora">
+                            <img src="https://via.placeholder.com/60" alt="Pekora">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Pekora Ch. 兎田ぺこら</div>
@@ -203,7 +728,7 @@
                     <div class="rank-number">6</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/kobo_ranking.png" alt="Kobo Kanaeru">
+                            <img src="https://via.placeholder.com/60" alt="Kobo Kanaeru">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Kobo Kanaeru Ch. hololive-ID</div>
@@ -221,7 +746,7 @@
                     <div class="rank-number">7</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/fubuki_ranking.png" alt="Fubuki">
+                            <img src="https://via.placeholder.com/60" alt="Fubuki">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">フブキCh。白上フブキ</div>
@@ -239,7 +764,7 @@
                     <div class="rank-number">8</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/miko_ranking.png" alt="Miko">
+                            <img src="https://via.placeholder.com/60" alt="Miko">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Miko Ch. さくらみこ</div>
@@ -257,7 +782,7 @@
                     <div class="rank-number">9</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/akemi_ranking.png" alt="Akemi">
+                            <img src="https://via.placeholder.com/60" alt="Akemi">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Akemi Ch. 猫町アケミ【AKA Virtual】</div>
@@ -275,7 +800,7 @@
                     <div class="rank-number">10</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/korone_rankng.png" alt="Korone">
+                            <img src="https://via.placeholder.com/60" alt="Korone">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Korone Ch. 戌神ころね</div>
@@ -293,7 +818,7 @@
                     <div class="rank-number">11</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/aqua_ranking.png" alt="Aqua">
+                            <img src="https://via.placeholder.com/60" alt="Aqua">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Aqua Ch. 湊あくあ</div>
@@ -311,7 +836,7 @@
                     <div class="rank-number">12</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/kuzuha_ranking.png" alt="Kuzuha">
+                            <img src="https://via.placeholder.com/60" alt="Kuzuha">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Kuzuha Channel</div>
@@ -329,7 +854,7 @@
                     <div class="rank-number">13</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/okayu_ranking.png" alt="Okayu">
+                            <img src="https://via.placeholder.com/60" alt="Okayu">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Okayu Ch. 猫又おかゆ</div>
@@ -347,7 +872,7 @@
                     <div class="rank-number">14</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/noel_ranking.png" alt="Noel">
+                            <img src="https://via.placeholder.com/60" alt="Noel">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Noel Ch. 白銀ノエル</div>
@@ -365,7 +890,7 @@
                     <div class="rank-number">15</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/subaru_ranking.png" alt="Subaru">
+                            <img src="https://via.placeholder.com/60" alt="Subaru">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Subaru Ch. 大空スバル</div>
@@ -383,7 +908,7 @@
                     <div class="rank-number">16</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/Hyakuman_ranking.png" alt="Salome">
+                            <img src="https://via.placeholder.com/60" alt="Salome">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">壱百満天原サロメ / Hyakumantenbara Salome</div>
@@ -401,7 +926,7 @@
                     <div class="rank-number">17</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/gamster_ranking.png" alt="Gamster Gaming">
+                            <img src="https://via.placeholder.com/60" alt="Gamster Gaming">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Gamster Gaming</div>
@@ -419,7 +944,7 @@
                     <div class="rank-number">18</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/hetto_ranking.png" alt="Hetto">
+                            <img src="https://via.placeholder.com/60" alt="Hetto">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Hetto</div>
@@ -437,7 +962,7 @@
                     <div class="rank-number">19</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/moend_ranking.png" alt="MoenD">
+                            <img src="https://via.placeholder.com/60" alt="MoenD">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">MoenD</div>
@@ -455,7 +980,7 @@
                     <div class="rank-number">20</div>
                     <div class="channel-info">
                         <div class="channel-avatar">
-                            <img src="img/watson_ranking.png" alt="Watson Amelia">
+                            <img src="https://via.placeholder.com/60" alt="Watson Amelia">
                         </div>
                         <div class="channel-details">
                             <div class="channel-name">Watson Amelia Ch. hololive-EN</div>
@@ -469,38 +994,22 @@
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
+    <!-- Footer -->
     <div class="footer">
-        <div class="containert">
-            <div class="d-flex flex-wrap">
-                <div class="textbox2">
-                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
-                    <p>Contact Us</p>
-                    <img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30">
-                    <img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30">
-                    <img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30">
-                    <img class="Con" src="img/email.png" alt="email" width="30" height="30">
-                </div>
-                <div class="d-flex">
-                    <div class="first">
-                        <a href="index.html">Home</a>
-                        <a href="news.html">News</a>
-                        <a href="aboutus.html">About us</a>
-                        <a href="introduction.html">What is vtuber?</a>
-                    </div>
-                    <div class="second">
-                        <a href="commnuity.html">Community</a>
-                        <a href="faq.html">FAQ</a>
-                        <a href="ranking.html">Top Vtuber</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/hamburger.js"></script>
-</body>
-</html>
+        <div class="footer-content">
+            <div class="footer-logo-section">
+                <a href="index.html">
+                    <img src="img/logo.jpg" alt="Vfan logo" width="200" height="95">
+                </a>
+                <p>Contact us</p>
+                <div class="social-icons">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162
