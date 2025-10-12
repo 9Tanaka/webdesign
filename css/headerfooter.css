@@ -261,10 +261,6 @@ main {
         width: 70%;
     }
 
-    .navbar .dropdown {
-        width: 100%;
-    }
-
     .navbar .dropdown-menu {
         position: static !important;
         transform: none !important;
@@ -273,10 +269,17 @@ main {
         box-shadow: none;
         display: none;
         background-color: rgba(255, 255, 255, 0.1);
+        max-height: 500px;
+        overflow-y: auto;
     }
 
     .navbar .dropdown-menu.show {
         display: block;
+    }
+
+    .navbar .dropdown {
+        width: 100%;
+        position: relative;
     }
 
     .navbar .dropdown-item {
