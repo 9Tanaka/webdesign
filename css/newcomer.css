@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&display=swap');
+@import url('headerfooter.css'); 
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .breadcrumb-custom {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .breadcrumb-custom span {
+            margin: 0 5px;
+        }
+
+        .talent-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin-bottom: 12px;
+        }
+
+        .avatar-circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .flag-box {
+            position: absolute;
+            top: -8px;
+            right: -35px;
+            width: 32px;
+            height: 22px;
+            background: white;
+            border: 1.5px solid #ddd;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+
+        .flag-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .talent-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #4a90e2;
+            margin-bottom: 4px;
+        }
+
+        .talent-company {
+            font-size: 12px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .pagination-custom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .pagination-custom button {
+            background: white;
+            border: 2px solid #ff69b4;
+            color: #ff69b4;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .pagination-custom button:hover {
+            background: #ff69b4;
+            color: white;
+        }
+
+        .pagination-custom .page-number {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .breadcrumb-custom {
+                font-size: 12px;
+                margin-bottom: 20px;
+            }
+
+            .avatar-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            .avatar-circle {
+                width: 100px;
+                height: 100px;
+            }
+
+            .flag-box {
+                top: -6px;
+                right: -25px;
+                width: 28px;
+                height: 20px;
+            }
+
+            .talent-name {
+                font-size: 13px;
+            }
+
+            .talent-company {
+                font-size: 11px;
+            }
+
+            .talent-card {
+                margin-bottom: 20px;
+            }
+
+            .pagination-custom {
+                margin-top: 30px;
+                gap: 10px;
+            }
+
+            .pagination-custom button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .pagination-custom .page-number {
+                font-size: 12px;
+            }
+        }
+
+        /* Tablet Layout - Single Column */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .avatar-container {
+                width: 110px;
+                height: 110px;
+            }
+
+            .avatar-circle {
+                width: 110px;
+                height: 110px;
+            }
+
+            .flag-box {
+                top: -7px;
+                right: -28px;
+                width: 30px;
+                height: 21px;
+            }
+
+            .talent-name {
+                font-size: 14px;
+            }
+
+            .talent-company {
+                font-size: 11.5px;
+            }
+
+            .talent-card {
+                margin-bottom: 25px;
+            }
+        }
+
+        /* Desktop Layout Only */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1400px;
+            }
+
+            .avatar-container {
+                width: 130px;
+                height: 130px;
+            }
+
+            .avatar-circle {
+                width: 130px;
+                height: 130px;
+            }
+
+            .talent-card {
+                margin-bottom: 30px;
+            }
+        }
