@@ -4,186 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/headerfooter.css">
+    <link rel="stylesheet" href="css/gallery.css">
     <title>Gallery</title>
-    <style>
-        /* Image container styling */
-        .gallery-item {
-            margin-bottom: 20px;
-        }
-
-        .img-wrapper {
-            width: 90%;
-            height: 7.5em;
-            overflow: hidden;
-            border-radius: 10px;
-            position: relative;
-            background-color: #f0f0f0;
-        }
-
-        .img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .img-wrapper:hover img {
-            transform: scale(1.05);
-        }
-
-        .artist-name {
-            margin-top: 4px;
-            font-size: 0.9em;
-            color: #333;
-            text-align: left;
-        }
-
-        .username {
-            font-size: 0.8em;
-            color: #666;
-            text-align: left;
-        }
-
-        /* Scrollable user cards */
-        .user-scroll-container {
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
-            padding: 10px 0;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-        }
-
-        .user-scroll-container::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .user-scroll-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .user-scroll-container::-webkit-scrollbar-thumb {
-            background: #FF8ECE;
-            border-radius: 10px;
-        }
-
-        .user-card {
-            display: inline-block;
-            width: 280px;
-            margin-right: 15px;
-            vertical-align: top;
-            white-space: normal;
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .user-images-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .user-images-grid img {
-            width: 100%;
-            height: 80px;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 8px;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .user-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .user-info {
-            flex: 1;
-        }
-
-        .user-info p {
-            margin: 0;
-        }
-
-        .follow-btn {
-            background-color: #FF8ECE;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 5px 20px;
-            font-size: 0.8em;
-            margin-top: 5px;
-            cursor: pointer;
-        }
-
-        .follow-btn:hover {
-            background-color: #ff6bb5;
-        }
-
-        /* Tag buttons */
-        .tag-btn {
-            background-color: #FF8ECE;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 8px 16px;
-            margin: 5px;
-            font-size: 0.85em;
-            cursor: pointer;
-        }
-
-        .post-btn {
-            background-color: #FF8ECE;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 8px 25px;
-            font-size: 0.9em;
-            cursor: pointer;
-            float: right;
-        }
-
-        .section-title {
-            font-weight: bold;
-            margin: 30px 0 20px 0;
-            font-size: 1.2em;
-        }
-
-        .breadcrumb {
-            background-color: transparent;
-            padding: 0;
-            margin: 20px 0;
-        }
-
-        .heart-icon {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            color: white;
-            font-size: 1.5em;
-            cursor: pointer;
-            text-shadow: 0 0 3px rgba(0,0,0,0.5);
-        }
-
-        
-    </style>
+   
 </head>
 <body>
-    <!-- Header will go here -->
+   <!-- header -->
+    <div class="header">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
+        </a>
+        <nav class="navbar">
+            <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
+    
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Vtuber
+                </a>
+                <ul class="dropdown-menu">
+                    
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="introduction.html">Introduction</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
+                        </ul>
+                    </li>
+                    
+                 
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="#">Agency</a>
+                        <ul class="dropdown-menu">
+                         
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="#">Talent</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Ranking</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li><a class="dropdown-item" href="#">Independent</a></li>
+                    <li><a class="dropdown-item" href="#">Event Calendar</a></li>
+                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
+                </ul>
+            </div>
+
+        
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Community
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
+                    <li><a class="dropdown-item" href="#">Gallery</a></li>
+                </ul>
+            </div>
+
+            <a class="nav-link" aria-label="go to news page" href="contact.html">News</a>
+            
+           
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    About us
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Rules</a></li>
+                </ul>
+            </div>
+        </nav>
+   
+         <div class="icon-container">
+        <a class="nav-link" href="search.html">
+            <img src="img/icon/search.png" alt="search" width="30" height="30">
+        </a>
+        <a href="">
+            <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+        </a>
+    </div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <!-- End header -->
     
     <main class="container">
         <!-- Breadcrumb -->
@@ -215,7 +121,7 @@
             <!-- Example gallery items - repeat for each image -->
             <div class="col-6 col-md-4 col-lg-2 gallery-item">
                 <div class="img-wrapper">
-                    <img src="path/to/sui-chan.jpg" alt="sui-chan">
+                    <img src="img/supernova.jpg" alt="sui-chan">
                     <span class="heart-icon">♡</span>
                 </div>
                 <p class="artist-name">sui-chan</p>
@@ -224,7 +130,7 @@
 
             <div class="col-6 col-md-4 col-lg-2 gallery-item">
                 <div class="img-wrapper">
-                    <img src="path/to/kronii.jpg" alt="kronii">
+                    <img src="img/kronii.jpg" alt="kronii">
                     <span class="heart-icon">♡</span>
                 </div>
                 <p class="artist-name">kronii</p>
@@ -233,7 +139,7 @@
 
             <div class="col-6 col-md-4 col-lg-2 gallery-item">
                 <div class="img-wrapper">
-                    <img src="path/to/tiger.jpg" alt="tiger">
+                    <img src="img/tiger.jpg" alt="tiger">
                     <span class="heart-icon">♡</span>
                 </div>
                 <p class="artist-name">tiger</p>
@@ -242,7 +148,7 @@
 
             <div class="col-6 col-md-4 col-lg-2 gallery-item">
                 <div class="img-wrapper">
-                    <img src="path/to/cutie.jpg" alt="cutie">
+                    <img src="img/kikira.jpg" alt="cutie">
                     <span class="heart-icon">♡</span>
                 </div>
                 <p class="artist-name">cutie</p>
@@ -251,7 +157,7 @@
 
             <div class="col-6 col-md-4 col-lg-2 gallery-item">
                 <div class="img-wrapper">
-                    <img src="path/to/rock-happy.jpg" alt="rock happy">
+                    <img src="img/biboo.jpg" alt="rock happy">
                     <span class="heart-icon">♡</span>
                 </div>
                 <p class="artist-name">rock happy</p>
@@ -260,25 +166,89 @@
 
             <div class="col-6 col-md-4 col-lg-2 gallery-item">
                 <div class="img-wrapper">
-                    <img src="path/to/silksong-biboo.jpg" alt="silksong biboo">
+                    <img src="img/biboosilk.jpg" alt="silksong biboo">
                     <span class="heart-icon">♡</span>
                 </div>
                 <p class="artist-name">silksong biboo</p>
                 <p class="username">@kukie-nyan</p>
             </div>
 
-            <!-- Add more gallery items following the same pattern -->
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/ike.jpg" alt="ike">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">Ike</p>
+                <p class="username">@Elu</p>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/shoto.jpg" alt="silksong biboo">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">shoto</p>
+                <p class="username">@sofiea</p>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/kuzuha.jpg" alt="silksong biboo">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">【お仕事】KING/葛葉</p>
+                <p class="username">@AKKE</p>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/ike2.jpg" alt="ike2">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">handsome</p>
+                <p class="username">@KANOSE</p>
+            </div>
         </div>
 
         <!-- Popular Tags Section -->
         <h2 class="section-title">Popular tags</h2>
         <div class="row mb-4">
             <div class="col-6 col-md-4 col-lg-2 gallery-item">
-                <div class="img-wrapper">
-                    <img src="path/to/popular-tag1.jpg" alt="Popular tag">
+                <div class="img-wrapper2">
+                    <img src="img/hololivetag.jpg" alt="hololive tag">
                 </div>
                 <p class="artist-name">#HoloLive</p>
             </div>
+
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper2">
+                    <img src="img/ironmouse.jpg" alt="IndieVTuber tag">
+                </div>
+                <p class="artist-name">#IndieVTuber</p>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper2">
+                    <img src="img/swimsuit.jpg" alt="swimsuit tag">
+                </div>
+                <p class="artist-name">#swimsuit</p>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper2">
+                    <img src="img/gura.jpg" alt="kawaii tag">
+                </div>
+                <p class="artist-name">#kawaii</p>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper2">
+                    <img src="img/hololiveen.webp" alt="HololiveEN tag">
+                </div>
+                <p class="artist-name">#HololiveEN</p>
+            </div>
+
+            
             <!-- Add more popular tag items -->
         </div>
 
@@ -287,11 +257,92 @@
         <div class="row mb-4">
             <div class="col-6 col-md-4 col-lg-2 gallery-item">
                 <div class="img-wrapper">
-                    <img src="path/to/recommended1.jpg" alt="Recommended">
+                    <img src="img/suisei1.jpg" alt="suisei pointing">
                     <span class="heart-icon">♡</span>
                 </div>
                 <p class="artist-name">かむかむ</p>
                 <p class="username">@かむかむ</p>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/suisei2.jpg" alt="suisei in the sky">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">星街すいせい</p>
+                <p class="username">@白帝/WhiteM</p>
+            </div>
+
+               <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/suisei3.jpg" alt="suisei supernova">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">Super Nova</p>
+                <p class="username">@ivuki</p>
+            </div>
+
+               <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/suisei4.jpg" alt="suisei pose">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">☄️ (星街すいせい)</p>
+                <p class="username">@mnemo</p>
+            </div>
+
+               <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/suisei5.jpg" alt="suisei short hair">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">Hoshimachi Suisei ☄️...</p>
+                <p class="username">@svnnydraw</p>
+            </div>
+
+               <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/suisei6.jpg" alt="suisei in the midnight">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">c106新刊表紙</p>
+                <p class="username">@Takano</p>
+            </div>
+
+               <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/suisei7.jpg" alt="suisei phony">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">フォニイ / 星街す...</p>
+                <p class="username">@流薫</p>
+            </div>
+
+               <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/suisei8.jpg" alt="suisei chilling">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">星街すいせいさん誕</p>
+                <p class="username">@うごんば</p>
+            </div>
+
+               <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/suisei9.jpg" alt="suisei basketball">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">星谷さん☄ rkgk2</p>
+                <p class="username">@A-rufu</p>
+            </div>
+
+               <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/suisei10.jpg" alt="Micomet">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">Micomet</p>
+                <p class="username">@yasu1_12</p>
             </div>
             <!-- Add more recommended items -->
         </div>
@@ -301,12 +352,12 @@
         <div class="user-scroll-container mb-4">
             <div class="user-card">
                 <div class="user-images-grid">
-                    <img src="path/to/user1-art1.jpg" alt="Artwork 1">
-                    <img src="path/to/user1-art2.jpg" alt="Artwork 2">
-                    <img src="path/to/user1-art3.jpg" alt="Artwork 3">
+                    <img src="img/reccom1_1.jpg" alt="Artwork 1">
+                    <img src="img/reccom1_2.jpg" alt="Artwork 2">
+                    <img src="img/reccom1_3.jpg" alt="Artwork 3">
                 </div>
                 <div class="user-profile">
-                    <img src="path/to/user1-avatar.jpg" alt="Avatar" class="user-avatar">
+                    <img src="img/proflie1.jpg" alt="Avatar" class="user-avatar">
                     <div class="user-info">
                         <p class="artist-name">MiReiDo</p>
                     </div>
@@ -316,12 +367,12 @@
             
             <div class="user-card">
                 <div class="user-images-grid">
-                    <img src="path/to/user2-art1.jpg" alt="Artwork 1">
-                    <img src="path/to/user2-art2.jpg" alt="Artwork 2">
-                    <img src="path/to/user2-art3.jpg" alt="Artwork 3">
+                    <img src="img/reccom2_1.jpg" alt="Artwork 1">
+                    <img src="img/reccom2_2.jpg" alt="Artwork 2">
+                    <img src="img/reccom2_3.jpg" alt="Artwork 3">
                 </div>
                 <div class="user-profile">
-                    <img src="path/to/user2-avatar.jpg" alt="Avatar" class="user-avatar">
+                    <img src="img/profile2.jpg" alt="Avatar" class="user-avatar">
                     <div class="user-info">
                         <p class="artist-name">けっしー</p>
                     </div>
@@ -331,12 +382,12 @@
             
             <div class="user-card">
                 <div class="user-images-grid">
-                    <img src="path/to/user3-art1.jpg" alt="Artwork 1">
-                    <img src="path/to/user3-art2.jpg" alt="Artwork 2">
-                    <img src="path/to/user3-art3.jpg" alt="Artwork 3">
+                    <img src="img/reccom3_1.jpg" alt="Artwork 1">
+                    <img src="img/reccom3_2.jpg" alt="Artwork 2">
+                    <img src="img/reccom3_3.jpg" alt="Artwork 3">
                 </div>
                 <div class="user-profile">
-                    <img src="path/to/user3-avatar.jpg" alt="Avatar" class="user-avatar">
+                    <img src="img/profile3.jpg" alt="Avatar" class="user-avatar">
                     <div class="user-info">
                         <p class="artist-name">たこたこ</p>
                     </div>
@@ -351,17 +402,117 @@
         <div class="row mb-4">
             <div class="col-6 col-md-4 col-lg-2 gallery-item">
                 <div class="img-wrapper">
-                    <img src="path/to/nijisanji1.jpg" alt="Nijisanji">
+                    <img src="img/nijisanji1.jpg" alt="Nijisanji">
                     <span class="heart-icon">♡</span>
                 </div>
                 <p class="artist-name">563-プレッツェルズ</p>
                 <p class="username">@きてぃさま</p>
             </div>
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/nijisanji2.jpg" alt="Nijisanji male member">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">🐙🌟</p>
+                <p class="username">@キョウ</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/nijisanji3.jpg" alt="Nijisanji 3">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">笹木咲やよ</p>
+                <p class="username">@百</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/niji4.jpg" alt="Nijisanji 4">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">メロコさん</p>
+                <p class="username">@辺</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/niji5.jpg" alt="Nijisanji 5">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">めるち</p>
+                <p class="username">@無糖。</p>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/niji6.jpg" alt="Nijisanji 6">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">sara</p>
+                <p class="username">@社員</p>
+            </div>
+              <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/niji7.jpg" alt="Nijisanji 7">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">ゆるふわ系で可愛い</p>
+                <p class="username">@さく兎</p>
+            </div>
+              <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/niji8.jpg" alt="Nijisanji 8">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">夏</p>
+                <p class="username">@屍Bane</p>
+            </div>
+              <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/niji9.jpg" alt="Nijisanji 9">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">ローレン</p>
+                <p class="username">@moko</p>
+            </div>
+              <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="img/niji10.jpg" alt="Nijisanji ">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">no title</p>
+                <p class="username">@ツガル</p>
+            </div>
+            
             <!-- Add more Nijisanji items -->
         </div>
     </main>
 
-    <!-- Footer will go here -->
+    <div class="footer">
+        <div class="containert">
+            <div class="d-flex flex-wrap">
+                <div class="textbox2">
+                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+                    <p>Contact Us</p>
+                    <img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30">
+                    <img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30">
+                    <img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30">
+                    <img class="Con" src="img/email.png" alt="email" width="30" height="30">
+                </div>
+                <div class="d-flex">
+                    <div class="first">
+                        <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
+                        <a href="aboutus.html">About us</a>
+                        <a href="introduction.html">What is vtuber?</a>
+                    </div>
+                    <div class="second">
+                        <a href="commnuity.html">Community</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="ranking.html">Top Vtuber</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
