@@ -6,6 +6,7 @@
     <title>VTuber Ranking - Vfan</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        
         * {
             margin: 0;
             padding: 0;
@@ -538,28 +539,32 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+   <!-- header -->
     <div class="header">
         <a href="index.html">
             <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
         </a>
         <nav class="navbar">
-            <a class="nav-link" href="index.html">Home</a>
-
+            <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
+    
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Vtuber
                 </a>
                 <ul class="dropdown-menu">
+                    
                     <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="#">Introduction</a>
+                        <a class="dropdown-item" href="introduction.html">Introduction</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Culture</a></li>
+                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
                         </ul>
                     </li>
+                    
+                 
                     <li class="dropdown-submenu">
                         <a class="dropdown-item" href="#">Agency</a>
                         <ul class="dropdown-menu">
+                         
                             <li class="dropdown-submenu">
                                 <a class="dropdown-item" href="#">Talent</a>
                                 <ul class="dropdown-menu">
@@ -568,24 +573,27 @@
                             </li>
                         </ul>
                     </li>
+                    
                     <li><a class="dropdown-item" href="#">Independent</a></li>
                     <li><a class="dropdown-item" href="#">Event Calendar</a></li>
-                    <li><a class="dropdown-item" href="#">Stats</a></li>
+                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
                 </ul>
             </div>
 
+        
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Community
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Discuss</a></li>
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
                     <li><a class="dropdown-item" href="#">Gallery</a></li>
                 </ul>
             </div>
 
-            <a class="nav-link" href="contact.html">News</a>
-
+            <a class="nav-link" aria-label="go to news page" href="contact.html">News</a>
+            
+           
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     About us
@@ -594,19 +602,16 @@
                     <li><a class="dropdown-item" href="#">Rules</a></li>
                 </ul>
             </div>
-
-            <a class="nav-link" href="search.html">
-                <svg width="25" height="25" viewBox="0 0 24 24" fill="none">
-                    <circle cx="11" cy="11" r="8" stroke="white" stroke-width="2"/>
-                    <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </a>
         </nav>
-        <a href="#" class="profile">
-            <div class="profile-image">
-                <img src="img/profile.jpg" alt="Profile">
-            </div>
+   
+         <div class="icon-container">
+        <a class="nav-link" href="search.html">
+            <img src="img/icon/search.png" alt="search" width="30" height="30">
         </a>
+        <a href="">
+            <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+        </a>
+    </div>
         <div class="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -614,6 +619,7 @@
         </div>
     </div>
 
+    <!-- End header -->
     <!-- Breadcrumb -->
     <div class="breadcrumb-container">
         <a href="#">agency</a> > <span>Talent</span> > <span>Ranking</span>
