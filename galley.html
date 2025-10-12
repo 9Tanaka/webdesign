@@ -4,25 +4,375 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/headerfooter.css">
     <title>Gallery</title>
+    <style>
+        /* Image container styling */
+        .gallery-item {
+            margin-bottom: 20px;
+        }
+
+        .img-wrapper {
+            width: 90%;
+            height: 7.5em;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            background-color: #f0f0f0;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .artist-name {
+            margin-top: 4px;
+            font-size: 0.9em;
+            color: #333;
+            text-align: left;
+        }
+
+        .username {
+            font-size: 0.8em;
+            color: #666;
+            text-align: left;
+        }
+
+        /* Scrollable user cards */
+        .user-scroll-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            padding: 10px 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .user-scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .user-scroll-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .user-scroll-container::-webkit-scrollbar-thumb {
+            background: #FF8ECE;
+            border-radius: 10px;
+        }
+
+        .user-card {
+            display: inline-block;
+            width: 280px;
+            margin-right: 15px;
+            vertical-align: top;
+            white-space: normal;
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .user-images-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .user-images-grid img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-info p {
+            margin: 0;
+        }
+
+        .follow-btn {
+            background-color: #FF8ECE;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 20px;
+            font-size: 0.8em;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .follow-btn:hover {
+            background-color: #ff6bb5;
+        }
+
+        /* Tag buttons */
+        .tag-btn {
+            background-color: #FF8ECE;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 16px;
+            margin: 5px;
+            font-size: 0.85em;
+            cursor: pointer;
+        }
+
+        .post-btn {
+            background-color: #FF8ECE;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 25px;
+            font-size: 0.9em;
+            cursor: pointer;
+            float: right;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin: 30px 0 20px 0;
+            font-size: 1.2em;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .heart-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            text-shadow: 0 0 3px rgba(0,0,0,0.5);
+        }
+
+        
+    </style>
 </head>
 <body>
+    <!-- Header will go here -->
     
+    <main class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+            </ol>
+        </nav>
 
+        <!-- Tags Section -->
+        <div class="mb-3">
+            <button class="tag-btn">cute</button>
+            <button class="tag-btn">Hoshimachi_suisei</button>
+            <button class="tag-btn">male</button>
+            <button class="tag-btn">female</button>
+            <button class="tag-btn">Hololive</button>
+            <button class="tag-btn">Nijisanji</button>
+            <button class="tag-btn">Vshojo</button>
+        </div>
 
+        <!-- Trending Work Section -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="section-title mb-0">trending work</h2>
+            <button class="post-btn">Post</button>
+        </div>
 
+        <div class="row">
+            <!-- Example gallery items - repeat for each image -->
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="path/to/sui-chan.jpg" alt="sui-chan">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">sui-chan</p>
+                <p class="username">@こまつな</p>
+            </div>
 
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="path/to/kronii.jpg" alt="kronii">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">kronii</p>
+                <p class="username">@ちくざえもん</p>
+            </div>
 
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="path/to/tiger.jpg" alt="tiger">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">tiger</p>
+                <p class="username">@ユーサク</p>
+            </div>
 
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="path/to/cutie.jpg" alt="cutie">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">cutie</p>
+                <p class="username">@CynicaL</p>
+            </div>
 
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="path/to/rock-happy.jpg" alt="rock happy">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">rock happy</p>
+                <p class="username">@DDOLBANG (쫄방)</p>
+            </div>
 
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="path/to/silksong-biboo.jpg" alt="silksong biboo">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">silksong biboo</p>
+                <p class="username">@kukie-nyan</p>
+            </div>
 
+            <!-- Add more gallery items following the same pattern -->
+        </div>
 
+        <!-- Popular Tags Section -->
+        <h2 class="section-title">Popular tags</h2>
+        <div class="row mb-4">
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="path/to/popular-tag1.jpg" alt="Popular tag">
+                </div>
+                <p class="artist-name">#HoloLive</p>
+            </div>
+            <!-- Add more popular tag items -->
+        </div>
 
+        <!-- Recommended Tags Section -->
+        <h2 class="section-title">Recommended tags #hoshimachi_suisei</h2>
+        <div class="row mb-4">
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="path/to/recommended1.jpg" alt="Recommended">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">かむかむ</p>
+                <p class="username">@かむかむ</p>
+            </div>
+            <!-- Add more recommended items -->
+        </div>
 
+        <!-- Recommended Users Section -->
+        <h2 class="section-title">Recommended users</h2>
+        <div class="user-scroll-container mb-4">
+            <div class="user-card">
+                <div class="user-images-grid">
+                    <img src="path/to/user1-art1.jpg" alt="Artwork 1">
+                    <img src="path/to/user1-art2.jpg" alt="Artwork 2">
+                    <img src="path/to/user1-art3.jpg" alt="Artwork 3">
+                </div>
+                <div class="user-profile">
+                    <img src="path/to/user1-avatar.jpg" alt="Avatar" class="user-avatar">
+                    <div class="user-info">
+                        <p class="artist-name">MiReiDo</p>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+            </div>
+            
+            <div class="user-card">
+                <div class="user-images-grid">
+                    <img src="path/to/user2-art1.jpg" alt="Artwork 1">
+                    <img src="path/to/user2-art2.jpg" alt="Artwork 2">
+                    <img src="path/to/user2-art3.jpg" alt="Artwork 3">
+                </div>
+                <div class="user-profile">
+                    <img src="path/to/user2-avatar.jpg" alt="Avatar" class="user-avatar">
+                    <div class="user-info">
+                        <p class="artist-name">けっしー</p>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+            </div>
+            
+            <div class="user-card">
+                <div class="user-images-grid">
+                    <img src="path/to/user3-art1.jpg" alt="Artwork 1">
+                    <img src="path/to/user3-art2.jpg" alt="Artwork 2">
+                    <img src="path/to/user3-art3.jpg" alt="Artwork 3">
+                </div>
+                <div class="user-profile">
+                    <img src="path/to/user3-avatar.jpg" alt="Avatar" class="user-avatar">
+                    <div class="user-info">
+                        <p class="artist-name">たこたこ</p>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+            </div>
+            <!-- Add more user cards -->
+        </div>
 
+        <!-- Recommended Tags Nijisanji Section -->
+        <h2 class="section-title">Recommended tags #Nijisanji</h2>
+        <div class="row mb-4">
+            <div class="col-6 col-md-4 col-lg-2 gallery-item">
+                <div class="img-wrapper">
+                    <img src="path/to/nijisanji1.jpg" alt="Nijisanji">
+                    <span class="heart-icon">♡</span>
+                </div>
+                <p class="artist-name">563-プレッツェルズ</p>
+                <p class="username">@きてぃさま</p>
+            </div>
+            <!-- Add more Nijisanji items -->
+        </div>
+    </main>
 
-    
+    <!-- Footer will go here -->
+
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Optional: Add heart toggle functionality
+        document.querySelectorAll('.heart-icon').forEach(heart => {
+            heart.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.textContent = this.textContent === '♡' ? '♥' : '♡';
+                this.style.color = this.textContent === '♥' ? '#ff6b9d' : 'white';
+            });
+        });
+    </script>
 </body>
 </html>
