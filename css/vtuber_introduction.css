@@ -1,0 +1,50 @@
+@import url(headerfooter.css);
+
+.section *{
+    width: 50%;
+    margin: 1% auto;
+    
+}
+.nav ul li a:hover{
+    color: white;
+    transition: 0.3s;
+}
+video {
+    width: 10%;
+    height: 5%;
+    margin: 10px auto;
+}
+
+.section video,.section img{
+    display: block;         
+    width: 30%;             
+    margin: 10px auto;      
+    border-radius: 10px;  
+
+}
+
+.date {
+    color: gray;
+}
+
+.section span.firstword{
+    font-weight: bold;
+}
+
+.banner {
+    background:url(../img/Vtuber_intro.png) repeat-x;
+    background-position: 0% 40%; 
+    background-size: cover;
+    height: 10em;
+}
+
+@media screen and (max-width: 768px) {
+    .section *{
+    width: 80%;
+    margin: 1% auto;
+    overflow-wrap: break-word;
+}
+
+
+
+}
