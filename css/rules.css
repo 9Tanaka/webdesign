@@ -367,8 +367,8 @@ p {
     }
 
     .toc-button {
-        bottom: auto;
-        top: 20px;
+        bottom: 20px;
+    
         right: 20px;
         width: 45px;
         height: 45px;

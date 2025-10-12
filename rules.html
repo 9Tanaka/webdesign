@@ -8,34 +8,32 @@
     <link rel="stylesheet" href="css/rules.css">
 </head>
 <body>
-
-    <!-- header -->
+<!-- header -->
     <div class="header">
         <a href="index.html">
             <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
         </a>
         <nav class="navbar">
             <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
-
+    
             <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Vtuber
                 </a>
                 <ul class="dropdown-menu">
-
+                    
                     <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="#">Introduction</a>
+                        <a class="dropdown-item" href="introduction.html">Introduction</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Culture</a></li>
+                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
                         </ul>
                     </li>
-
-
+                    
+                 
                     <li class="dropdown-submenu">
                         <a class="dropdown-item" href="#">Agency</a>
                         <ul class="dropdown-menu">
-
+                         
                             <li class="dropdown-submenu">
                                 <a class="dropdown-item" href="#">Talent</a>
                                 <ul class="dropdown-menu">
@@ -44,42 +42,45 @@
                             </li>
                         </ul>
                     </li>
-
+                    
                     <li><a class="dropdown-item" href="#">Independent</a></li>
                     <li><a class="dropdown-item" href="#">Event Calendar</a></li>
-                    <li><a class="dropdown-item" href="#">Stats</a></li>
+                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
                 </ul>
             </div>
 
-
+        
             <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Community
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Discuss</a></li>
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
                     <li><a class="dropdown-item" href="#">Gallery</a></li>
                 </ul>
             </div>
 
             <a class="nav-link" aria-label="go to news page" href="contact.html">News</a>
-
-
+            
+           
             <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     About us
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Rules</a></li>
                 </ul>
             </div>
-
-            <a class="nav-link" href="search.html"><img src="img/icon/search.png" alt="search" width="30"
-                    height="30"></a>
         </nav>
-        <a href=""><img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30"></a>
+   
+         <div class="icon-container">
+        <a class="nav-link" href="search.html">
+            <img src="img/icon/search.png" alt="search" width="30" height="30">
+        </a>
+        <a href="">
+            <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+        </a>
+    </div>
         <div class="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -88,11 +89,12 @@
     </div>
 
     <!-- End header -->
-    <div class="container">
-        <div class="breadcrumb">
-            <a href="#home">Home</a> > <span>rules</span>
+      <div class="breadcrumb">
+            <a href="index.html">Home</a> > <span>rules</span>
         </div>
 
+    <div class="container">
+       
         <div class="main-content">
             <aside class="sidebar">
                 <h3>Contents</h3>
@@ -285,59 +287,6 @@
 
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/hamburger.js"></script>
-
-
-
-    <script>
-        const tocBtn = document.getElementById('tocBtn');
-        const tocModal = document.getElementById('tocModal');
-        const tocClose = document.getElementById('tocClose');
-
-        // Open modal
-        tocBtn.addEventListener('click', () => {
-            tocModal.classList.add('active');
-        });
-
-        // Close modal
-        tocClose.addEventListener('click', () => {
-            tocModal.classList.remove('active');
-        });
-
-        // Close modal when clicking outside
-        tocModal.addEventListener('click', (e) => {
-            if (e.target === tocModal) {
-                tocModal.classList.remove('active');
-            }
-        });
-
-        // Add active state to sidebar links based on scroll
-        const sections = document.querySelectorAll('main section');
-        const links = document.querySelectorAll('.sidebar a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            links.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Close modal when a link is clicked
-        document.querySelectorAll('.toc-modal a').forEach(link => {
-            link.addEventListener('click', () => {
-                tocModal.classList.remove('active');
-            });
-        });
-    </script>
+    <script src="js/fixed_hyper.js"></script>
 </body>
 </html>
