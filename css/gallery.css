@@ -159,7 +159,11 @@
             padding: 8px 25px;
             font-size: 0.9em;
             cursor: pointer;
+            text-decoration: none;
             float: right;
+        }
+        .post-btn:hover{
+           background-color: #ff6bb5;
         }
 
         .section-title {
