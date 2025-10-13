@@ -22,7 +22,13 @@ video {
     border-radius: 10px;  
 
 }
-
+.quiz{
+    text-decoration: none;
+    position: absolute;
+    left: 45%;
+    padding: 1em;
+    margin: 10px;
+}
 .date {
     color: gray;
 }

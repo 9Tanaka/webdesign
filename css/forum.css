@@ -335,8 +335,13 @@ iframe {
 }
 .post a{
     text-decoration: none;
+    color: white;
+}
+.post-btn a{
+    text-decoration: none;
 }
 .post-btn {
+    
     position: fixed;
     bottom: 30px;
     right: 30px;

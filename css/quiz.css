@@ -1,9 +1,26 @@
 @import url(headerfooter.css);
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    background: #f8f9fa;
+}
+
 .quiz-container {
+    flex: 1;
     max-width: 700px;
     margin: 3em auto;
     padding: 0 20px;
+    width: 100%;
 }
 
 .quiz-form {
@@ -11,10 +28,15 @@
     border-radius: 15px;
     padding: 3em 2.5em;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em;
 }
 
 /* Question Section */
 .quiz-question {
+    margin-bottom: 3em;
+}
+
+.quiz-question:last-of-type {
     margin-bottom: 2em;
 }
 
@@ -134,7 +156,10 @@
     background: white;
     color: #FF8ECE;
 }
-
+button a{
+    text-decoration: none;
+    color: white;
+}
 .quiz-btn:hover {
     background: #FF8ECE;
     color: white;
@@ -155,6 +180,10 @@
 
 /* Tablet Breakpoint - 768px */
 @media screen and (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
     .quiz-container {
         padding: 0 15px;
         margin: 2em auto;
@@ -175,10 +204,18 @@
     .radio-label {
         font-size: 0.9em;
     }
+
+    .quiz-question {
+        margin-bottom: 2.5em;
+    }
 }
 
 /* Mobile Breakpoint - 574px */
 @media screen and (max-width: 574px) {
+    body {
+        padding-top: 70px;
+    }
+
     .quiz-container {
         padding: 0 10px;
         margin: 1.5em auto;
@@ -226,5 +263,9 @@
         width: 100%;
         padding: 0.8em 2em;
         font-size: 0.85em;
+    }
+
+    .quiz-question {
+        margin-bottom: 2em;
     }
 }
