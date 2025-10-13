@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/forum.css">
+    <title>Discuss | Vfan</title>
+    <style>
+        /* Only JavaScript-specific styles here */
+    </style>
 </head>
 <body>
-     <!-- header -->
+    <!-- header -->
     <div class="header">
         <a href="index.html">
             <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
@@ -21,19 +24,15 @@
                     Vtuber
                 </a>
                 <ul class="dropdown-menu">
-                    
                     <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="introduction.html">Introduction</a>
+                        <a class="dropdown-item" href="vtuber_introduction.html">Introduction</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="culture.html">Culture</a></li>
                         </ul>
                     </li>
-                    
-                 
                     <li class="dropdown-submenu">
                         <a class="dropdown-item" href="agency.html">Agency</a>
                         <ul class="dropdown-menu">
-                         
                             <li class="dropdown-submenu">
                                 <a class="dropdown-item" href="talent.html">Talent</a>
                                 <ul class="dropdown-menu">
@@ -42,14 +41,12 @@
                             </li>
                         </ul>
                     </li>
-                    
                     <li><a class="dropdown-item" href="#">Independent</a></li>
                     <li><a class="dropdown-item" href="#">Event Calendar</a></li>
                     <li><a class="dropdown-item" href="stats.html">Stats</a></li>
                 </ul>
             </div>
 
-        
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Community
@@ -62,7 +59,6 @@
 
             <a class="nav-link" aria-label="go to news page" href="news.html">News</a>
             
-           
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     About us
@@ -73,121 +69,225 @@
             </div>
         </nav>
    
-         <div class="icon-container">
-        <a class="nav-link" href="search.html">
-            <img src="img/icon/search.png" alt="search" width="30" height="30">
-        </a>
-        <a href="">
-            <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
-        </a>
-    </div>
+        <div class="icon-container">
+            <a class="nav-link" href="search.html">
+                <img src="img/icon/search.png" alt="search" width="30" height="30">
+            </a>
+            <a href="">
+                <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+            </a>
+        </div>
         <div class="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
     </div>
-
     <!-- End header -->
 
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Discuss</li>
+    </ol>
 
-<!-- Forum Container -->
     <div class="forum-container">
-        <!-- Sidebar -->
-        <aside class="forum-sidebar">
-            <div class="category-widget">
-                <h2 class="widget-title">Category Activity</h2>
-                <ul class="category-list">
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-name">
-                                <span class="category-indicator"></span>
-                                General
-                            </div>
-                            <span class="category-count">1008 posts</span>
-                        </a>
-                        <div class="category-meta">New post 2d ago</div>
-                    </li>
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-name">
-                                <span class="category-indicator"></span>
-                                Requests/Suggestions
-                            </div>
-                            <span class="category-count">367 posts</span>
-                        </a>
-                        <div class="category-meta">New post 2d ago</div>
-                    </li>
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-name">
-                                <span class="category-indicator"></span>
-                                Moderation
-                            </div>
-                            <span class="category-count">8 posts</span>
-                        </a>
-                        <div class="category-meta">New post 2d ago</div>
-                    </li>
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-name">
-                                <span class="category-indicator"></span>
-                                Management
-                            </div>
-                            <span class="category-count">35 posts</span>
-                        </a>
-                        <div class="category-meta">New post 2d ago</div>
-                    </li>
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-name">
-                                <span class="category-indicator"></span>
-                                Staff board
-                            </div>
-                            <span class="category-count">4 posts</span>
-                        </a>
-                        <div class="category-meta">New today on 23/3/2024</div>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="forum-main">
-            <!-- Create Post Box -->
-            <div class="create-post">
-                <div class="create-post-header">
-                    <img src="img/default-avatar.jpg" alt="User Avatar" class="user-avatar">
-                    <input type="text" class="create-post-input" placeholder="What is on your mind?">
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Recommended user</div>
+                <div class="recommended-user">
+                    <img class="user-avatar" src="img/forum/profilezeta.jpeg">
+                    <div>
+                        <div class="user-name">zeta</div>
+                        <div class="user-thumbnails">
+                         <img class="thumbnail" src="img/thumb.gif">
+                         <img class="thumbnail" src="img/thumb1.gif">
+                         <img class="thumbnail" src="img/thumb3.gif">
+                        </div>
+                    </div>
                 </div>
-                <div class="post-options">
-                    <button class="option-btn">
-                        <img src="img/icon/text.png" alt="text"> text
-                    </button>
-                    <button class="option-btn">
-                        <img src="img/icon/poll.png" alt="poll"> poll
-                    </button>
+                <div class="recommended-user">
+                    <img class="user-avatar" src="img/yea.png">
+                    <div>
+                        <div class="user-name">masterD</div>
+                        <div class="user-thumbnails">
+                            <img class="thumbnail" src="img/thumbsui.png">
+                            <img class="thumbnail" src="img/thumbsui1.jpg">
+                            <img class="thumbnail" src="img/thumbsui2.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="recommended-user">
+                    <img class="user-avatar" src="img/ina.jpg">
+                    <div>
+                        <div class="user-name">inapower</div>
+                        <div class="user-thumbnails">
+                            <img class="thumbnail" src="img/thumb3_1.jpg">
+                            <img class="thumbnail" src="img/thumb3_2.jpg">
+                            <img class="thumbnail" src="img/thumb3_3.png">
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Forum Posts Container -->
-            <div class="forum-posts" id="forumPosts">
-                <!-- Posts will be dynamically loaded here -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Hot topic</div>
+                <div class="hot-topic-item">
+                    <span class="topic-tag">#hololive</span>
+                    <div class="topic-stats">
+                        <span class="topic-icon"></span>
+                        <span>1096 posts · New post 3d ago</span>
+                    </div>
+                </div>
+                <div class="hot-topic-item">
+                    <span class="topic-tag">#Nijisanji</span>
+                    <div class="topic-stats">
+                        <span class="topic-icon"></span>
+                        <span>307 posts · New post 2d ago</span>
+                    </div>
+                </div>
+                <div class="hot-topic-item">
+                    <span class="topic-tag">#ironmouse</span>
+                    <div class="topic-stats">
+                        <span class="topic-icon"></span>
+                        <span>300 posts · New post 2d ago</span>
+                    </div>
+                </div>
+                <div class="hot-topic-item">
+                    <span class="topic-tag">#kizuna come back</span>
+                    <div class="topic-stats">
+                        <span class="topic-icon"></span>
+                        <span>350 posts · New post 2d ago</span>
+                    </div>
+                </div>
+                <div class="hot-topic-item">
+                    <span class="topic-tag">#Hoshimachi suisei</span>
+                    <div class="topic-stats">
+                        <span class="topic-icon"></span>
+                        <span>400 posts · New post 1d ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="post">
+                <div class="post-header">
+                    <img class="avatar" src="img/forum/biboogaming.webp">
+                    <div class="user-info">
+                        <div class="username">biboogaming</div>
+                        <div class="time">3d</div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                    <button class="more-btn">⋯
+                        <div class="dropdown-menu-custom">
+                            <div class="dropdown-item-custom report-btn">Report</div>
+                        </div>
+                    </button>
+                </div>
+                <div class="post-title">Some know this vtuber?</div>
+                <div class="post-content">
+                    She have blue hair with white highlight wearing jacket<br>
+                    speaking both english and japanese<br>
+                    someone know her? wanna watch her so bad she so funny
+                </div>
+                <div class="post-stats">
+                    <span class="stat">👁 300</span>
+                    <span class="stat">💬 1</span>
+                    <span class="stat">👍 3</span>
+                </div>
             </div>
 
-            <!-- Loading Indicator -->
-            <div class="loading-indicator" id="loadingIndicator" style="display: none;">
-                <div class="loading-spinner"></div>
-                <p>Loading more posts...</p>
+            <div class="post">
+                <div class="post-header">
+                    <img class="avatar" src="img/forum/profilei.jpg"> 
+                    <div class="user-info">
+                        <div class="username">Sonicm2008</div>
+                        <div class="time">13 hr. ago</div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                    <button class="more-btn">⋯
+                        <div class="dropdown-menu-custom">
+                            <div class="dropdown-item-custom report-btn">Report</div>
+                        </div>
+                    </button>
+                </div>
+                <div class="post-content">
+                    Iroha's new maid outfit is so adorable!
+                </div>
+                <img src="img/forum/iroha1.webp" class="post-image" alt="Post image">
+                <div class="post-stats">
+                    <span class="stat">👁 1000</span>
+                    <span class="stat">💬 6</span>
+                    <span class="stat">👍 300</span>
+                </div>
             </div>
-        </main>
+
+            <div class="post">
+                <div class="post-header">
+                    <img class="avatar" src="img/forum/profilewata.jpg">
+                    <div class="user-info">
+                        <div class="username">vawamin</div>
+                        <div class="time">18 hr. ago</div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                    <button class="more-btn">⋯
+                        <div class="dropdown-menu-custom">
+                            <div class="dropdown-item-custom report-btn">Report</div>
+                        </div>
+                    </button>
+                </div>
+                <div class="post-content">
+                    Watame hunting is Botan's favorite activity
+                </div>
+                <iframe width="732" height="411" src="https://www.youtube.com/embed/XPveW37bBUA" title="Watame hunting is Botan&#39;s favorite activity【Hololive】" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="post-stats">
+                    <span class="stat">👁 531</span>
+                    <span class="stat">💬 0</span>
+                    <span class="stat">👍 100</span>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <button class="post-btn">+</button>
 
+    <!-- Report Modal -->
+    <div class="modal-overlay" id="reportModal">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <div class="modal-title">Report Post</div>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body-custom">
+                <label class="report-option">
+                    <input type="radio" name="report" value="spam">
+                    <span>Spam or misleading</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="harassment">
+                    <span>Harassment or hate speech</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="inappropriate">
+                    <span>Inappropriate content</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="copyright">
+                    <span>Copyright violation</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="other">
+                    <span>Other</span>
+                </label>
+            </div>
+            <div class="modal-footer-custom">
+                <button class="btn-custom btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="btn-custom btn-submit" onclick="submitReport()">Submit Report</button>
+            </div>
+        </div>
+    </div>
 
-
-
-    
+    <!-- footer -->
     <div class="footer">
         <div class="containert">
             <div class="d-flex flex-wrap">
@@ -201,23 +301,23 @@
                 </div>
                 <div class="d-flex">
                     <div class="first">
-                        <a href="">Home</a>
-                        <a href="">News</a>
-                        <a href="">About us</a>
-                        <a href="">What is vtuber?</a>
+                        <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
+                        <a href="aboutus.html">About us</a>
+                        <a href="introduction.html">What is vtuber?</a>
                     </div>
                     <div class="second">
-                        <a href="">Community</a>
-                        <a href="">FAQ</a>
-                        <a href="">Top Vtuber</a>
+                        <a href="commnuity.html">Community</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="ranking.html">Top Vtuber</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/hamburger.js"></script>
+    <script src="js/forum.js"></script>
 </body>
 </html>
