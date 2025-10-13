@@ -1,11 +1,12 @@
-        * {
+@import url(headerfooter.css);      
+      
+      * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -15,6 +16,7 @@
             padding-top: 60px;
             background-position: center;
             background-image: url(../img/holocontest.jpg);
+            background-repeat: no-repeat;
         }
 
         .home-container {
