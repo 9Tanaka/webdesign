@@ -333,7 +333,9 @@ iframe {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
     border: 2px solid white;
 }
-
+.post a{
+    text-decoration: none;
+}
 .post-btn {
     position: fixed;
     bottom: 30px;
