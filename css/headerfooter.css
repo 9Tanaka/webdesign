@@ -180,7 +180,9 @@ main {
     gap: 0.4em;
 }
 
-/* Icon container for search and profile */
+.textbox2 p{
+    color: white;
+}
 .icon-container {
     display: flex;
     align-items: center;
@@ -259,6 +261,7 @@ main {
 
     .containert {
         width: 70%;
+        
     }
 
     .navbar .dropdown-menu {
