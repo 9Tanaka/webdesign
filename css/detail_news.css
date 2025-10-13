@@ -1,0 +1,8 @@
+@import url(vtuber_introduction.css);
+
+.banner {
+    background:url(../img/News/new2.jpg) repeat-x;
+    background-position: 0% 40%; 
+    background-size: cover;
+    height: 10em;
+}

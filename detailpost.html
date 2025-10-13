@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/forum.css">
+    <title>Post Detail | Vfan</title>
+    <style>
+        .post-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .engagement-bar {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .engagement-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .engagement-item:hover {
+            transform: scale(1.1);
+        }
+
+        .engagement-icon {
+            font-size: 24px;
+            color: #666;
+        }
+
+        .engagement-count {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .comment-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .comment-input-area {
+            margin-bottom: 30px;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .comment-input:focus {
+            outline: none;
+            border-color: #ff69b4;
+        }
+
+        .comment-tools {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .comment-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .comment-icon-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #999;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .comment-icon-btn:hover {
+            color: #666;
+        }
+
+        .send-btn {
+            padding: 10px 30px;
+            background: linear-gradient(90deg, #ff69b4, #ff85c1);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .send-btn:hover {
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+        }
+
+        .comments-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comments-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .comment-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .comment-item:last-child {
+            border-bottom: none;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .comment-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff69b4, #ff85c1);
+            flex-shrink: 0;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .author-badge {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-left: 5px;
+        }
+
+        .comment-date {
+            color: #999;
+            font-size: 12px;
+            margin-left: auto;
+        }
+
+        .comment-badges {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .badge-pinned {
+            background: #4caf50;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-highlighted {
+            background: #9c27b0;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-hot {
+            background: #ff5722;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .comment-content {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .comment-reactions {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .reaction-img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -8px;
+        }
+
+        .reaction-img:first-child {
+            margin-left: 0;
+        }
+
+        .comment-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .comment-action-btn {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .comment-action-btn:hover {
+            color: #ff69b4;
+        }
+
+        .like-count {
+            font-weight: 600;
+        }
+
+        .nested-comment {
+            margin-left: 50px;
+            padding-left: 15px;
+            border-left: 2px solid #f0f0f0;
+        }
+
+        .view-replies {
+            color: #666;
+            font-size: 13px;
+            cursor: pointer;
+            margin-left: 50px;
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .view-replies:hover {
+            color: #ff69b4;
+        }
+
+        .more-options {
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px;
+            margin-left: auto;
+        }
+
+        @media (max-width: 768px) {
+            .engagement-bar {
+                padding: 15px;
+            }
+
+            .engagement-icon {
+                font-size: 20px;
+            }
+
+            .engagement-count {
+                font-size: 12px;
+            }
+
+            .comment-section {
+                padding: 15px;
+            }
+
+            .nested-comment {
+                margin-left: 30px;
+            }
+
+            .view-replies {
+                margin-left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
+        </a>
+        <nav class="navbar">
+            <a class="nav-link" href="index.html">Home</a>
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Vtuber
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="vtuber_introduction.html">Introduction</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="agency.html">Agency</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="talent.html">Talent</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="ranking.html">Ranking</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Independent</a></li>
+                    <li><a class="dropdown-item" href="#">Event Calendar</a></li>
+                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Community
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
+                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <a class="nav-link" href="news.html">News</a>
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown">
+                    About us
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="rules.html">Rules</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="icon-container">
+            <a class="nav-link" href="search.html">
+                <img src="img/icon/search.png" alt="search" width="30" height="30">
+            </a>
+            <a href="">
+                <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+            </a>
+        </div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+    <!-- End header -->
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="forum.html">Discuss</a></li>
+        <li class="breadcrumb-item active">Post Detail</li>
+    </ol>
+
+    <div class="post-detail-container">
+        <!-- Main Post -->
+        <div class="post">
+            <div class="post-header">
+                <div class="avatar"></div>
+                <div class="user-info">
+                    <div class="username">Sonicm2008</div>
+                    <div class="time">13 hr. ago</div>
+                </div>
+                <button class="follow-btn">Follow</button>
+                <button class="more-btn">⋯
+                    <div class="dropdown-menu-custom">
+                        <div class="dropdown-item-custom report-btn">Report</div>
+                    </div>
+                </button>
+            </div>
+            <div class="post-title">Iroha's new maid outfit is so adorable!</div>
+            <div class="post-content">
+                Just watched Iroha's stream and WOW! Her new maid outfit reveal was absolutely stunning! 😍<br><br>
+                
+                The attention to detail is incredible - from the frilly apron to the elegant headpiece. The color scheme fits her personality perfectly too. The way she showcased different poses and expressions in the outfit was so entertaining!<br><br>
+                
+                I especially love how the outfit has that classic maid aesthetic while still maintaining Iroha's unique charm. The designers really outdid themselves this time.<br><br>
+                
+                Anyone else catch the stream? What was your favorite part of the reveal? I'm already excited to see fan art of this new look! 💕
+            </div>
+            <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' font-size='20' text-anchor='middle' fill='%23999'%3EIroha Maid Outfit Image%3C/text%3E%3C/svg%3E" class="post-image" alt="Iroha maid outfit">
+        </div>
+
+        <!-- Engagement Bar -->
+        <div class="engagement-bar">
+            <div class="engagement-item" onclick="toggleLike(this)">
+                <div class="engagement-icon">💬</div>
+                <div class="engagement-count">604</div>
+            </div>
+            <div class="engagement-item" onclick="toggleStar(this)">
+                <div class="engagement-icon">⭐</div>
+                <div class="engagement-count">174</div>
+            </div>
+            <div class="engagement-item" onclick="toggleLike(this)">
+                <div class="engagement-icon">👍</div>
+                <div class="engagement-count">1,693</div>
+            </div>
+            <div class="engagement-item" onclick="sharePost()">
+                <div class="engagement-icon">🔄</div>
+                <div class="engagement-count">8</div>
+            </div>
+        </div>
+
+        <!-- Comment Section -->
+        <div class="comment-section">
+            <div class="comment-input-area">
+                <textarea class="comment-input" id="commentInput" placeholder="Post your comment now~"></textarea>
+                <div class="comment-tools">
+                    <div class="comment-icons">
+                        <button class="comment-icon-btn" title="Emoji">😊</button>
+                        <button class="comment-icon-btn" title="GIF">GIF</button>
+                        <button class="comment-icon-btn" title="Sticker">🎨</button>
+                        <button class="comment-icon-btn" title="Mention">@</button>
+                        <button class="comment-icon-btn" title="Image">🖼️</button>
+                    </div>
+                    <button class="send-btn" onclick="postComment()">Send</button>
+                </div>
+            </div>
+
+            <div class="comments-header">
+                <div class="comments-title">All comments 6▼</div>
+            </div>
+
+            <!-- Comment 1 - Pinned & Highlighted -->
+            <div class="comment-item">
+                <div class="comment-header">
+                    <div class="comment-avatar"></div>
+                    <div>
+                        <span class="comment-author">Vivilyly-_</span>
+                        <span class="author-badge">✓ Post Author</span>
+                    </div>
+                    <span class="comment-date">172F</span>
+                    <button class="more-options">⋮</button>
+                </div>
+                <div class="comment-badges">
+                    <span class="badge-pinned">📌 Pinned</span>
+                    <span class="badge-highlighted">Highlighted by poster</span>
+                </div>
+                <div class="comment-content">
+                    GUYSS 🥳🥳 She is so cute
+                </div>
+                <div class="comment-reactions">
+                    <img class="reaction-img" src="data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23ff69b4'/%3E%3C/svg%3E" alt="reaction">
+                    <img class="reaction-img" src="data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23ff85c1'/%3E%3C/svg%3E" alt="reaction">
+                    <img class="reaction-img" src="data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='12' fill='%237aa6ff'/%3E%3C/svg%3E" alt="reaction">
+                </div>
+                <div class="comment-actions">
+                    <button class="comment-action-btn" onclick="replyComment(this)">
+                        💬 Reply
+                    </button>
+                    <button class="comment-action-btn" onclick="likeComment(this)">
+                        👍 <span class="like-count">215</span>
+                    </button>
+                </div>
+
+                <!-- Nested Comment with Hot Badge -->
+                <div class="nested-comment comment-item">
+                    <div class="comment-header">
+                        <div class="comment-avatar"></div>
+                        <span class="comment-author">ziadsaad22</span>
+                        <span class="comment-date">09/21</span>
+                        <button class="more-options">⋮</button>
+                    </div>
+                    <div class="comment-badges">
+                        <span class="badge-hot">🔥 Hot</span>
+                    </div>
+                    <div class="comment-content">
+                        The maid outfit really suits Iroha's aesthetic! I love how they incorporated traditional Japanese elements with the classic maid design. The sakura patterns on the apron are such a nice touch. Also, did anyone notice the little sword accessory? That's such a cool detail that represents her samurai character!
+                    </div>
+                    <div class="comment-actions">
+                        <button class="comment-action-btn" onclick="replyComment(this)">
+                            💬 Reply
+                        </button>
+                        <button class="comment-action-btn" onclick="likeComment(this)">
+                            👍 <span class="like-count">1</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Another Nested Comment -->
+                <div class="nested-comment comment-item">
+                    <div class="comment-header">
+                        <div class="comment-avatar"></div>
+                        <span class="comment-author">user_397950295</span>
+                        <span class="comment-date">09/21</span>
+                        <button class="more-options">⋮</button>
+                    </div>
+                    <div class="comment-content">
+                        Thank you!! That's totally true! The sword accessory detail is amazing! I also loved how she did that little curtsy animation - it was so elegant and perfectly matched the maid theme. Can't wait to see cosplayers recreate this outfit!
+                    </div>
+                    <div class="comment-actions">
+                        <button class="comment-action-btn" onclick="replyComment(this)">
+                            💬 Reply
+                        </button>
+                        <button class="comment-action-btn" onclick="likeComment(this)">
+                            👍 <span class="like-count">0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="view-replies" onclick="toggleReplies(this)">
+                    Replies: 4 ▼
+                </div>
+            </div>
+
+            <!-- More comments can be added here -->
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="modal-overlay" id="reportModal">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <div class="modal-title">Report Post</div>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body-custom">
+                <label class="report-option">
+                    <input type="radio" name="report" value="spam">
+                    <span>Spam or misleading</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="harassment">
+                    <span>Harassment or hate speech</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="inappropriate">
+                    <span>Inappropriate content</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="copyright">
+                    <span>Copyright violation</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="other">
+                    <span>Other</span>
+                </label>
+            </div>
+            <div class="modal-footer-custom">
+                <button class="btn-custom btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="btn-custom btn-submit" onclick="submitReport()">Submit Report</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="containert">
+            <div class="d-flex flex-wrap">
+                <div class="textbox2">
+                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+                    <p>Contact Us</p>
+                    <img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30">
+                    <img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30">
+                    <img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30">
+                    <img class="Con" src="img/email.png" alt="email" width="30" height="30">
+                </div>
+                <div class="d-flex">
+                    <div class="first">
+                        <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
+                        <a href="aboutus.html">About us</a>
+                        <a href="introduction.html">What is vtuber?</a>
+                    </div>
+                    <div class="second">
+                        <a href="commnuity.html">Community</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="ranking.html">Top Vtuber</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/hamburger.js"></script>
+    <script>
+        // Follow button
+        document.querySelectorAll('.follow-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('following');
+                this.textContent = this.classList.contains('following') ? 'Following' : 'Follow';
+            });
+        });
+
+        // Three dots dropdown
+        document.querySelectorAll('.more-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const dropdown = this.querySelector('.dropdown-menu-custom');
+                document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
+                    if (menu !== dropdown) menu.classList.remove('show');
+                });
+                dropdown.classList.toggle('show');
+            });
+        });
+
+        document.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        });
+
+        // Report functionality
+        document.querySelectorAll('.report-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.getElementById('reportModal').classList.add('show');
+            });
+        });
+
+        function closeModal() {
+            document.getElementById('reportModal').classList.remove('show');
+        }
+
+        function submitReport() {
+            const selected = document.querySelector('input[name="report"]:checked');
+            if (selected) {
+                alert('Report submitted: ' + selected.value);
+                closeModal();
+                document.querySelectorAll('input[name="report"]').forEach(radio => {
+                    radio.checked = false;
+                });
+            } else {
+                alert('Please select a reason for reporting');
+            }
+        }
+
+        document.getElementById('reportModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Engagement actions
+        function toggleLike(element) {
+            element.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        function toggleStar(element) {
+            const icon = element.querySelector('.engagement-icon');
+            icon.style.color = icon.style.color === 'rgb(255, 215, 0)' ? '#666' : '#FFD700';
+        }
+
+        function sharePost() {
+            alert('Share functionality');
+        }
+
+        // Comment actions
+        function postComment() {
+            const input = document.getElementById('commentInput');
+            if (input.value.trim()) {
+                alert('Comment posted: ' + input.value);
+                input.value = '';
+            }
+        }
+
+        function replyComment(btn) {
+            const input = document.getElementById('commentInput');
+            input.focus();
+            input.placeholder = 'Reply to this comment...';
+        }
+
+        function likeComment(btn) {
+            const countSpan = btn.querySelector('.like-count');
+            const currentCount = parseInt(countSpan.textContent);
+            countSpan.textContent = currentCount + 1;
+            btn.style.color = '#ff69b4';
+        }
+
+        function toggleReplies(element) {
+            const arrow = element.textContent.includes('▼') ? '▲' : '▼';
+            const text = element.textContent.replace(/[▼▲]/, arrow);
+            element.textContent = text;
+        }
+    </script>
+</body>
+</html>
