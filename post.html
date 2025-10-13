@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/headerfooter.css">
+    <title>Create Post | Vfan</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, rgba(255, 182, 223, 0.3) 0%, rgba(173, 216, 230, 0.3) 100%);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url(../img/background.jpg);
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .create-post-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .create-post-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .post-header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .drafts-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .drafts-link:hover {
+            color: #ff69b4;
+        }
+
+        .community-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: #f5f5f5;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .community-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff69b4, #ff85c1);
+        }
+
+        .community-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .tab-navigation {
+            display: flex;
+            gap: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 10px 15px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            color: #666;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .tab-btn.active {
+            color: #333;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #ff69b4;
+        }
+
+        .tab-btn:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ff69b4;
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .add-flair-btn {
+            padding: 8px 15px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .add-flair-btn:hover {
+            background: #e8e8e8;
+        }
+
+        .editor-toolbar {
+            display: flex;
+            gap: 5px;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            flex-wrap: wrap;
+        }
+
+        .editor-btn {
+            padding: 6px 10px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #666;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+
+        .editor-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .editor-separator {
+            width: 1px;
+            background: #e0e0e0;
+            margin: 0 5px;
+        }
+
+        .switch-editor {
+            margin-left: auto;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .form-textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #ff69b4;
+        }
+
+        .upload-area {
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+            padding: 60px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .upload-area:hover {
+            border-color: #ff69b4;
+            background: rgba(255, 105, 180, 0.05);
+        }
+
+        .upload-area.dragover {
+            border-color: #ff69b4;
+            background: rgba(255, 105, 180, 0.1);
+        }
+
+        .upload-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .upload-icon {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+
+        .preview-images {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .preview-image {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .preview-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .remove-image {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-secondary {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            background: #e0e0e0;
+            color: #666;
+            transition: background 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .btn-primary {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            background: linear-gradient(90deg, #ff69b4, #ff85c1);
+            color: white;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .create-post-card {
+                padding: 20px;
+            }
+
+            .tab-navigation {
+                gap: 10px;
+            }
+
+            .tab-btn {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .editor-toolbar {
+                padding: 8px;
+            }
+
+            .editor-btn {
+                padding: 5px 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
+        </a>
+        <nav class="navbar">
+            <a class="nav-link" href="index.html">Home</a>
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Vtuber
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="vtuber_introduction.html">Introduction</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="agency.html">Agency</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="talent.html">Talent</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="ranking.html">Ranking</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Independent</a></li>
+                    <li><a class="dropdown-item" href="#">Event Calendar</a></li>
+                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Community
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
+                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <a class="nav-link" href="news.html">News</a>
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown">
+                    About us
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="rules.html">Rules</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="icon-container">
+            <a class="nav-link" href="search.html">
+                <img src="img/icon/search.png" alt="search" width="30" height="30">
+            </a>
+            <a href="">
+                <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+            </a>
+        </div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+    <!-- End header -->
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="forum.html">Discuss</a></li>
+        <li class="breadcrumb-item active">Create Post</li>
+    </ol>
+
+    <div class="create-post-container">
+        <div class="create-post-card">
+            <div class="post-header">
+                <h1>Create post</h1>
+                <a href="#" class="drafts-link">Drafts</a>
+            </div>
+
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="text">Text</button>
+                <button class="tab-btn" data-tab="media">Images & Video</button>
+                <button class="tab-btn" data-tab="link">Link</button>
+                <button class="tab-btn" data-tab="poll">Poll</button>
+            </div>
+
+            <form id="createPostForm">
+                <!-- Text Tab -->
+                <div class="tab-content active" id="text-tab">
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="titleText" placeholder="Title*" maxlength="300" required>
+                        <div class="char-count"><span id="titleCount">0</span>/300</div>
+                    </div>
+
+                    <button type="button" class="add-flair-btn">Add flair and tags*</button>
+
+                    <div class="editor-toolbar">
+                        <button type="button" class="editor-btn" title="Bold"><b>B</b></button>
+                        <button type="button" class="editor-btn" title="Italic"><i>i</i></button>
+                        <button type="button" class="editor-btn" title="Strikethrough"><s>S</s></button>
+                        <button type="button" class="editor-btn" title="Superscript">X²</button>
+                        <button type="button" class="editor-btn" title="Heading">TT</button>
+                        <div class="editor-separator"></div>
+                        <button type="button" class="editor-btn" title="Link">🔗</button>
+                        <button type="button" class="editor-btn" title="Image">🖼️</button>
+                        <button type="button" class="editor-btn" title="Emoji">😊</button>
+                        <button type="button" class="editor-btn" title="Bullet List">•</button>
+                        <button type="button" class="editor-btn" title="Numbered List">1.</button>
+                        <button type="button" class="editor-btn" title="Quote">❝</button>
+                        <button type="button" class="editor-btn" title="Code">99</button>
+                        <button type="button" class="editor-btn" title="Code Block">&lt;/&gt;</button>
+                        <button type="button" class="editor-btn" title="More">⋯</button>
+                        <span class="switch-editor">Switch to Markdown Editor</span>
+                    </div>
+                    <textarea class="form-textarea" id="bodyText" placeholder="Body text*" required></textarea>
+                </div>
+
+                <!-- Images & Video Tab -->
+                <div class="tab-content" id="media-tab">
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="titleMedia" placeholder="Title*" maxlength="300" required>
+                        <div class="char-count"><span id="titleMediaCount">0</span>/300</div>
+                    </div>
+
+                    <button type="button" class="add-flair-btn">Add flair and tags*</button>
+
+                    <div class="upload-area" id="uploadArea">
+                        <span class="upload-text">Drag and Drop or upload media</span>
+                        <span class="upload-icon">📤</span>
+                    </div>
+                    <input type="file" id="fileInput" multiple accept="image/*,video/*">
+
+                    <div class="preview-images" id="previewImages"></div>
+
+                    <div class="editor-toolbar">
+                        <button type="button" class="editor-btn" title="Bold"><b>B</b></button>
+                        <button type="button" class="editor-btn" title="Italic"><i>i</i></button>
+                        <button type="button" class="editor-btn" title="Strikethrough"><s>S</s></button>
+                        <button type="button" class="editor-btn" title="Superscript">X²</button>
+                        <button type="button" class="editor-btn" title="Heading">TT</button>
+                        <div class="editor-separator"></div>
+                        <button type="button" class="editor-btn" title="Link">🔗</button>
+                        <button type="button" class="editor-btn" title="Bullet List">•</button>
+                        <button type="button" class="editor-btn" title="Numbered List">1.</button>
+                        <button type="button" class="editor-btn" title="Quote">❝</button>
+                        <button type="button" class="editor-btn" title="Code">99</button>
+                        <button type="button" class="editor-btn" title="Code Block">&lt;/&gt;</button>
+                        <button type="button" class="editor-btn" title="Emoji">😊</button>
+                        <button type="button" class="editor-btn" title="Table">⊞</button>
+                        <span class="switch-editor">Switch to Markdown Editor</span>
+                    </div>
+                    <textarea class="form-textarea" id="bodyMedia" placeholder="Body text (optional)"></textarea>
+                </div>
+
+                <!-- Link Tab -->
+                <div class="tab-content" id="link-tab">
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="titleLink" placeholder="Title*" maxlength="300" required>
+                        <div class="char-count"><span id="titleLinkCount">0</span>/300</div>
+                    </div>
+
+                    <button type="button" class="add-flair-btn">Add flair and tags*</button>
+
+                    <div class="form-group">
+                        <input type="url" class="form-input" id="linkUrl" placeholder="Link URL *" required>
+                    </div>
+
+                    <div class="editor-toolbar">
+                        <button type="button" class="editor-btn" title="Bold"><b>B</b></button>
+                        <button type="button" class="editor-btn" title="Italic"><i>i</i></button>
+                        <button type="button" class="editor-btn" title="Strikethrough"><s>S</s></button>
+                        <button type="button" class="editor-btn" title="Superscript">X²</button>
+                        <button type="button" class="editor-btn" title="Heading">TT</button>
+                        <div class="editor-separator"></div>
+                        <button type="button" class="editor-btn" title="Link">🔗</button>
+                        <button type="button" class="editor-btn" title="Bullet List">•</button>
+                        <button type="button" class="editor-btn" title="Numbered List">1.</button>
+                        <button type="button" class="editor-btn" title="Quote">❝</button>
+                        <button type="button" class="editor-btn" title="Code">99</button>
+                        <button type="button" class="editor-btn" title="Code Block">&lt;/&gt;</button>
+                        <button type="button" class="editor-btn" title="Emoji">😊</button>
+                        <button type="button" class="editor-btn" title="Table">⊞</button>
+                        <span class="switch-editor">Switch to Markdown Editor</span>
+                    </div>
+                    <textarea class="form-textarea" id="bodyLink" placeholder="Body text (optional)"></textarea>
+                </div>
+
+                <!-- Poll Tab -->
+                <div class="tab-content" id="poll-tab">
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="titlePoll" placeholder="Title*" maxlength="300" required>
+                        <div class="char-count"><span id="titlePollCount">0</span>/300</div>
+                    </div>
+
+                    <button type="button" class="add-flair-btn">Add flair and tags*</button>
+
+                    <div class="form-group">
+                        <input type="text" class="form-input poll-option" placeholder="Poll option 1" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input poll-option" placeholder="Poll option 2" required>
+                    </div>
+                    <button type="button" class="btn-secondary" id="addPollOption">+ Add option</button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="saveDraft">Save Draft</button>
+                    <button type="submit" class="btn-primary" id="submitPost"><a href="forum.html">Post</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="containert">
+            <div class="d-flex flex-wrap">
+                <div class="textbox2">
+                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+                    <p>Contact Us</p>
+                    <img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30">
+                    <img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30">
+                    <img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30">
+                    <img class="Con" src="img/email.png" alt="email" width="30" height="30">
+                </div>
+                <div class="d-flex">
+                    <div class="first">
+                        <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
+                        <a href="aboutus.html">About us</a>
+                        <a href="introduction.html">What is vtuber?</a>
+                    </div>
+                    <div class="second">
+                        <a href="commnuity.html">Community</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="ranking.html">Top Vtuber</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/hamburger.js"></script>
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding content
+                const tabName = this.getAttribute('data-tab');
+                document.getElementById(tabName + '-tab').classList.add('active');
+            });
+        });
+
+        // Character counter for all title inputs
+        const titleInputs = ['titleText', 'titleMedia', 'titleLink', 'titlePoll'];
+        titleInputs.forEach(id => {
+            const input = document.getElementById(id);
+            const counter = document.getElementById(id + 'Count');
+            if (input && counter) {
+                input.addEventListener('input', function() {
+                    counter.textContent = this.value.length;
+                });
+            }
+        });
+
+        // File upload functionality
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewImages = document.getElementById('previewImages');
+        let uploadedFiles = [];
+
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
+                    uploadedFiles.push(file);
+                    displayPreview(file);
+                }
+            });
+        }
+
+        function displayPreview(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const preview = document.createElement('div');
+                preview.className = 'preview-image';
+                preview.innerHTML = `
+                    <img src="${e.target.result}" alt="Preview">
+                    <button type="button" class="remove-image" onclick="removeImage(this, '${file.name}')">×</button>
+                `;
+                previewImages.appendChild(preview);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removeImage(btn, fileName) {
+            uploadedFiles = uploadedFiles.filter(f => f.name !== fileName);
+            btn.parentElement.remove();
+        }
+
+        // Add poll option
+        let pollOptionCount = 2;
+        document.getElementById('addPollOption')?.addEventListener('click', function() {
+            pollOptionCount++;
+            const newOption = document.createElement('div');
+            newOption.className = 'form-group';
+            newOption.innerHTML = `<input type="text" class="form-input poll-option" placeholder="Poll option ${pollOptionCount}">`;
+            this.parentElement.insertBefore(newOption, this);
+        });
+
+        // Save draft
+        document.getElementById('saveDraft').addEventListener('click', function() {
+            const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-tab');
+            let data = {
+                tab: activeTab,
+                timestamp: new Date().toISOString()
+            };
+
+            if (activeTab === 'text') {
+                data.title = document.getElementById('titleText').value;
+                data.body = document.getElementById('bodyText').value;
+            } else if (activeTab === 'media') {
+                data.title = document.getElementById('titleMedia').value;
+                data.body = document.getElementById('bodyMedia').value;
+                data.files = uploadedFiles.length;
+            } else if (activeTab === 'link') {
+                data.title = document.getElementById('titleLink').value;
+                data.url = document.getElementById('linkUrl').value;
+                data.body = document.getElementById('bodyLink').value;
+            } else if (activeTab === 'poll') {
+                data.title = document.getElementById('titlePoll').value;
+                data.options = Array.from(document.querySelectorAll('.poll-option')).map(o => o.value);
+            }
+
+            localStorage.setItem('postDraft', JSON.stringify(data));
+            alert('Draft saved successfully!');
+        });
+
+        // Submit post
+        document.getElementById('createPostForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const activeTab = document.querySelector('.tab-btn.active').getAttribute('data-tab');
+            let postData = {
+                tab: activeTab,
+                timestamp: new Date().toISOString()
+            };
+
+            if (activeTab === 'text') {
+                postData.title = document.getElementById('titleText').value;
+                postData.body = document.getElementById('bodyText').value;
+            } else if (activeTab === 'media') {
+                postData.title = document.getElementById('titleMedia').value;
+                postData.body = document.getElementById('bodyMedia').value;
+                postData.files = uploadedFiles;
+            } else if (activeTab === 'link') {
+                postData.title = document.getElementById('titleLink').value;
+                postData.url = document.getElementById('linkUrl').value;
+                postData.body = document.getElementById('bodyLink').value;
+            } else if (activeTab === 'poll') {
+                postData.title = document.getElementById('titlePoll').value;
+                postData.options = Array.from(document.querySelectorAll('.poll-option')).map(o => o.value).filter(v => v);
+            }
+
+            console.log('Post data:', postData);
+            alert('Post created successfully!');
+            
+            // Redirect to forum page
+            setTimeout(() => {
+                window.location.href = 'forum.html';
+            }, 1000);
+        });
+
+        // Load draft if exists
+        window.addEventListener('load', function() {
+            const draft = localStorage.getItem('postDraft');
+            if (draft) {
+                const data = JSON.parse(draft);
+                // You can implement auto-fill functionality here if needed
+            }
+        });
+    </script>
+</body>
+</html>
