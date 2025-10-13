@@ -1,46 +1,21 @@
 @import url(headerfooter.css);
 
- * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'mitr', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, rgba(255, 182, 223, 0.3) 0%, rgba(173, 216, 230, 0.3) 100%);
-            min-height: 100vh;
-        }
-
-        @font-face {
-            font-family: 'mitr';
-            src: url(font/Mitr-Light.ttf);
+body {
+            background: url(../img/background.jpg);
         }
 
         /* Desktop patterns */
         body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle, rgba(173, 216, 230, 0.4) 2px, transparent 2px);
-            background-size: 30px 30px;
-            pointer-events: none;
-            z-index: 0;
-        }
+    position: fixed;
+    z-index: 0;
+}
 
         .breadcrumb {
-            padding: 20px 30px;
-            font-size: 14px;
-            color: #666;
             position: relative;
             z-index: 1;
         }
 
-        .container {
+        .forum-container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px 40px;
@@ -124,7 +99,7 @@
             position: relative;
         }
 
-        .dropdown-menu {
+        .dropdown-menu-custom {
             position: absolute;
             top: 100%;
             right: 0;
@@ -137,18 +112,18 @@
             z-index: 1000;
         }
 
-        .dropdown-menu.show {
+        .dropdown-menu-custom.show {
             display: block;
         }
 
-        .dropdown-item {
+        .dropdown-item-custom {
             padding: 10px 20px;
             cursor: pointer;
             transition: background 0.2s ease;
             color: #333;
         }
 
-        .dropdown-item:hover {
+        .dropdown-item-custom:hover {
             background: rgba(255, 105, 180, 0.1);
         }
 
@@ -268,8 +243,8 @@
         }
 
         .thumbnail {
-            width: 35px;
-            height: 35px;
+            width: 3em;
+            height: 3em;
             background: #e0e0e0;
             border-radius: 5px;
         }
@@ -291,7 +266,7 @@
         }
 
         /* Report Modal */
-        .modal {
+        .modal-overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -304,11 +279,11 @@
             align-items: center;
         }
 
-        .modal.show {
+        .modal-overlay.show {
             display: flex;
         }
 
-        .modal-content {
+        .modal-content-custom {
             background: white;
             border-radius: 15px;
             padding: 30px;
@@ -329,7 +304,7 @@
             }
         }
 
-        .modal-header {
+        .modal-header-custom {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -351,7 +326,7 @@
             line-height: 1;
         }
 
-        .modal-body {
+        .modal-body-custom {
             margin-bottom: 20px;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -382,13 +357,13 @@
             font-size: 14px;
         }
 
-        .modal-footer {
+        .modal-footer-custom {
             display: flex;
             gap: 10px;
             justify-content: flex-end;
         }
 
-        .btn {
+        .btn-custom {
             padding: 10px 25px;
             border: none;
             border-radius: 8px;
@@ -418,17 +393,11 @@
         /* Mobile styles */
         @media (max-width: 900px) {
             body::before {
-                background-image: 
-                    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 182, 223, 0.3) 20px, rgba(255, 182, 223, 0.3) 40px),
-                    repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(173, 216, 230, 0.3) 20px, rgba(173, 216, 230, 0.3) 40px);
+                   
                 background-size: 100% 100%;
             }
 
-            .breadcrumb {
-                padding: 15px 20px;
-            }
-
-            .container {
+            .forum-container {
                 flex-direction: column;
                 padding: 0 15px 40px;
             }
@@ -474,11 +443,11 @@
                 flex-wrap: wrap;
             }
 
-            .modal-content {
+            .modal-content-custom {
                 padding: 20px;
             }
 
-            .modal-body {
+            .modal-body-custom {
                 grid-template-columns: 1fr;
             }
 

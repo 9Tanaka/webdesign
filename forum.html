@@ -3,45 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vfan - Discuss</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/forum.css">
+    <title>Discuss | Vfan</title>
+    <style>
+        /* Only JavaScript-specific styles here */
+    </style>
 </head>
 <body>
-    <div class="breadcrumb">home > discuss</div>
+    <!-- header -->
+    <div class="header">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
+        </a>
+        <nav class="navbar">
+            <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
+    
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Vtuber
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="vtuber_introduction.html">Introduction</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="agency.html">Agency</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="talent.html">Talent</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="ranking.html">Ranking</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Independent</a></li>
+                    <li><a class="dropdown-item" href="#">Event Calendar</a></li>
+                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
+                </ul>
+            </div>
 
-    <div class="container">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Community
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
+                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+
+            <a class="nav-link" aria-label="go to news page" href="news.html">News</a>
+            
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    About us
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="rules.html">Rules</a></li>
+                </ul>
+            </div>
+        </nav>
+   
+        <div class="icon-container">
+            <a class="nav-link" href="search.html">
+                <img src="img/icon/search.png" alt="search" width="30" height="30">
+            </a>
+            <a href="">
+                <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+            </a>
+        </div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+    <!-- End header -->
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Discuss</li>
+    </ol>
+
+    <div class="forum-container">
         <div class="sidebar">
             <div class="sidebar-section">
                 <div class="sidebar-title">Recommended user</div>
                 <div class="recommended-user">
-                    <div class="user-avatar"></div>
+                    <img class="user-avatar" src="img/forum/profilezeta.jpeg">
                     <div>
                         <div class="user-name">zeta</div>
                         <div class="user-thumbnails">
-                            <div class="thumbnail"></div>
-                            <div class="thumbnail"></div>
-                            <div class="thumbnail"></div>
+                         <img class="thumbnail" src="img/thumb.gif">
+                         <img class="thumbnail" src="img/thumb1.gif">
+                         <img class="thumbnail" src="img/thumb3.gif">
                         </div>
                     </div>
                 </div>
                 <div class="recommended-user">
-                    <div class="user-avatar"></div>
+                    <img class="user-avatar" src="img/yea.png">
                     <div>
-                        <div class="user-name">suicute</div>
+                        <div class="user-name">masterD</div>
                         <div class="user-thumbnails">
-                            <div class="thumbnail"></div>
-                            <div class="thumbnail"></div>
+                            <img class="thumbnail" src="img/thumbsui.png">
+                            <img class="thumbnail" src="img/thumbsui1.jpg">
+                            <img class="thumbnail" src="img/thumbsui2.jpg">
                         </div>
                     </div>
                 </div>
                 <div class="recommended-user">
-                    <div class="user-avatar"></div>
+                    <img class="user-avatar" src="img/ina.jpg">
                     <div>
                         <div class="user-name">inapower</div>
                         <div class="user-thumbnails">
-                            <div class="thumbnail"></div>
-                            <div class="thumbnail"></div>
-                            <div class="thumbnail"></div>
+                            <img class="thumbnail" src="img/thumb3_1.jpg">
+                            <img class="thumbnail" src="img/thumb3_2.jpg">
+                            <img class="thumbnail" src="img/thumb3_3.png">
                         </div>
                     </div>
                 </div>
@@ -97,8 +179,8 @@
                     </div>
                     <button class="follow-btn">Follow</button>
                     <button class="more-btn">⋯
-                        <div class="dropdown-menu">
-                            <div class="dropdown-item report-btn">Report</div>
+                        <div class="dropdown-menu-custom">
+                            <div class="dropdown-item-custom report-btn">Report</div>
                         </div>
                     </button>
                 </div>
@@ -124,8 +206,8 @@
                     </div>
                     <button class="follow-btn">Follow</button>
                     <button class="more-btn">⋯
-                        <div class="dropdown-menu">
-                            <div class="dropdown-item report-btn">Report</div>
+                        <div class="dropdown-menu-custom">
+                            <div class="dropdown-item-custom report-btn">Report</div>
                         </div>
                     </button>
                 </div>
@@ -149,8 +231,8 @@
                     </div>
                     <button class="follow-btn">Follow</button>
                     <button class="more-btn">⋯
-                        <div class="dropdown-menu">
-                            <div class="dropdown-item report-btn">Report</div>
+                        <div class="dropdown-menu-custom">
+                            <div class="dropdown-item-custom report-btn">Report</div>
                         </div>
                     </button>
                 </div>
@@ -170,13 +252,13 @@
     <button class="post-btn">+</button>
 
     <!-- Report Modal -->
-    <div class="modal" id="reportModal">
-        <div class="modal-content">
-            <div class="modal-header">
+    <div class="modal-overlay" id="reportModal">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
                 <div class="modal-title">Report Post</div>
                 <button class="close-btn" onclick="closeModal()">&times;</button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body-custom">
                 <label class="report-option">
                     <input type="radio" name="report" value="spam">
                     <span>Spam or misleading</span>
@@ -198,13 +280,44 @@
                     <span>Other</span>
                 </label>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
-                <button class="btn btn-submit" onclick="submitReport()">Submit Report</button>
+            <div class="modal-footer-custom">
+                <button class="btn-custom btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="btn-custom btn-submit" onclick="submitReport()">Submit Report</button>
             </div>
         </div>
     </div>
 
+    <!-- footer -->
+    <div class="footer">
+        <div class="containert">
+            <div class="d-flex flex-wrap">
+                <div class="textbox2">
+                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+                    <p>Contact Us</p>
+                    <img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30">
+                    <img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30">
+                    <img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30">
+                    <img class="Con" src="img/email.png" alt="email" width="30" height="30">
+                </div>
+                <div class="d-flex">
+                    <div class="first">
+                        <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
+                        <a href="aboutus.html">About us</a>
+                        <a href="introduction.html">What is vtuber?</a>
+                    </div>
+                    <div class="second">
+                        <a href="commnuity.html">Community</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="ranking.html">Top Vtuber</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/hamburger.js"></script>
     <script>
         // Follow button functionality
         document.querySelectorAll('.follow-btn').forEach(btn => {
@@ -222,10 +335,10 @@
         document.querySelectorAll('.more-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                const dropdown = this.querySelector('.dropdown-menu');
+                const dropdown = this.querySelector('.dropdown-menu-custom');
                 
                 // Close all other dropdowns
-                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
                     if (menu !== dropdown) {
                         menu.classList.remove('show');
                     }
@@ -237,7 +350,7 @@
 
         // Close dropdowns when clicking outside
         document.addEventListener('click', function() {
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
                 menu.classList.remove('show');
             });
         });
