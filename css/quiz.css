@@ -60,7 +60,10 @@
             flex-direction: column;
             gap: 0.8em;
         }
-
+        .quiz-btn a{
+            color: white;
+            text-decoration: none;
+        }
         .radio-option-quiz {
             position: relative;
             display: flex;

@@ -17,7 +17,10 @@
       max-width: 350px;
       position: relative;
     }
-    
+    .submit-btn a{
+      text-decoration: none;
+      color: white;
+    }
     /* Mobile Portrait (< 768px) - ไม่มีกรอบ */
     @media (max-width: 767px) {
       .login-container {
