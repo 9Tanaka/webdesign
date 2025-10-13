@@ -3,221 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Vfan - Discuss</title>
     <link rel="stylesheet" href="css/forum.css">
 </head>
 <body>
-     <!-- header -->
-    <div class="header">
-        <a href="index.html">
-            <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
-        </a>
-        <nav class="navbar">
-            <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
-    
-            <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Vtuber
-                </a>
-                <ul class="dropdown-menu">
-                    
-                    <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="introduction.html">Introduction</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
-                        </ul>
-                    </li>
-                    
-                 
-                    <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="agency.html">Agency</a>
-                        <ul class="dropdown-menu">
-                         
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item" href="talent.html">Talent</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="ranking.html">Ranking</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    <li><a class="dropdown-item" href="#">Independent</a></li>
-                    <li><a class="dropdown-item" href="#">Event Calendar</a></li>
-                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
-                </ul>
+    <div class="breadcrumb">home > discuss</div>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Recommended user</div>
+                <div class="recommended-user">
+                    <div class="user-avatar"></div>
+                    <div>
+                        <div class="user-name">zeta</div>
+                        <div class="user-thumbnails">
+                            <div class="thumbnail"></div>
+                            <div class="thumbnail"></div>
+                            <div class="thumbnail"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="recommended-user">
+                    <div class="user-avatar"></div>
+                    <div>
+                        <div class="user-name">suicute</div>
+                        <div class="user-thumbnails">
+                            <div class="thumbnail"></div>
+                            <div class="thumbnail"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="recommended-user">
+                    <div class="user-avatar"></div>
+                    <div>
+                        <div class="user-name">inapower</div>
+                        <div class="user-thumbnails">
+                            <div class="thumbnail"></div>
+                            <div class="thumbnail"></div>
+                            <div class="thumbnail"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-        
-            <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Community
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
-                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
-                </ul>
+            <div class="sidebar-section">
+                <div class="sidebar-title">Hot topic</div>
+                <div class="hot-topic-item">
+                    <span class="topic-tag">#hololive</span>
+                    <div class="topic-stats">
+                        <span class="topic-icon"></span>
+                        <span>1096 posts · New post 3d ago</span>
+                    </div>
+                </div>
+                <div class="hot-topic-item">
+                    <span class="topic-tag">#Nijisanji</span>
+                    <div class="topic-stats">
+                        <span class="topic-icon"></span>
+                        <span>307 posts · New post 2d ago</span>
+                    </div>
+                </div>
+                <div class="hot-topic-item">
+                    <span class="topic-tag">#ironmouse</span>
+                    <div class="topic-stats">
+                        <span class="topic-icon"></span>
+                        <span>300 posts · New post 2d ago</span>
+                    </div>
+                </div>
+                <div class="hot-topic-item">
+                    <span class="topic-tag">#kizuna come back</span>
+                    <div class="topic-stats">
+                        <span class="topic-icon"></span>
+                        <span>350 posts · New post 2d ago</span>
+                    </div>
+                </div>
+                <div class="hot-topic-item">
+                    <span class="topic-tag">#Hoshimachi suisei</span>
+                    <div class="topic-stats">
+                        <span class="topic-icon"></span>
+                        <span>400 posts · New post 1d ago</span>
+                    </div>
+                </div>
             </div>
-
-            <a class="nav-link" aria-label="go to news page" href="news.html">News</a>
-            
-           
-            <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    About us
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="rules.html">Rules</a></li>
-                </ul>
-            </div>
-        </nav>
-   
-         <div class="icon-container">
-        <a class="nav-link" href="search.html">
-            <img src="img/icon/search.png" alt="search" width="30" height="30">
-        </a>
-        <a href="">
-            <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
-        </a>
-    </div>
-        <div class="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
         </div>
-    </div>
 
-    <!-- End header -->
-
-
-<!-- Forum Container -->
-    <div class="forum-container">
-        <!-- Sidebar -->
-        <aside class="forum-sidebar">
-            <div class="category-widget">
-                <h2 class="widget-title">Category Activity</h2>
-                <ul class="category-list">
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-name">
-                                <span class="category-indicator"></span>
-                                General
-                            </div>
-                            <span class="category-count">1008 posts</span>
-                        </a>
-                        <div class="category-meta">New post 2d ago</div>
-                    </li>
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-name">
-                                <span class="category-indicator"></span>
-                                Requests/Suggestions
-                            </div>
-                            <span class="category-count">367 posts</span>
-                        </a>
-                        <div class="category-meta">New post 2d ago</div>
-                    </li>
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-name">
-                                <span class="category-indicator"></span>
-                                Moderation
-                            </div>
-                            <span class="category-count">8 posts</span>
-                        </a>
-                        <div class="category-meta">New post 2d ago</div>
-                    </li>
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-name">
-                                <span class="category-indicator"></span>
-                                Management
-                            </div>
-                            <span class="category-count">35 posts</span>
-                        </a>
-                        <div class="category-meta">New post 2d ago</div>
-                    </li>
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            <div class="category-name">
-                                <span class="category-indicator"></span>
-                                Staff board
-                            </div>
-                            <span class="category-count">4 posts</span>
-                        </a>
-                        <div class="category-meta">New today on 23/3/2024</div>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="forum-main">
-            <!-- Create Post Box -->
-            <div class="create-post">
-                <div class="create-post-header">
-                    <img src="img/default-avatar.jpg" alt="User Avatar" class="user-avatar">
-                    <input type="text" class="create-post-input" placeholder="What is on your mind?">
-                </div>
-                <div class="post-options">
-                    <button class="option-btn">
-                        <img src="img/icon/text.png" alt="text"> text
-                    </button>
-                    <button class="option-btn">
-                        <img src="img/icon/poll.png" alt="poll"> poll
+        <div class="main-content">
+            <div class="post">
+                <div class="post-header">
+                    <div class="avatar"></div>
+                    <div class="user-info">
+                        <div class="username">biboogaming</div>
+                        <div class="time">3d</div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                    <button class="more-btn">⋯
+                        <div class="dropdown-menu">
+                            <div class="dropdown-item report-btn">Report</div>
+                        </div>
                     </button>
                 </div>
-            </div>
-
-            <!-- Forum Posts Container -->
-            <div class="forum-posts" id="forumPosts">
-                <!-- Posts will be dynamically loaded here -->
-            </div>
-
-            <!-- Loading Indicator -->
-            <div class="loading-indicator" id="loadingIndicator" style="display: none;">
-                <div class="loading-spinner"></div>
-                <p>Loading more posts...</p>
-            </div>
-        </main>
-    </div>
-
-
-
-
-
-    
-    <div class="footer">
-        <div class="containert">
-            <div class="d-flex flex-wrap">
-                <div class="textbox2">
-                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
-                    <p>Contact Us</p>
-                    <img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30">
-                    <img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30">
-                    <img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30">
-                    <img class="Con" src="img/email.png" alt="email" width="30" height="30">
+                <div class="post-title">Some know this vtuber?</div>
+                <div class="post-content">
+                    She have blue hair with white highlight wearing jacket<br>
+                    speaking both english and japanese<br>
+                    someone know her? wanna watch her so bad she so funny
                 </div>
-                <div class="d-flex">
-                    <div class="first">
-                        <a href="">Home</a>
-                        <a href="">News</a>
-                        <a href="">About us</a>
-                        <a href="">What is vtuber?</a>
+                <div class="post-stats">
+                    <span class="stat">👁 300</span>
+                    <span class="stat">💬 1</span>
+                    <span class="stat">👍 3</span>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <div class="avatar"></div>
+                    <div class="user-info">
+                        <div class="username">Sonicm2008</div>
+                        <div class="time">13 hr. ago</div>
                     </div>
-                    <div class="second">
-                        <a href="">Community</a>
-                        <a href="">FAQ</a>
-                        <a href="">Top Vtuber</a>
+                    <button class="follow-btn">Follow</button>
+                    <button class="more-btn">⋯
+                        <div class="dropdown-menu">
+                            <div class="dropdown-item report-btn">Report</div>
+                        </div>
+                    </button>
+                </div>
+                <div class="post-content">
+                    Iroha's new maid outfit is so adorable!
+                </div>
+                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' font-size='20' text-anchor='middle' fill='%23999'%3EMaid Outfit Image%3C/text%3E%3C/svg%3E" class="post-image" alt="Post image">
+                <div class="post-stats">
+                    <span class="stat">👁 1000</span>
+                    <span class="stat">💬 6</span>
+                    <span class="stat">👍 300</span>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <div class="avatar"></div>
+                    <div class="user-info">
+                        <div class="username">vawamin</div>
+                        <div class="time">18 hr. ago</div>
                     </div>
+                    <button class="follow-btn">Follow</button>
+                    <button class="more-btn">⋯
+                        <div class="dropdown-menu">
+                            <div class="dropdown-item report-btn">Report</div>
+                        </div>
+                    </button>
+                </div>
+                <div class="post-content">
+                    Watame hunting is Botan's favorite activity
+                </div>
+                <img src="data:image/svg+xml,%3Csvg width='600' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='300' fill='%23e8f5e9'/%3E%3Ctext x='50%25' y='50%25' font-size='20' text-anchor='middle' fill='%23666'%3EWatame Hunting Image%3C/text%3E%3C/svg%3E" class="post-image" alt="Post image">
+                <div class="post-stats">
+                    <span class="stat">👁 531</span>
+                    <span class="stat">💬 0</span>
+                    <span class="stat">👍 100</span>
                 </div>
             </div>
         </div>
     </div>
 
+    <button class="post-btn">+</button>
 
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/hamburger.js"></script>
+    <!-- Report Modal -->
+    <div class="modal" id="reportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Report Post</div>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label class="report-option">
+                    <input type="radio" name="report" value="spam">
+                    <span>Spam or misleading</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="harassment">
+                    <span>Harassment or hate speech</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="inappropriate">
+                    <span>Inappropriate content</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="copyright">
+                    <span>Copyright violation</span>
+                </label>
+                <label class="report-option">
+                    <input type="radio" name="report" value="other">
+                    <span>Other</span>
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-submit" onclick="submitReport()">Submit Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Follow button functionality
+        document.querySelectorAll('.follow-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('following');
+                if (this.classList.contains('following')) {
+                    this.textContent = 'Following';
+                } else {
+                    this.textContent = 'Follow';
+                }
+            });
+        });
+
+        // Three dots dropdown functionality
+        document.querySelectorAll('.more-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const dropdown = this.querySelector('.dropdown-menu');
+                
+                // Close all other dropdowns
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    if (menu !== dropdown) {
+                        menu.classList.remove('show');
+                    }
+                });
+                
+                dropdown.classList.toggle('show');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        });
+
+        // Report button functionality
+        document.querySelectorAll('.report-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.getElementById('reportModal').classList.add('show');
+            });
+        });
+
+        function closeModal() {
+            document.getElementById('reportModal').classList.remove('show');
+        }
+
+        function submitReport() {
+            const selected = document.querySelector('input[name="report"]:checked');
+            if (selected) {
+                alert('Report submitted: ' + selected.value);
+                closeModal();
+                // Reset radio buttons
+                document.querySelectorAll('input[name="report"]').forEach(radio => {
+                    radio.checked = false;
+                });
+            } else {
+                alert('Please select a reason for reporting');
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('reportModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
