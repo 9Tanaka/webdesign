@@ -172,7 +172,7 @@
         <div class="main-content">
             <div class="post">
                 <div class="post-header">
-                    <div class="avatar"></div>
+                    <img class="avatar" src="img/forum/biboogaming.webp">
                     <div class="user-info">
                         <div class="username">biboogaming</div>
                         <div class="time">3d</div>
@@ -199,7 +199,7 @@
 
             <div class="post">
                 <div class="post-header">
-                    <div class="avatar"></div>
+                    <img class="avatar" src="img/forum/profilei.jpg"> 
                     <div class="user-info">
                         <div class="username">Sonicm2008</div>
                         <div class="time">13 hr. ago</div>
@@ -214,7 +214,7 @@
                 <div class="post-content">
                     Iroha's new maid outfit is so adorable!
                 </div>
-                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' font-size='20' text-anchor='middle' fill='%23999'%3EMaid Outfit Image%3C/text%3E%3C/svg%3E" class="post-image" alt="Post image">
+                <img src="img/forum/iroha1.webp" class="post-image" alt="Post image">
                 <div class="post-stats">
                     <span class="stat">👁 1000</span>
                     <span class="stat">💬 6</span>
@@ -224,7 +224,7 @@
 
             <div class="post">
                 <div class="post-header">
-                    <div class="avatar"></div>
+                    <img class="avatar" src="img/forum/profilewata.jpg">
                     <div class="user-info">
                         <div class="username">vawamin</div>
                         <div class="time">18 hr. ago</div>
@@ -318,74 +318,6 @@
 
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/hamburger.js"></script>
-    <script>
-        // Follow button functionality
-        document.querySelectorAll('.follow-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                this.classList.toggle('following');
-                if (this.classList.contains('following')) {
-                    this.textContent = 'Following';
-                } else {
-                    this.textContent = 'Follow';
-                }
-            });
-        });
-
-        // Three dots dropdown functionality
-        document.querySelectorAll('.more-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const dropdown = this.querySelector('.dropdown-menu-custom');
-                
-                // Close all other dropdowns
-                document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
-                    if (menu !== dropdown) {
-                        menu.classList.remove('show');
-                    }
-                });
-                
-                dropdown.classList.toggle('show');
-            });
-        });
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function() {
-            document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
-                menu.classList.remove('show');
-            });
-        });
-
-        // Report button functionality
-        document.querySelectorAll('.report-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.getElementById('reportModal').classList.add('show');
-            });
-        });
-
-        function closeModal() {
-            document.getElementById('reportModal').classList.remove('show');
-        }
-
-        function submitReport() {
-            const selected = document.querySelector('input[name="report"]:checked');
-            if (selected) {
-                alert('Report submitted: ' + selected.value);
-                closeModal();
-                // Reset radio buttons
-                document.querySelectorAll('input[name="report"]').forEach(radio => {
-                    radio.checked = false;
-                });
-            } else {
-                alert('Please select a reason for reporting');
-            }
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('reportModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-    </script>
+    <script src="js/forum.js"></script>
 </body>
 </html>

@@ -145,6 +145,13 @@ body::before {
     margin: 15px 0;
 }
 
+iframe {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+}
+
 .post-stats {
     display: flex;
     align-items: center;
@@ -170,6 +177,7 @@ body::before {
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
 .sidebar-title {
@@ -221,12 +229,11 @@ body::before {
     align-items: center;
     gap: 10px;
     margin-bottom: 15px;
+     padding-bottom: 10px;
 }
 
 .recommended-user:hover {
     background-color: rgba(82, 82, 82, 0.1);
-    border-radius: 8px;
-    padding: 8px;
 }
 
 .user-avatar {
@@ -247,6 +254,7 @@ body::before {
     gap: 5px;
     margin-top: 5px;
     flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .thumbnail {
@@ -448,6 +456,13 @@ body::before {
         align-items: center;
         gap: 8px;
         margin-bottom: 12px;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .recommended-user > div {
+        min-width: 0;
+        flex: 1;
     }
 
     .user-thumbnails {
