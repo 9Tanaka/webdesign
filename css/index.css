@@ -10,24 +10,30 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 20px;
             padding-top: 60px;
             background-position: center;
             background-image: url(../img/holocontest.jpg);
             background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .home-container {
             text-align: center;
             width: 100%;
             max-width: 600px;
-            padding: 0 20px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 0 auto;
         }
 
         .home-title {
+            margin-top: 100px;
             margin-bottom: 100px;
+            width: 100%;
         }
 
         .home-title svg {
@@ -59,6 +65,7 @@
         .search-wrapper {
             position: relative;
             margin: 0 auto;
+            width: 100%;
         }
 
         .search-bar {
