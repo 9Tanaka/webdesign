@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Profile - User123</title>
     <style>
         * {
             margin: 0;
@@ -12,425 +12,337 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: white;
-            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FFB3E0 0%, #B3E0FF 100%);
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 100%;
+        .profile-container {
+            max-width: 1200px;
             margin: 0 auto;
-            position: relative;
-            background: white;
+            padding: 20px;
         }
 
-        /* Decorative patterns - Behind everything */
-        .pattern {
-            position: fixed;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.5;
-        }
-
-        .pattern-stripe-left {
-            left: 0;
-            top: 280px;
-            width: 70px;
-            height: 220px;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 8px,
-                #ffcce5 8px,
-                #ffcce5 12px
-            );
-        }
-
-        .pattern-dots-right {
-            right: 0;
-            top: 300px;
-            width: 90px;
-            height: 220px;
-            background: radial-gradient(circle, #b3d9ff 2px, transparent 2px);
-            background-size: 12px 12px;
-        }
-
-        .pattern-dots-left-bottom {
-            left: 0;
-            bottom: 100px;
-            width: 40px;
-            height: 120px;
-            background: radial-gradient(circle, #b3e0ff 2px, transparent 2px);
-            background-size: 10px 10px;
-        }
-
-        .pattern-dots-right-bottom {
-            right: 0;
-            bottom: 60px;
-            width: 70px;
-            height: 150px;
-            background: radial-gradient(circle, #b3d9ff 2px, transparent 2px);
-            background-size: 12px 12px;
-        }
-
-        /* Header - No rounded corners, no separation */
-        .header {
+        .profile-header-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 16px;
-            position: relative;
-            z-index: 10;
+            padding: 15px 20px;
             background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
-        .back-btn, .menu-btn {
-            background: none;
-            border: none;
+        .back-button {
+            cursor: pointer;
             font-size: 24px;
             color: #666;
-            cursor: pointer;
-            padding: 5px;
         }
 
-        .header-title {
-            font-size: 18px;
+        .profile-title {
+            font-size: 20px;
             font-weight: 600;
-            color: #000;
         }
 
-        /* Profile Card - Banner + Profile + Stats in ONE card */
-        .profile-card {
-            background: white;
-            margin: 0 10px 10px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            position: relative;
-            z-index: 5;
-        }
-
-        .banner {
-            width: 100%;
-            height: 130px;
-            background: #c8b5e8;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .banner-circle {
-            position: absolute;
-            border: 3px solid rgba(139, 92, 246, 0.3);
-            border-radius: 50%;
-        }
-
-        .bc1 { width: 60px; height: 60px; top: 15px; left: 10%; }
-        .bc2 { width: 50px; height: 50px; top: 50px; left: 25%; }
-        .bc3 { width: 70px; height: 70px; top: 10px; right: 12%; }
-        .bc4 { width: 55px; height: 55px; top: 55px; right: 28%; }
-
-        .banner-diamond {
-            position: absolute;
-            width: 35px;
-            height: 35px;
-            background: rgba(167, 139, 250, 0.2);
-            transform: rotate(45deg);
-        }
-
-        .bd1 { top: 35px; left: 38%; }
-        .bd2 { top: 60px; right: 8%; }
-
-        .banner-line {
-            position: absolute;
-            height: 3px;
-            background: rgba(139, 92, 246, 0.2);
-            width: 120px;
-            top: 45px;
-            left: 15%;
-            transform: rotate(-10deg);
-        }
-
-        /* Profile Info */
-        .profile-info {
-            padding: 0 16px 16px;
-            position: relative;
-        }
-
-        .profile-top {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            margin-top: -35px;
-            margin-bottom: 12px;
-        }
-
-        .avatar {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            border: 4px solid white;
-            background: white;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .avatar-inner {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, #5fc3e4 0%, #82d8f5 100%);
-            position: relative;
-        }
-
-        .avatar-head {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background: white;
-            border-radius: 50%;
-            top: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .avatar-body {
-            position: absolute;
-            width: 35px;
-            height: 38px;
-            background: white;
-            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
-            bottom: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .avatar-eye {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #333;
-            border-radius: 50%;
-            top: 24px;
-        }
-
-        .avatar-eye.left { left: 28px; }
-        .avatar-eye.right { right: 28px; }
-
-        .follow-btn {
-            background: #ff9bf5;
-            color: white;
-            border: none;
-            padding: 6px 20px;
-            border-radius: 14px;
-            font-size: 13px;
-            font-weight: 600;
+        .more-options {
             cursor: pointer;
-            box-shadow: 0 2px 4px rgba(255, 155, 245, 0.3);
+            font-size: 24px;
+            color: #666;
+            position: relative;
         }
 
-        .profile-name {
-            margin-bottom: 12px;
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 180px;
+            display: none;
+            z-index: 1000;
+            margin-top: 10px;
         }
 
-        .username {
-            font-size: 16px;
-            font-weight: 700;
-            color: #000;
-        }
-
-        .bio {
-            font-size: 12px;
-            color: #999;
-            margin-top: 2px;
-        }
-
-        /* Stats - Inside profile card */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 0 6px;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .stat {
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .stat-num {
-            font-size: 17px;
-            font-weight: 700;
-            color: #000;
+        .dropdown-menu.show {
             display: block;
         }
 
-        .stat-label {
-            font-size: 11px;
-            color: #666;
-            margin-top: 3px;
+        .dropdown-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            color: #333;
+            transition: all 0.2s;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        /* Tabs - Separate card */
-        .tabs-card {
-            background: white;
-            margin: 0 10px 10px;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        .dropdown-item:first-child {
+            border-radius: 10px 10px 0 0;
+        }
+
+        .dropdown-item:last-child {
+            border-radius: 0 0 10px 10px;
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background: #f9f9f9;
+            color: #FF8ECE;
+        }
+
+        .dropdown-item.logout {
+            color: #ff4444;
+        }
+
+        .dropdown-item.logout:hover {
+            background: #fff0f0;
+        }
+
+        .profile-banner {
             position: relative;
-            z-index: 5;
+            background: white;
+            border-radius: 15px;
+            padding: 0 30px 30px;
+            margin-bottom: 20px;
+        }
+
+        .banner-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: -50px;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid white;
+            overflow: hidden;
+            background: #7DD4E8;
+            flex-shrink: 0;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-details {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .profile-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .follow-button {
+            background: linear-gradient(135deg, #FF8ECE, #FF6EB4);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .follow-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 110, 180, 0.4);
+        }
+
+        .follow-button.following {
+            background: linear-gradient(135deg, #A0A0A0, #808080);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .tabs-container {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
         }
 
         .tabs {
             display: flex;
-            justify-content: space-around;
-            padding: 14px 10px;
+            border-bottom: 2px solid #f0f0f0;
         }
 
         .tab {
+            flex: 1;
+            padding: 15px;
             text-align: center;
-            font-size: 13px;
-            color: #999;
             cursor: pointer;
-            font-weight: 500;
-            position: relative;
-            padding-bottom: 8px;
+            background: white;
+            border: none;
+            font-size: 16px;
+            color: #999;
+            transition: all 0.3s;
         }
 
         .tab.active {
-            color: #000;
+            color: #FF8ECE;
+            font-weight: 600;
+            border-bottom: 3px solid #FF8ECE;
         }
 
-        .tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70%;
-            height: 2px;
-            background: #000;
+        .tab:hover {
+            background: #f9f9f9;
         }
 
-        /* Content - Separate card */
-        .content-card {
-            background: white;
-            margin: 0 10px 10px;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            position: relative;
-            z-index: 5;
-            padding: 20px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .main-content {
-            flex: 1;
-        }
-
-        /* Empty state */
-        .empty {
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        .empty-icon {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 12px;
-            position: relative;
-        }
-
-        .box {
-            width: 65px;
-            height: 55px;
-            border: 2px solid #ccc;
-            border-radius: 2px;
-            margin: 0 auto;
-            position: relative;
-            background: white;
-        }
-
-        .box::before {
-            content: '';
-            position: absolute;
-            width: 55px;
-            height: 14px;
-            border: 2px solid #ccc;
-            border-bottom: none;
-            border-radius: 2px 2px 0 0;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-        }
-
-        .search {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            border: 3px solid #5fc3e4;
-            border-radius: 50%;
-            background: rgba(95, 195, 228, 0.08);
-            right: 8px;
-            top: 8px;
-        }
-
-        .search::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 4px;
-            background: #5fc3e4;
-            border-radius: 3px;
-            bottom: -12px;
-            right: -2px;
-            transform: rotate(45deg);
-        }
-
-        .empty-text {
-            font-size: 12px;
-            color: #c4a3e8;
-        }
-
-        /* Info panel - Desktop only */
-        .info-panel {
+        .tab-content {
+            padding: 40px 20px;
+            min-height: 400px;
             display: none;
         }
 
-        /* Tablet: 768px - 1023px */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .profile-card, .tabs-card, .content-card {
-                margin: 0 20px 12px;
+        .tab-content.active {
+            display: block;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #999;
+        }
+
+        .empty-box {
+            width: 150px;
+            height: 120px;
+            margin: 0 auto 20px;
+            opacity: 0.5;
+        }
+
+        .empty-box svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .profile-info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .profile-info-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            color: #666;
+        }
+
+        .info-label {
+            font-weight: 600;
+        }
+
+        @media (min-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 2fr 1fr;
             }
 
-            .banner {
-                height: 160px;
+            .profile-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
             }
 
-            .avatar {
-                width: 85px;
-                height: 85px;
+            .follow-button {
+                margin-top: 0;
+                align-self: flex-end;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                padding: 10px;
             }
 
-            .profile-top {
-                margin-top: -42px;
+            .banner-image {
+                height: 150px;
             }
 
-            .follow-btn {
-                padding: 8px 24px;
-                font-size: 14px;
+            .profile-avatar {
+                width: 80px;
+                height: 80px;
             }
 
-            .username {
-                font-size: 18px;
+            .stats-container {
+                gap: 10px;
             }
 
-            .bio {
-                font-size: 13px;
-            }
-
-            .stat-num {
-                font-size: 19px;
+            .stat-number {
+                font-size: 20px;
             }
 
             .stat-label {
@@ -439,276 +351,265 @@
 
             .tab {
                 font-size: 14px;
-            }
-        }
-
-        /* Desktop: >= 1024px */
-        @media (min-width: 1024px) {
-            .container {
-                max-width: 1000px;
-                margin: 0 auto;
-            }
-
-            .header {
-                padding: 12px 30px;
-            }
-
-            .profile-card {
-                margin: 0 30px 15px;
-            }
-
-            .banner {
-                height: 180px;
-            }
-
-            .avatar {
-                width: 95px;
-                height: 95px;
-            }
-
-            .profile-top {
-                margin-top: -48px;
-            }
-
-            .follow-btn {
-                padding: 9px 28px;
-                font-size: 14px;
-            }
-
-            .username {
-                font-size: 19px;
-            }
-
-            .bio {
-                font-size: 13px;
-            }
-
-            .stats {
-                padding: 16px 0 8px;
-            }
-
-            .stat-num {
-                font-size: 20px;
-            }
-
-            .stat-label {
-                font-size: 12px;
-            }
-
-            .tabs-card {
-                margin: 0 30px 15px;
-            }
-
-            .tab {
-                font-size: 14px;
-            }
-
-            .content-card {
-                margin: 0 30px 15px;
-                padding: 25px 30px;
-            }
-
-            /* Show info panel on desktop */
-            .info-panel {
-                display: block;
-                width: 240px;
-                border: 1px solid #e8e8e8;
-                border-radius: 8px;
-                padding: 20px;
-                height: fit-content;
-                position: sticky;
-                top: 20px;
-                background: white;
-            }
-
-            .info-title {
-                font-size: 14px;
-                font-weight: 600;
-                color: #000;
-                margin-bottom: 14px;
-                padding-bottom: 12px;
-                border-bottom: 1px solid #e8e8e8;
-            }
-
-            .info-row {
-                font-size: 12px;
-                color: #999;
-            }
-
-            .info-value {
-                color: #666;
-                font-weight: 500;
-            }
-        }
-
-        /* Large Desktop: >= 1280px */
-        @media (min-width: 1280px) {
-            .container {
-                max-width: 1200px;
-            }
-
-            .profile-card, .tabs-card, .content-card {
-                margin-left: 40px;
-                margin-right: 40px;
-            }
-
-            .banner {
-                height: 200px;
-            }
-
-            .avatar {
-                width: 105px;
-                height: 105px;
-            }
-
-            .profile-top {
-                margin-top: -52px;
-            }
-
-            .username {
-                font-size: 20px;
-            }
-
-            .bio {
-                font-size: 14px;
-            }
-
-            .stat-num {
-                font-size: 22px;
-            }
-
-            .stat-label {
-                font-size: 13px;
-            }
-
-            .info-panel {
-                width: 260px;
-                padding: 22px;
+                padding: 12px 8px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Patterns -->
-        <div class="pattern pattern-stripe-left"></div>
-        <div class="pattern pattern-dots-right"></div>
-        <div class="pattern pattern-dots-left-bottom"></div>
-        <div class="pattern pattern-dots-right-bottom"></div>
-
-        <!-- Header -->
-        <div class="header">
-            <button class="back-btn">‹</button>
-            <div class="header-title">Profile</div>
-            <button class="menu-btn">⋮</button>
+    <div class="profile-container">
+        <!-- Header Bar -->
+        <div class="profile-header-bar">
+            <div class="back-button" onclick="goBack()">←</div>
+            <div class="profile-title">Profile</div>
+            <div class="more-options" onclick="toggleDropdown()">
+                ⋯
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <div class="dropdown-item" onclick="editProfile()">Edit Profile</div>
+                    <div class="dropdown-item" onclick="shareProfile()">Share Profile</div>
+                    <div class="dropdown-item" onclick="settings()">Settings</div>
+                    <div class="dropdown-item" onclick="reportProfile()">Report</div>
+                    <div class="dropdown-item logout" onclick="logout()">Logout</div>
+                </div>
+            </div>
         </div>
 
-        <!-- Profile Card (Banner + Profile + Stats) -->
-        <div class="profile-card">
-            <div class="banner">
-                <div class="banner-circle bc1"></div>
-                <div class="banner-circle bc2"></div>
-                <div class="banner-circle bc3"></div>
-                <div class="banner-circle bc4"></div>
-                <div class="banner-diamond bd1"></div>
-                <div class="banner-diamond bd2"></div>
-                <div class="banner-line"></div>
+        <!-- Profile Banner -->
+        <div class="profile-banner">
+            <!-- Replace src with your banner image URL -->
+            <div class="banner-image">
+                <img src="img/aqua_ranking.png" alt="Profile Banner">
             </div>
-
             <div class="profile-info">
-                <div class="profile-top">
-                    <div class="avatar">
-                        <div class="avatar-inner">
-                            <div class="avatar-head"></div>
-                            <div class="avatar-eye left"></div>
-                            <div class="avatar-eye right"></div>
-                            <div class="avatar-body"></div>
+                <div class="profile-details">
+                    <!-- Replace src with your profile picture URL -->
+                    <div class="profile-avatar">
+                        <img src="img/fubuki_ranking.png" alt="User Avatar">
+                    </div>
+                    <div>
+                        <div class="profile-name">User123</div>
+                        <div class="profile-description">Default Description</div>
+                    </div>
+                </div>
+                <button class="follow-button" id="followBtn" onclick="toggleFollow()">Follow</button>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-container">
+            <div class="stat-item" onclick="showPosts()">
+                <span class="stat-number" id="postsCount">0</span>
+                <span class="stat-label">Posts</span>
+            </div>
+            <div class="stat-item" onclick="showFollowing()">
+                <span class="stat-number" id="followingCount">0</span>
+                <span class="stat-label">Following</span>
+            </div>
+            <div class="stat-item" onclick="showFollowers()">
+                <span class="stat-number" id="followersCount">0</span>
+                <span class="stat-label">Followers</span>
+            </div>
+            <div class="stat-item" onclick="showLikes()">
+                <span class="stat-number" id="likesCount">0</span>
+                <span class="stat-label">Likes</span>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-wrapper">
+            <!-- Tabs -->
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(0)">Posts</button>
+                    <button class="tab" onclick="switchTab(1)">Comments</button>
+                    <button class="tab" onclick="switchTab(2)">Favorites</button>
+                    <button class="tab" onclick="switchTab(3)">Art</button>
+                </div>
+
+                <div class="tab-content active">
+                    <div class="empty-state">
+                        <div class="empty-box">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="40" y="80" width="120" height="90" fill="none" stroke="#ccc" stroke-width="2"/>
+                                <line x1="40" y1="100" x2="90" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="160" y1="100" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="90" y1="70" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <rect x="80" y="150" width="40" height="20" fill="#FF8ECE" opacity="0.3"/>
+                                <path d="M 120,60 Q 130,50 140,60" fill="none" stroke="#ccc" stroke-width="2"/>
+                                <path d="M 150,50 Q 155,45 160,50" fill="none" stroke="#ccc" stroke-width="2"/>
+                            </svg>
                         </div>
-                    </div>
-                    <button class="follow-btn">Follow</button>
-                </div>
-
-                <div class="profile-name">
-                    <div class="username">User123</div>
-                    <div class="bio">Default Description</div>
-                </div>
-
-                <div class="stats">
-                    <div class="stat">
-                        <span class="stat-num">0</span>
-                        <div class="stat-label">Posts</div>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-num">0</span>
-                        <div class="stat-label">Following</div>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-num">0</span>
-                        <div class="stat-label">Followers</div>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-num">0</span>
-                        <div class="stat-label">Likes</div>
+                        <p>There's nothing here...</p>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Tabs Card -->
-        <div class="tabs-card">
-            <div class="tabs">
-                <div class="tab active">Posts</div>
-                <div class="tab">Comments</div>
-                <div class="tab">Favorites</div>
-                <div class="tab">Art</div>
-            </div>
-        </div>
-
-        <!-- Content Card -->
-        <div class="content-card">
-            <div class="main-content">
-                <div class="empty">
-                    <div class="empty-icon">
-                        <div class="box"></div>
-                        <div class="search"></div>
+                <div class="tab-content">
+                    <div class="empty-state">
+                        <div class="empty-box">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="40" y="80" width="120" height="90" fill="none" stroke="#ccc" stroke-width="2"/>
+                                <line x1="40" y1="100" x2="90" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="160" y1="100" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="90" y1="70" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>No comments yet...</p>
                     </div>
-                    <div class="empty-text">There's not thing here...</div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="empty-state">
+                        <div class="empty-box">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="40" y="80" width="120" height="90" fill="none" stroke="#ccc" stroke-width="2"/>
+                                <line x1="40" y1="100" x2="90" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="160" y1="100" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="90" y1="70" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>No favorites yet...</p>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="empty-state">
+                        <div class="empty-box">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="40" y="80" width="120" height="90" fill="none" stroke="#ccc" stroke-width="2"/>
+                                <line x1="40" y1="100" x2="90" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="160" y1="100" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="90" y1="70" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>No art uploaded yet...</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="info-panel">
-                <div class="info-title">Profile Information</div>
-                <div class="info-row">
-                    Account ID : <span class="info-value">321002701</span>
+            <!-- Profile Information Card (Desktop) -->
+            <div class="profile-info-card">
+                <h3>Profile Information</h3>
+                <div class="info-item">
+                    <span class="info-label">Account ID:</span>
+                    <span>321002701</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Member Since:</span>
+                    <span>Oct 2025</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Last Active:</span>
+                    <span>Today</span>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Tabs
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
+        let isFollowing = false;
 
-        // Follow button
-        const followBtn = document.querySelector('.follow-btn');
-        let following = false;
-        followBtn.addEventListener('click', function() {
-            following = !following;
-            if (following) {
-                this.textContent = 'Following';
-                this.style.background = '#e8e8e8';
-                this.style.color = '#666';
+        function toggleFollow() {
+            const btn = document.getElementById('followBtn');
+            const followersCount = document.getElementById('followersCount');
+            
+            isFollowing = !isFollowing;
+            
+            if (isFollowing) {
+                btn.textContent = 'Following';
+                btn.classList.add('following');
+                followersCount.textContent = parseInt(followersCount.textContent) + 1;
             } else {
-                this.textContent = 'Follow';
-                this.style.background = '#ff9bf5';
-                this.style.color = 'white';
+                btn.textContent = 'Follow';
+                btn.classList.remove('following');
+                followersCount.textContent = Math.max(0, parseInt(followersCount.textContent) - 1);
+            }
+        }
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('show');
+            event.stopPropagation();
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('dropdownMenu');
+            const moreOptions = document.querySelector('.more-options');
+            
+            if (dropdown && !moreOptions.contains(event.target)) {
+                dropdown.classList.remove('show');
             }
         });
+
+        function editProfile() {
+            alert('Edit Profile - Navigate to profile editing page');
+            document.getElementById('dropdownMenu').classList.remove('show');
+        }
+
+        function shareProfile() {
+            alert('Share Profile - Copy link or share to social media');
+            document.getElementById('dropdownMenu').classList.remove('show');
+        }
+
+        function settings() {
+            alert('Settings - Navigate to settings page');
+            document.getElementById('dropdownMenu').classList.remove('show');
+        }
+
+        function reportProfile() {
+            alert('Report Profile - Submit a report');
+            document.getElementById('dropdownMenu').classList.remove('show');
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                alert('Logging out... Redirecting to login page');
+                // window.location.href = '/login';
+            }
+            document.getElementById('dropdownMenu').classList.remove('show');
+        }
+
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach((tab, i) => {
+                if (i === index) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            contents.forEach((content, i) => {
+                if (i === index) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        }
+
+        function goBack() {
+            alert('Going back to previous page...');
+            // window.history.back();
+        }
+
+        function showPosts() {
+            switchTab(0);
+        }
+
+        function showFollowing() {
+            alert('Following list:\n• View users you follow\n• Manage following');
+        }
+
+        function showFollowers() {
+            alert('Followers list:\n• View your followers\n• Manage followers');
+        }
+
+        function showLikes() {
+            alert('Liked content:\n• View posts you liked\n• Manage favorites');
+        }
     </script>
 </body>
 </html>
