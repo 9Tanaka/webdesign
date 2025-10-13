@@ -3,486 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Results - VFan</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f5f7fa;
-            color: #333;
-        }
-
-        .search-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .search-box {
-            background: white;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .search-input-wrapper {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 15px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .search-input:focus {
-            border-color: #ff6b9d;
-        }
-
-        .search-btn {
-            padding: 12px 32px;
-            background: #ff6b9d;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .search-btn:hover {
-            background: #ff4081;
-        }
-
-        .cancel-btn {
-            padding: 12px 24px;
-            background: transparent;
-            color: #ff6b9d;
-            border: 1px solid #ff6b9d;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .cancel-btn:hover {
-            background: #fff0f5;
-        }
-
-        .tabs {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 24px;
-            border-bottom: 2px solid #e0e0e0;
-            overflow-x: auto;
-        }
-
-        .tab {
-            padding: 12px 4px;
-            color: #666;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s;
-            font-weight: 500;
-            white-space: nowrap;
-            margin-bottom: -2px;
-        }
-
-        .tab.active {
-            color: #ff6b9d;
-            border-bottom-color: #ff6b9d;
-        }
-
-        .tab:hover {
-            color: #ff6b9d;
-        }
-
-        .section {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .view-more {
-            color: #ff6b9d;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .view-more:hover {
-            color: #ff4081;
-        }
-
-        .entry-item {
-            display: flex;
-            gap: 16px;
-            padding: 16px;
-            border-radius: 8px;
-            transition: background 0.2s;
-            cursor: pointer;
-            align-items: center;
-        }
-
-        .entry-item:hover {
-            background: #fff0f5;
-        }
-
-        .entry-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            object-fit: cover;
-            background: linear-gradient(135deg, #ff6b9d, #ffa726);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .entry-icon img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .entry-content {
-            flex: 1;
-        }
-
-        .entry-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 4px;
-        }
-
-        .entry-subtitle {
-            font-size: 13px;
-            color: #888;
-        }
-
-        .entry-badge {
-            padding: 4px 12px;
-            background: #fff0f5;
-            color: #ff6b9d;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .post-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 16px;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .post-card:hover {
-            box-shadow: 0 4px 12px rgba(255,107,157,0.15);
-            border-color: #ff6b9d;
-        }
-
-        .post-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            gap: 12px;
-        }
-
-        .post-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            flex: 1;
-            margin-bottom: 8px;
-        }
-
-        .post-thumbnail {
-            width: 100px;
-            height: 100px;
-            border-radius: 8px;
-            object-fit: cover;
-            flex-shrink: 0;
-            background: linear-gradient(135deg, #ffa726, #ff6b9d);
-        }
-
-        .post-images {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-            overflow-x: auto;
-        }
-
-        .post-image {
-            width: 140px;
-            height: 140px;
-            border-radius: 8px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .post-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 12px;
-            line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .post-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: #888;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .post-author {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .author-avatar {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ff6b9d, #9b59b6);
-        }
-
-        .post-stats {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .emoji-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            background: #fff0f5;
-            border-radius: 12px;
-            font-size: 12px;
-        }
-
-        .image-count {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .image-wrapper {
-            position: relative;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: #888;
-        }
-
-        .no-results img {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-
-        @media (max-width: 768px) {
-            .search-container {
-                padding: 12px;
-            }
-
-            .post-images {
-                flex-wrap: wrap;
-            }
-
-            .post-image {
-                width: 100%;
-                height: 200px;
-            }
-
-            .tabs {
-                gap: 16px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/headerfooter.css">
+    <title>Search Results: Suisei - VFan</title>
+    <link rel="stylesheet" href="css/search.css">
 </head>
 <body>
+    <!-- header -->
+    <div class="header">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
+        </a>
+        <nav class="navbar">
+            <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
+    
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Vtuber
+                </a>
+                <ul class="dropdown-menu">
+                    
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="vtuber_introduction.html">Introduction</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
+                        </ul>
+                    </li>
+                    
+                 
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="agency.html">Agency</a>
+                        <ul class="dropdown-menu">
+                         
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="newcomer.html">Talent</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="ranking.html">Ranking</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li><a class="dropdown-item" href="#">Event Calendar</a></li>
+                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
+                </ul>
+            </div>
+
+        
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Community
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
+                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+
+            <a class="nav-link" aria-label="go to news page" href="news.html">News</a>
+            
+           
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    About us
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="rules.html">Rules</a></li>
+                </ul>
+            </div>
+        </nav>
+   
+         <div class="icon-container">
+        <a class="nav-link" href="search.html">
+            <img src="img/icon/search.png" alt="search" width="30" height="30">
+        </a>
+        <a href="profile.html">
+            <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+        </a>
+    </div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <!-- End header -->
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="search.html">Search</a></li>
+        <li class="breadcrumb-item active">Suisei</li>
+    </ol>
+
     <div class="search-container">
         <div class="search-box">
             <div class="search-input-wrapper">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search VTubers, posts, topics..." value="">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search VTubers, posts, topics..." value="Suisei">
                 <button class="search-btn" onclick="performSearch()">Search</button>
-                <button class="cancel-btn" onclick="clearSearch()">Cancel</button>
+                <button class="cancel-btn" onclick="window.location.href='search.html'">Cancel</button>
             </div>
         </div>
 
         <div class="tabs">
             <div class="tab active" onclick="switchTab('general')">General</div>
             <div class="tab" onclick="switchTab('posts')">Posts</div>
-            <div class="tab" onclick="switchTab('topics')">Topics</div>
-            <div class="tab" onclick="switchTab('vtubers')">VTubers</div>
-            <div class="tab" onclick="switchTab('users')">Users</div>
         </div>
 
         <div id="resultsContainer">
+            <!-- VTuber Profile Section -->
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">VTuber Information</h2>
-                    <a href="#" class="view-more">View more →</a>
+                    <h2 class="section-title">VTuber Profile</h2>
+                    <a href="vtuber_profile.html" class="view-more">View full profile →</a>
                 </div>
                 
-                <div class="entry-item">
-                    <div class="entry-icon">
-                        🎭
+                <div class="vtuber-profile" onclick="window.location.href='vtuber_profile.html'">
+                    <img src="img/Hoshimachi-Suisei_pr-img_01.png" alt="Hoshimachi Suisei" class="profile-image">
+                    <div class="profile-content">
+                        <div class="profile-name">Hoshimachi Suisei</div>
+                        <div class="profile-name-jp">星街すいせい</div>
+                        <span class="profile-agency">Hololive • Generation 0</span>
+                        <div class="profile-description">
+                            A virtual idol with an exceptional love for songs and idols. She works tirelessly towards her dreams of performing in Tokyo Dome one day. Known for her powerful singing voice and idol activities.
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Subscribers</span>
+                                <span class="stat-value">2.1M</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Debut Date</span>
+                                <span class="stat-value">Mar 2018</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Agency</span>
+                                <span class="stat-value">Hololive</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="entry-content">
-                        <div class="entry-title">Gawr Gura</div>
-                        <div class="entry-subtitle">Hololive English • Myth</div>
-                    </div>
-                    <span class="entry-badge">4.6M subs</span>
-                </div>
-
-                <div class="entry-item">
-                    <div class="entry-icon">
-                        🌸
-                    </div>
-                    <div class="entry-content">
-                        <div class="entry-title">Sakura Miko</div>
-                        <div class="entry-subtitle">Hololive Japan • Generation 0</div>
-                    </div>
-                    <span class="entry-badge">2.1M subs</span>
-                </div>
-
-                <div class="entry-item">
-                    <div class="entry-icon">
-                        ⚡
-                    </div>
-                    <div class="entry-content">
-                        <div class="entry-title">Ironmouse</div>
-                        <div class="entry-subtitle">VShojo</div>
-                    </div>
-                    <span class="entry-badge">2.3M subs</span>
-                </div>
-
-                <div class="entry-item">
-                    <div class="entry-icon">
-                        🎪
-                    </div>
-                    <div class="entry-content">
-                        <div class="entry-title">Pekora Usada</div>
-                        <div class="entry-subtitle">Hololive Japan • Generation 3</div>
-                    </div>
-                    <span class="entry-badge">2.5M subs</span>
                 </div>
             </div>
 
+            <!-- Community Posts Section -->
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Community Posts</h2>
+                    <h2 class="section-title">Community Posts about Suisei</h2>
                 </div>
 
                 <div class="post-card">
                     <div class="post-header">
                         <div style="flex: 1;">
-                            <div class="post-title">Anime Expo 2025 Meetup - Who's going?</div>
-                            <div class="post-description">Planning to attend AX 2025? Let's organize a VTuber fan meetup! Looking for people interested in the hololive night at Dodgers Stadium and the cosplay gathering.</div>
+                            <div class="post-title">Suisei's latest original song "Stellar Stellar" hits 50M views!</div>
+                            <div class="post-description">Congratulations to Suisei! Her incredible song has reached 50 million views on YouTube. The vocal performance and production quality are absolutely stunning. What's your favorite part of the song?</div>
                         </div>
-                        <div class="post-thumbnail"></div>
+                          <img class="post-thumbnail" alt="suisei merchandise" src="img/suipost2.webp">
                     </div>
                     <div class="post-footer">
                         <div class="post-author">
-                            <div class="author-avatar"></div>
-                            <span>anime_fan_2025</span>
+                            <img class="author-avatar" alt="profile suisei fan" src="img/suisei1.jpg">
+                            <span>suisei_fan_forever</span>
                         </div>
                         <div class="post-stats">
-                            <span class="stat-item">👁 324</span>
-                            <span class="stat-item">💬 45</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="post-card">
-                    <div class="post-header">
-                        <div style="flex: 1;">
-                            <div class="post-title">My Collection of VTuber Merchandise!</div>
-                            <div class="post-description">Finally organized my collection! Including limited edition figures, happi coats, plushies and signed merchandise from various agencies. What do you think?</div>
-                        </div>
-                    </div>
-                    <div class="post-images">
-                        <div class="image-wrapper">
-                            <div class="post-image" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
-                        </div>
-                        <div class="image-wrapper">
-                            <div class="post-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
-                        </div>
-                        <div class="image-wrapper">
-                            <div class="post-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
-                            <div class="image-count">+8</div>
-                        </div>
-                    </div>
-                    <div class="post-footer">
-                        <div class="post-author">
-                            <div class="author-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
-                            <span><span class="emoji-badge">🎀 merchandise_collector</span></span>
-                        </div>
-                        <div class="post-stats">
-                            <span class="stat-item">👁 892</span>
-                            <span class="stat-item">💬 67</span>
-                            <span class="stat-item">❤️ 234</span>
+                            <span>👁 1.5K</span>
+                            <span><img src="img/chat.png" alt="chat" width="10" height="10"> 234</span>
+                            <span><img src="img/like.png" alt="like" width="10" height="10"> 892</span>
                         </div>
                     </div>
                 </div>
@@ -490,19 +175,20 @@
                 <div class="post-card">
                     <div class="post-header">
                         <div style="flex: 1;">
-                            <div class="post-title">Discussion: Best VTuber Debut of 2025?</div>
-                            <div class="post-description">We've seen so many amazing debuts this year! From hololive EN to various indie talents. Who impressed you the most? Let's discuss the standout performances and memorable moments.</div>
+                            <div class="post-title">Suisei's Tokyo Dome Dream Concert Discussion</div>
+                            <div class="post-description">With Suisei's continuous growth and amazing performances, do you think she'll achieve her dream of performing at Tokyo Dome? Let's discuss her journey and the possibilities!</div>
                         </div>
-                        <div class="post-thumbnail" style="background: linear-gradient(135deg, #fa709a, #fee140);"></div>
+                        <img class="post-thumbnail" alt="suisei tokyo dome" src="img/suipost.webp">
                     </div>
                     <div class="post-footer">
                         <div class="post-author">
-                            <div class="author-avatar" style="background: linear-gradient(135deg, #30cfd0, #330867);"></div>
-                            <span>vtuber_enthusiast</span>
+                            <img class="author-avatar" alt="profile suisei fan 2" src="img/suisei2.jpg">
+                            <span>hoshiyomi_2025</span>
                         </div>
                         <div class="post-stats">
-                            <span class="stat-item">👁 567</span>
-                            <span class="stat-item">💬 128</span>
+                            <span>👁 892</span>
+                            <span><img src="img/chat.png" alt="chat" width="10" height="10"> 156</span>
+                            <span><img src="img/like.png" alt="like" width="10" height="10"> 445</span>
                         </div>
                     </div>
                 </div>
@@ -510,28 +196,20 @@
                 <div class="post-card">
                     <div class="post-header">
                         <div style="flex: 1;">
-                            <div class="post-title">Taipei Dome Event Review - hololive Night!</div>
-                            <div class="post-description">Just attended the Wei Chuan Dragons × hololive collaboration at Taipei Dome! The atmosphere was incredible with record-breaking attendance. Here are my photos and experience!</div>
+                            <div class="post-title">My Suisei merchandise collection showcase!</div>
+                            <div class="post-description">Finally completed my Suisei collection! Including signed goods, limited edition figures, concert merchandise, and her album releases. Been collecting since her debut days!</div>
                         </div>
-                    </div>
-                    <div class="post-images">
-                        <div class="image-wrapper">
-                            <div class="post-image" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);"></div>
-                        </div>
-                        <div class="image-wrapper">
-                            <div class="post-image" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);"></div>
-                            <div class="image-count">+15</div>
-                        </div>
+                        <img class="author-avatar" alt="profile suisei fan 3" src="img/suisei3.jpg">
                     </div>
                     <div class="post-footer">
                         <div class="post-author">
-                            <div class="author-avatar" style="background: linear-gradient(135deg, #fa709a, #fee140);"></div>
-                            <span>taipei_fan</span>
+                             <img class="post-thumbnail" alt="suisei tokyo dome" src="img/suipost2.webp">
+                            <span>star_collector</span>
                         </div>
                         <div class="post-stats">
-                            <span class="stat-item">👁 1.2K</span>
-                            <span class="stat-item">💬 89</span>
-                            <span class="stat-item">❤️ 445</span>
+                            <span>👁 734</span>
+                            <span><img src="img/chat.png" alt="chat" width="10" height="10"> 89</span>
+                            <span><img src="img/like.png" alt="like" width="10" height="10"> 567</span>
                         </div>
                     </div>
                 </div>
@@ -539,63 +217,94 @@
                 <div class="post-card">
                     <div class="post-header">
                         <div style="flex: 1;">
-                            <div class="post-title">Help with starting VTubing journey</div>
-                            <div class="post-description">Complete beginner here! Looking for advice on equipment, software, and general tips for becoming an indie VTuber. Any recommendations would be greatly appreciated!</div>
+                            <div class="post-title">Suisei's Project Winter streams are pure comedy gold</div>
+                            <div class="post-description">Just binge-watched all of Suisei's Project Winter collabs and I can't stop laughing! Her strategic gameplay combined with the hilarious moments with other members make these streams legendary. Anyone else rewatching these?</div>
                         </div>
-                        <div class="post-thumbnail" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
                     </div>
                     <div class="post-footer">
                         <div class="post-author">
-                            <div class="author-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
-                            <span>aspiring_vtuber</span>
+                            <img class="author-avatar" alt="profile suisei fan 4" src="img/suisei4.jpg">
+                            <span>gaming_clipper</span>
                         </div>
                         <div class="post-stats">
-                            <span class="stat-item">👁 456</span>
-                            <span class="stat-item">💬 73</span>
+                            <span>👁 623</span>
+                            <span><img src="img/chat.png" alt="chat" width="10" height="10"> 127</span>
+                            <span><img src="img/like.png" alt="like" width="10" height="10"> 289</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-header">
+                        <div style="flex: 1;">
+                            <div class="post-title">Suisei × Mori Calliope collaboration analysis</div>
+                            <div class="post-description">The musical chemistry between Suisei and Calli is incredible! Let's analyze their collaborations, from "Ghost" to recent performances. Their different styles complement each other perfectly.</div>
+                        </div>
+                        <img class="post-thumbnail" alt="suisei x" src="img/cap.png">
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-author">
+                            <img class="author-avatar" alt="profile suisei fan" src="img/suisei6.jpg">
+                            <span>music_analyst</span>
+                        </div>
+                        <div class="post-stats">
+                            <span>👁 456</span>
+                            <span><img src="img/chat.png" alt="chat" width="10" height="10"> 98</span>
+                            <span><img src="img/like.png" alt="like" width="10" height="10"> 334</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+<div class="footer">
+        <div class="containert">
+            <div class="d-flex flex-wrap">
+                <div class="textbox2">
+                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+                    <p>Contact Us</p>
+                    <a href="https://www.facebook.com/pupboi.kung.1"><img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30"></a>
+                    <a href="https://www.instagram.com/9tanaka1/"><img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30"></a>
+                    <a href="https://x.com/9Tanaka_"><img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30"></a>
+                    <a href="https://www.google.com/?gws_rd=ssl"><img class="Con" src="img/email.png" alt="email" width="30" height="30"></a>
+                </div>
+                <div class="d-flex">
+                    <div class="first">
+                        <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
+                        <a href="introduction.html">What is vtuber?</a>
+                    </div>
+                    <div class="second">
+                        <a href="forum.html">Community</a>
+                        <a href="rules.html">rule</a>
+                        <a href="ranking.html">Top Vtuber</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/hamburger.js"></script>
     <script>
-        const searchData = {
-            vtubers: [
-                { name: "Gawr Gura", agency: "Hololive English • Myth", subs: "4.6M subs", icon: "🎭" },
-                { name: "Sakura Miko", agency: "Hololive Japan • Generation 0", subs: "2.1M subs", icon: "🌸" },
-                { name: "Ironmouse", agency: "VShojo", subs: "2.3M subs", icon: "⚡" },
-                { name: "Pekora Usada", agency: "Hololive Japan • Generation 3", subs: "2.5M subs", icon: "🎪" },
-                { name: "Takanashi Kiara", agency: "Hololive English • Myth", subs: "1.8M subs", icon: "🐔" }
-            ],
-            posts: [
-                { title: "Anime Expo 2025 Meetup - Who's going?", description: "Planning to attend AX 2025? Let's organize a VTuber fan meetup!", author: "anime_fan_2025", views: 324, comments: 45 },
-                { title: "My Collection of VTuber Merchandise!", description: "Finally organized my collection! Including limited edition figures...", author: "merchandise_collector", views: 892, comments: 67, likes: 234, images: 8 },
-                { title: "Discussion: Best VTuber Debut of 2025?", description: "We've seen so many amazing debuts this year! From hololive EN to various indie talents.", author: "vtuber_enthusiast", views: 567, comments: 128 },
-                { title: "Taipei Dome Event Review - hololive Night!", description: "Just attended the Wei Chuan Dragons × hololive collaboration at Taipei Dome!", author: "taipei_fan", views: 1200, comments: 89, likes: 445, images: 15 }
-            ]
-        };
-
         function performSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             if (query === '') {
                 alert('Please enter a search term');
                 return;
             }
-            console.log('Searching for:', query);
-            // Add your search logic here
-        }
-
-        function clearSearch() {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('searchInput').focus();
+            // Redirect to search results page with query
+            window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
         }
 
         function switchTab(tabName) {
             document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
             event.target.classList.add('active');
+            
+            // You can add logic here to filter content by tab
             console.log('Switched to tab:', tabName);
-            // Add tab switching logic here
         }
 
         document.getElementById('searchInput').addEventListener('keypress', function(e) {

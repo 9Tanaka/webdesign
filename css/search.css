@@ -1,0 +1,313 @@
+ body {
+            background: linear-gradient(135deg, rgba(255, 182, 223, 0.3) 0%, rgba(173, 216, 230, 0.3) 100%);
+        }
+
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .search-input-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: #ff69b4;
+        }
+
+        .search-btn {
+            padding: 12px 32px;
+            background: linear-gradient(90deg, #ff69b4, #ff85c1);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+
+        .search-btn:hover {
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+        }
+
+        .cancel-btn {
+            padding: 12px 24px;
+            background: transparent;
+            color: #ff69b4;
+            border: 1px solid #ff69b4;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cancel-btn:hover {
+            background: #fff0f5;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 12px 4px;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            font-weight: 500;
+            white-space: nowrap;
+            margin-bottom: -2px;
+        }
+
+        .tab.active {
+            color: #ff69b4;
+            border-bottom-color: #ff69b4;
+        }
+
+        .tab:hover {
+            color: #ff69b4;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .view-more {
+            color: #ff69b4;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .view-more:hover {
+            color: #ff4081;
+        }
+
+        .vtuber-profile {
+            display: flex;
+            gap: 24px;
+            padding: 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(100, 200, 255, 0.1), rgba(255, 182, 223, 0.1));
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .vtuber-profile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(255, 105, 180, 0.2);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #4db8ff, #ff69b4);
+            flex-shrink: 0;
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .profile-name-jp {
+            font-size: 16px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .profile-agency {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #fff0f5;
+            color: #ff69b4;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .profile-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 12px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .stat-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ff69b4;
+        }
+
+        .post-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .post-card:hover {
+            box-shadow: 0 4px 12px rgba(255,107,157,0.15);
+            border-color: #ff69b4;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            gap: 12px;
+        }
+
+        .post-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+            margin-bottom: 8px;
+        }
+
+        .post-thumbnail {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #4db8ff, #ff69b4);
+        }
+
+        .post-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #888;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .post-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff69b4, #9b59b6);
+        }
+
+        .post-stats {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                padding: 12px;
+            }
+
+            .vtuber-profile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-stats {
+                justify-content: center;
+            }
+
+            .search-input-wrapper {
+                flex-direction: column;
+            }
+
+            .search-btn, .cancel-btn {
+                width: 100%;
+            }
+        }
