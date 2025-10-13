@@ -1,5 +1,7 @@
 @import url(headerfooter.css);
 
+@import url(headerfooter.css);
+
 body {
             background: url(../img/background.jpg);
         }
@@ -223,6 +225,10 @@ body {
             margin-bottom: 15px;
         }
 
+        .recommended-user:hover{
+            background-color: rgb(82, 82, 82 0.5)#333;
+        }
+
         .user-avatar {
             width: 40px;
             height: 40px;
@@ -240,6 +246,7 @@ body {
             display: flex;
             gap: 5px;
             margin-top: 5px;
+            flex-wrap: wrap;
         }
 
         .thumbnail {
@@ -265,7 +272,7 @@ body {
             z-index: 100;
         }
 
-        /* Report Modal */
+       
         .modal-overlay {
             display: none;
             position: fixed;
@@ -405,17 +412,20 @@ body {
             .main-content {
                 order: 2;
             }
+            
 
             .sidebar {
                 order: 1;
                 width: 100%;
                 display: flex;
+                flex-direction: column;
                 gap: 15px;
             }
 
             .sidebar-section {
-                flex: 1;
-                margin-bottom: 15px;
+                flex: none;
+                width: 100%;
+                margin-bottom: 0;
             }
 
             .post {
@@ -435,12 +445,17 @@ body {
             }
 
             .recommended-user {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                align-items: center;
             }
 
             .user-thumbnails {
                 flex-wrap: wrap;
+            }
+
+            .thumbnail {
+                width: 5em;
+                height: 5em;
             }
 
             .modal-content-custom {
@@ -453,5 +468,52 @@ body {
 
             .report-option span {
                 font-size: 13px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                flex-direction: column;
+            }
+
+            .sidebar-section {
+                width: 100%;
+            }
+
+            .recommended-user {
+                flex-direction: row;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .user-thumbnails {
+                gap: 4px;
+            }
+
+            .thumbnail {
+                width: 5em;
+                height: 5em;
+            }
+
+            .user-avatar {
+                width: 35px;
+                height: 35px;
+            }
+
+            .user-name {
+                font-size: 13px;
+            }
+
+            .hot-topic-item {
+                padding: 10px;
+                margin-bottom: 8px;
+            }
+
+            .topic-tag {
+                font-size: 13px;
+            }
+
+            .topic-stats {
+                font-size: 11px;
             }
         }
