@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Mobile dropdown functionality
+  
     if (isMobile) {
         // Handle main dropdown toggles
         const dropdownToggles = document.querySelectorAll('.navbar .dropdown-toggle');
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (!submenu) return;
                 
-                // Close other submenus
+           
                 submenuItems.forEach(otherItem => {
                     if (otherItem !== this) {
                         const otherParent = otherItem.closest('.dropdown-submenu');
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
                 
-                // Toggle current submenu
+              
                 parent.classList.toggle('show');
                 submenu.classList.toggle('show');
             };
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             item.addEventListener('touchend', clickHandler);
         });
 
-        // Close menus when clicking outside
+      
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.navbar') && !e.target.closest('.hamburger')) {
                 document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
