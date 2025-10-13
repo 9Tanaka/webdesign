@@ -1,10 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&display=swap');
 @import url('headerfooter.css'); 
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
         
         body {
             background: white;
-            padding: 20px;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 80px;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         .breadcrumb-custom {
@@ -55,7 +72,7 @@
         .flag-box {
             position: absolute;
             top: -8px;
-            right: -35px;
+            right: -8px;
             width: 32px;
             height: 22px;
             background: white;
@@ -93,6 +110,7 @@
             align-items: center;
             gap: 15px;
             margin-top: 40px;
+            margin-bottom: 40px;
         }
 
         .pagination-custom button {
@@ -119,6 +137,10 @@
 
         /* Mobile Responsive */
         @media screen and (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
             .container {
                 padding: 10px;
             }
@@ -140,7 +162,7 @@
 
             .flag-box {
                 top: -6px;
-                right: -25px;
+                right: -6px;
                 width: 28px;
                 height: 20px;
             }
@@ -172,8 +194,12 @@
             }
         }
 
-        /* Tablet Layout - Single Column */
+        /* Tablet Layout */
         @media (min-width: 768px) and (max-width: 1023px) {
+            body {
+                padding-top: 75px;
+            }
+
             .avatar-container {
                 width: 110px;
                 height: 110px;
@@ -186,7 +212,7 @@
 
             .flag-box {
                 top: -7px;
-                right: -28px;
+                right: -7px;
                 width: 30px;
                 height: 21px;
             }
@@ -204,8 +230,12 @@
             }
         }
 
-        /* Desktop Layout Only */
+        /* Desktop Layout */
         @media (min-width: 1024px) {
+            body {
+                padding-top: 80px;
+            }
+
             .container {
                 max-width: 1400px;
             }
