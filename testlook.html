@@ -166,21 +166,24 @@
             position: sticky;
             top: 20px;
         }
+
         .featured-box {
             background-color: white;
             border-radius: 10px;
             padding: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: none;
+        }
+        @media (min-width: 992px) {
+            .featured-box {
+                display: block;
+                margin-top: 20px;
+            }
         }
         @media (max-width: 991px) {
             .sidebar-content {
                 position: static;
                 margin-top: 30px;
-            }
-        }
-        @media (max-width: 576px) {
-            .image-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -270,7 +273,7 @@
                         <h5>Recommended</h5>
                         <div class="image-grid">
                             <div class="grid-item">
-                                <img src="https://via.placeholder.com/150/4a90e2/ffffff?text=1" alt="Image 1">
+                                <img src="img/A_Apocalypse.jpg" alt="Image 1">
                             </div>
                             <div class="grid-item">
                                 <img src="https://via.placeholder.com/150/f5a623/ffffff?text=2" alt="Image 2">
