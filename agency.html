@@ -3,85 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/gallery.css">
-    <title>Gallery</title>
-   
+    <title>VTuber Agency - Vfan</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/agency.css">
+
+
+
+
 </head>
 <body>
-   <!-- header -->
+    <!-- Header -->
     <div class="header">
         <a href="index.html">
             <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
         </a>
         <nav class="navbar">
-            <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
-    
+            <a class="nav-link" href="index.html">Home</a>
             <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Vtuber
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Vtuber</a>
                 <ul class="dropdown-menu">
-                    
                     <li class="dropdown-submenu">
                         <a class="dropdown-item" href="introduction.html">Introduction</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="culture.html">Culture</a></li>
                         </ul>
                     </li>
-                    
-                 
                     <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="#">Agency</a>
+                        <a class="dropdown-item" href="agency.html">Agency</a>
                         <ul class="dropdown-menu">
-                         
                             <li class="dropdown-submenu">
                                 <a class="dropdown-item" href="#">Talent</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Ranking</a></li>
+                                    <li><a class="dropdown-item" href="ranking.html">Ranking</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
-                    
                     <li><a class="dropdown-item" href="#">Independent</a></li>
                     <li><a class="dropdown-item" href="#">Event Calendar</a></li>
                     <li><a class="dropdown-item" href="stats.html">Stats</a></li>
                 </ul>
             </div>
-
-        
             <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Community
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Community</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
-                    <li><a class="dropdown-item" href="#">Gallery</a></li>
+                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
                 </ul>
             </div>
-
-            <a class="nav-link" aria-label="go to news page" href="contact.html">News</a>
-            
-           
+            <a class="nav-link" href="contact.html">News</a>
             <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    About us
-                </a>
+                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown">About us</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Rules</a></li>
                 </ul>
             </div>
         </nav>
-   
-         <div class="icon-container">
-        <a class="nav-link" href="search.html">
-            <img src="img/icon/search.png" alt="search" width="30" height="30">
-        </a>
-        <a href="">
-            <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
-        </a>
-    </div>
+        <div class="icon-container">
+            <a class="nav-link" href="search.html">
+                <img src="img/icon/search.png" alt="search" width="30" height="30">
+            </a>
+            <a href="#">
+                <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+            </a>
+        </div>
         <div class="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -89,24 +74,262 @@
         </div>
     </div>
 
-    <!-- End header -->
-    
-    <main class="container">
-        <!-- Breadcrumb -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Gallery</li>
-            </ol>
-        </nav>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-section">
+        <a href="index.html">Vtuber</a> > <span>Agency</span>
+    </div>
 
-        <!-- Tags Section -->
-        <div class="mb-3">
-            <button class="tag-btn">cute</button>
-            <button class="tag-btn">Hoshimachi_suisei</button>
-            <button class="tag-btn">male</button>
-            <button class="tag-btn">female</button>
-            <button class="tag-btn">Hololive</button>
-            <button class="tag-btn">Nijisanji</button>
-            <button class="tag-btn">Vshojo</button>
+    <!-- Agency Tabs -->
+    <div class="agency-tabs-container">
+        <div class="agency-tabs">
+            <button class="agency-tab active" data-target="hololive">Hololive</button>
+            <button class="agency-tab" data-target="react">Re:AcT</button>
+            <button class="agency-tab" data-target="vee">VEE</button>
+            <button class="agency-tab" data-target="nijisanji">Nijisanji</button>
+            <button class="agency-tab" data-target="vnu">V&U</button>
+            <button class="agency-tab" data-target="noripro">NoriPro</button>
+            <button class="agency-tab" data-target="maha5">Maha5</button>
+            <button class="agency-tab" data-target="vsea">VSEA</button>
+            <button class="agency-tab" data-target="kemov">KemoV</button>
+            <button class="agency-tab" data-target="vols">VOLs</button>
         </div>
+    </div>
+
+    <!-- Agency Content -->
+    <div class="agency-container">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Hololive Card -->
+                <div class="col-12" id="hololive">
+                    <div class="agency-card">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+                                <img src="https://via.placeholder.com/120x120/00D5FF/FFFFFF?text=hololive" alt="Hololive Logo" class="agency-logo">
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="agency-name">Hololive Production (ホロライブプロダクション)</div>
+                                <div class="agency-description">
+                                    <strong>Hololive Production</strong> (ホロライブプロダクション hororaibu purodakushon, stylized in lowercase), or simply known as <strong>hololive</strong> (ホロライブ), is a <strong>Virtual Talent agency</strong> consisting of <strong>Virtual YouTubers</strong> owned by Japanese tech entertainment company <strong>COVER Corporation</strong>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Re:AcT Card -->
+                <div class="col-12" id="react">
+                    <div class="agency-card">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+                                <img src="https://via.placeholder.com/120x120/FF8C42/FFFFFF?text=Re:AcT" alt="Re:AcT Logo" class="agency-logo">
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="agency-name">Re:AcT</div>
+                                <div class="agency-description">
+                                    <strong>Re:AcT</strong>, formerly known as <strong>KAGAYAKI STARS</strong> (KAGASTA, カガスタ for short), is an agency of <strong>Virtual YouTubers</strong> created by <strong>mikai inc</strong>. As of February 2022, the agency has over <strong>1.273 million total subscribers</strong> on YouTube. <strong>Hanabasami Kyo</strong> has the highest subscriber count out of the agency with over <strong>300,000 subscribers</strong>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VEE Card -->
+                <div class="col-12" id="vee">
+                    <div class="agency-card">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+                                <img src="https://via.placeholder.com/120x120/9B59B6/FFFFFF?text=VEE" alt="VEE Logo" class="agency-logo">
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="agency-name">Veepigenesis (VEE)</div>
+                                <div class="agency-description">
+                                    <strong>Veepigenesis</strong>, also shortened and marketed as <strong>VEE</strong>, is a Japanese <strong>Virtual YouTuber agency</strong> owned and operated by <strong>Sony Music Entertainment Japan (SMEJ)</strong>. This is SMEJ's largest virtual talent development and management project in their history. They plan on debuting on more than <strong>50 virtual talents</strong>, and in addition to distribution and video production, they will be involved in music, voice acting, creative work, and other activities to make their "dreams" come true.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NIJISANJI Card -->
+                <div class="col-12" id="nijisanji">
+                    <div class="agency-card">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+                                <img src="https://via.placeholder.com/120x120/FF6B9D/FFFFFF?text=NIJISANJI" alt="NIJISANJI Logo" class="agency-logo">
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="agency-name">NIJISANJI Project (にじさんじプロジェクト)</div>
+                                <div class="agency-description">
+                                    <strong>NIJISANJI Project</strong> (にじさんじプロジェクト), colloquially known as just <strong>NIJISANJI</strong>, is an agency of primarily 2D <strong>Virtual YouTubers</strong> who are also known as <strong>"Virtual Livers"</strong> (バーチャルライバー Bācharu Raibā) due to posting on sites outside of YouTube, such as <strong>NicoNico</strong>, <strong>Twitch</strong> and <strong>Bilibili</strong>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- V&U Card -->
+                <div class="col-12" id="vnu">
+                    <div class="agency-card">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+                                <img src="https://via.placeholder.com/120x120/C62E65/FFFFFF?text=V%26U" alt="V&U Logo" class="agency-logo">
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="agency-name">V&U (Virtual & United)</div>
+                                <div class="agency-description">
+                                    <strong>V&U</strong> is a South Korean-based <strong>VTuber agency</strong> for virtual idols from another world. "At V&U, we're creating <strong>one-of-a-kind virtual experiences</strong> through working with virtual entertainers, connecting the virtual 2D world to our 3D world. Just as time passes in our world, our talents grow and change as well! Together, we can enjoy a nice summer vacation, or have fun during the holidays, and surpass the dimensional barrier."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NoriPro Card -->
+                <div class="col-12" id="noripro">
+                    <div class="agency-card">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+                                <img src="https://via.placeholder.com/120x120/3498DB/FFFFFF?text=NoriPro" alt="NoriPro Logo" class="agency-logo">
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="agency-name">NoriPro (Tsukudani Norio Production)</div>
+                                <div class="agency-description">
+                                    <strong>NoriPro</strong> is a Japanese <strong>VTuber agency</strong> founded by manga artist <strong>Tsukudani Norio</strong>, with its name short for "Tsukudani Norio Production." As of January 2024, it ranks as Japan's <strong>8th largest VTuber agency</strong> on YouTube, boasting over <strong>1.3 million subscribers</strong>. Unlike most agencies that hold open auditions, NoriPro initially featured only talents personally selected by Tsukudani Norio, many of whom had existing creative backgrounds. However, in September 2023, the agency reopened public auditions for the first time since 2019, expanding opportunities for new creators.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAHA5 Card -->
+                <div class="col-12" id="maha5">
+                    <div class="agency-card">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+                                <img src="https://via.placeholder.com/120x120/E74C3C/FFFFFF?text=MAHA5" alt="MAHA5 Logo" class="agency-logo">
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="agency-name">MAHA5 (Mahapanca)</div>
+                                <div class="agency-description">
+                                    <strong>MAHA5</strong>, read as <strong>Mahapanca</strong> (महा "maha" and पञ्च "panca" being Sanskrit for "great five"), is a <strong>VTuber agency</strong> based in <strong>Indonesia</strong> and is part of <strong>Rentracks Indonesia</strong>. Their goal is to connect Indonesia with Japan though anime and otaku culture while having fun together.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- V-SEA Card -->
+                <div class="col-12" id="vsea">
+                    <div class="agency-card">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+                                <img src="https://via.placeholder.com/120x120/1ABC9C/FFFFFF?text=VSEA" alt="V-SEA Logo" class="agency-logo">
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="agency-name">V-SEA</div>
+                                <div class="agency-description">
+                                    <strong>V-SEA</strong> was a <strong>Virtual Youtuber agency</strong> based in <strong>Singapore</strong>. It use to consist of two generations, <strong>Gen 0</strong> and <strong>Gen 1</strong>, for a total of <strong>six talents</strong>, along with at least two staff members.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KemoV Card -->
+                <div class="col-12" id="kemov">
+                    <div class="agency-card">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+                                <img src="https://via.placeholder.com/120x120/F39C12/FFFFFF?text=KemoV" alt="KemoV Logo" class="agency-logo">
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="agency-name">KemoV (Kemono Friends V Project)</div>
+                                <div class="agency-description">
+                                    <strong>KemoV</strong>, also known as the <strong>Kemono Friends V Project</strong>, is a <strong>VTuber spinoff</strong> of the Kemono Friends franchise produced by <strong>KADOKAWA</strong>. It features "Friends," cute anthropomorphized animal girls who live in Japari Park. The Kemono Friends series spans anime, manga, games, and live events, and often collaborates with zoos and wildlife organizations to promote education and conservation. KemoV's VTubers stream on YouTube using <strong>3D avatars</strong> based on their original character designs, occasionally referencing the wider Kemono Friends universe while remaining accessible to new viewers.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VOLs Card -->
+                <div class="col-12" id="vols">
+                    <div class="agency-card">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-2 text-center text-lg-start mb-3 mb-lg-0">
+                                <img src="https://via.placeholder.com/120x120/E67E22/FFFFFF?text=VOLs" alt="VOLs Logo" class="agency-logo">
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <div class="agency-name">VOLs (Virtual 'Ohhh!' Live Streaming!)</div>
+                                <div class="agency-description">
+                                    <strong>VOLs</strong> or <strong>Virtual 'Ohhh!' Live Streaming!</strong> is a <strong>English-language, Filipino focused, esports-oriented Vtuber agency</strong> operated by Singapore-based <strong>CRAZIA Pte. Ltd.</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="containert">
+            <div class="d-flex flex-wrap">
+                <div class="textbox2">
+                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+                    <p>Contact Us</p>
+                    <img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30">
+                    <img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30">
+                    <img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30">
+                    <img class="Con" src="img/email.png" alt="email" width="30" height="30">
+                </div>
+                <div class="d-flex">
+                    <div class="first">
+                        <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
+                        <a href="aboutus.html">About us</a>
+                        <a href="introduction.html">What is vtuber?</a>
+                    </div>
+                    <div class="second">
+                        <a href="commnuity.html">Community</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="ranking.html">Top Vtuber</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/hamburger.js"></script>
+
+    <script>
+
+        // Tab switching functionality - Smooth scroll to card
+        document.querySelectorAll('.agency-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.agency-tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Get target card id
+                const targetId = this.getAttribute('data-target');
+                const targetCard = document.getElementById(targetId);
+                
+                // Smooth scroll to target card
+                if (targetCard) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const tabsHeight = document.querySelector('.agency-tabs-container').offsetHeight;
+                    const offset = headerHeight + tabsHeight + 20; // 20px extra spacing
+                    
+                    const targetPosition = targetCard.getBoundingClientRect().top + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
