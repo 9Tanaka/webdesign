@@ -62,19 +62,6 @@
             scrollbar-width: thin;
         }
 
-        .user-scroll-container::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .user-scroll-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .user-scroll-container::-webkit-scrollbar-thumb {
-            background: #FF8ECE;
-            border-radius: 10px;
-        }
 
         .user-card {
             display: inline-block;
