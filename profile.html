@@ -1,82 +1,265 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <title>Profile - User123</title>    
     <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
+    <!-- header -->
+    <div class="header">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
+        </a>
+        <nav class="navbar">
+            <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
     
-    <div class="profile-container">
-        <div class="profile-header">
-            <h1 class="profile-title">Edit Profile</h1>
-        </div>
-
-        <div class="user-section">
-            <img src="img/Shirakami-Fubuki_list_thumb2.png" alt="User123" class="profile-image">
-            <div class="user-info">
-                <div class="user-name">User123</div>
-                <div class="user-stats">0 Posts · 0 Followers</div>
-                <a href="#" class="edit-profile-link">Edit Profile</a>
-            </div>
-        </div>
-
-        <form>
-            <div class="form-group">
-                <label class="form-label">Name</label>
-                <div class="input-wrapper">
-                    <i class="bi bi-person input-icon"></i>
-                    <input type="text" class="form-control" placeholder="">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Bio</label>
-                <div class="input-wrapper">
-                    <i class="bi bi-file-text input-icon"></i>
-                    <input type="text" class="form-control" placeholder="">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Twitter</label>
-                <div class="input-wrapper">
-                    <i class="bi bi-twitter input-icon"></i>
-                    <input type="text" class="form-control" placeholder="">
-                </div>
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Vtuber
+                </a>
+                <ul class="dropdown-menu">
+                    
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="vtuber_introduction.html">Introduction</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
+                        </ul>
+                    </li>
+                    
+                 
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="agency.html">Agency</a>
+                        <ul class="dropdown-menu">
+                         
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="newcomer.html">Talent</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="ranking.html">Ranking</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li><a class="dropdown-item" href="#">Event Calendar</a></li>
+                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
+                </ul>
             </div>
 
-            <div class="form-group">
-                <label class="form-label">Facebook</label>
-                <div class="input-wrapper">
-                    <i class="bi bi-facebook input-icon"></i>
-                    <input type="text" class="form-control" placeholder="">
-                </div>
+        
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Community
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
+                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                </ul>
             </div>
 
-            <div class="form-group">
-                <label class="form-label">Discord</label>
-                <div class="input-wrapper">
-                    <i class="bi bi-discord input-icon"></i>
-                    <input type="text" class="form-control" placeholder="">
-                </div>
+            <a class="nav-link" aria-label="go to news page" href="news.html">News</a>
+            
+           
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    About us
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="rules.html">Rules</a></li>
+                </ul>
             </div>
-
-            <div class="form-group">
-                <label class="form-label">Website</label>
-                <div class="input-wrapper">
-                    <i class="bi bi-globe input-icon"></i>
-                    <input type="url" class="form-control" placeholder="">
-                </div>
-            </div>
-
-            <div class="save-btn-wrapper">
-                <button type="submit" class="save-btn">Save</button>
-            </div>
-        </form>
+        </nav>
+   
+         <div class="icon-container">
+        <a class="nav-link" href="search.html">
+            <img src="img/icon/search.png" alt="search" width="30" height="30">
+        </a>
+        <a href="profile.html">
+            <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+        </a>
     </div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <!-- End header -->
+    <div class="profile-container">
+        <!-- Header Bar -->
+        <div class="profile-header-bar">
+            <div class="back-button" onclick="goBack()">←</div>
+            <div class="profile-title">Profile</div>
+            <div class="more-options" onclick="toggleDropdown()">
+                ⋯
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <div class="dropdown-item logout" onclick="logout()">Logout</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Banner -->
+        <div class="profile-banner">
+            <!-- Replace src with your banner image URL -->
+            <div class="banner-image">
+                <img src="img/pebble.jpg" alt="Profile Banner">
+            </div>
+            <div class="profile-info">
+                <!-- Replace src with your profile picture URL -->
+                <div class="profile-avatar">
+                    <img src="img/Shirakami-Fubuki_list_thumb2.png" alt="User Avatar">
+                </div>
+                <div class="profile-details">
+                    <div class="profile-name">User123</div>
+                    <div class="profile-description">Default Description</div>
+                </div>
+                <button class="follow-button" id="followBtn" onclick="toggleFollow()">Follow</button>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-container">
+            <div class="stat-item" onclick="showPosts()">
+                <span class="stat-number" id="postsCount">0</span>
+                <span class="stat-label">Posts</span>
+            </div>
+            <div class="stat-item" onclick="showFollowing()">
+                <span class="stat-number" id="followingCount">0</span>
+                <span class="stat-label">Following</span>
+            </div>
+            <div class="stat-item" onclick="showFollowers()">
+                <span class="stat-number" id="followersCount">0</span>
+                <span class="stat-label">Followers</span>
+            </div>
+            <div class="stat-item" onclick="showLikes()">
+                <span class="stat-number" id="likesCount">0</span>
+                <span class="stat-label">Likes</span>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-wrapper">
+            <!-- Tabs -->
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(0)">Posts</button>
+                    <button class="tab" onclick="switchTab(1)">Comments</button>
+                    <button class="tab" onclick="switchTab(2)">Favorites</button>
+                    <button class="tab" onclick="switchTab(3)">Art</button>
+                </div>
+
+                <div class="tab-content active">
+                    <div class="empty-state">
+                        <div class="empty-box">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="40" y="80" width="120" height="90" fill="none" stroke="#ccc" stroke-width="2"/>
+                                <line x1="40" y1="100" x2="90" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="160" y1="100" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="90" y1="70" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <rect x="80" y="150" width="40" height="20" fill="#FF8ECE" opacity="0.3"/>
+                                <path d="M 120,60 Q 130,50 140,60" fill="none" stroke="#ccc" stroke-width="2"/>
+                                <path d="M 150,50 Q 155,45 160,50" fill="none" stroke="#ccc" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>There's nothing here...</p>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="empty-state">
+                        <div class="empty-box">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="40" y="80" width="120" height="90" fill="none" stroke="#ccc" stroke-width="2"/>
+                                <line x1="40" y1="100" x2="90" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="160" y1="100" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="90" y1="70" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>No comments yet...</p>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="empty-state">
+                        <div class="empty-box">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="40" y="80" width="120" height="90" fill="none" stroke="#ccc" stroke-width="2"/>
+                                <line x1="40" y1="100" x2="90" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="160" y1="100" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="90" y1="70" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>No favorites yet...</p>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="empty-state">
+                        <div class="empty-box">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="40" y="80" width="120" height="90" fill="none" stroke="#ccc" stroke-width="2"/>
+                                <line x1="40" y1="100" x2="90" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="160" y1="100" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                                <line x1="90" y1="70" x2="110" y2="70" stroke="#ccc" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>No art uploaded yet...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Information Card (Desktop) -->
+            <div class="profile-info-card">
+                <h3>Profile Information</h3>
+                <div class="info-item">
+                    <span class="info-label">Account ID:</span>
+                    <span>321002701</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Member Since:</span>
+                    <span>Oct 2025</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Last Active:</span>
+                    <span>Today</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="containert">
+            <div class="d-flex flex-wrap">
+                <div class="textbox2">
+                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+                    <p>Contact Us</p>
+                    <a href="https://www.facebook.com/pupboi.kung.1"><img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30"></a>
+                    <a href="https://www.instagram.com/9tanaka1/"><img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30"></a>
+                    <a href="https://x.com/9Tanaka_"><img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30"></a>
+                    <a href="https://www.google.com/?gws_rd=ssl"><img class="Con" src="img/email.png" alt="email" width="30" height="30"></a>
+                </div>
+                <div class="d-flex">
+                    <div class="first">
+                        <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
+                        <a href="introduction.html">What is vtuber?</a>
+                    </div>
+                    <div class="second">
+                        <a href="forum.html">Community</a>
+                        <a href="rule.html">rule</a>
+                        <a href="ranking.html">Top Vtuber</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/hamburger.js"></script>
 </body>
 </html>
