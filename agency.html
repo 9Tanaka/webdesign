@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,6 @@
     <title>VTuber Agency - Vfan</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/agency.css">
-
-
-
 
 </head>
 <body>
@@ -272,38 +270,50 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <div class="footer">
-        <div class="containert">
-            <div class="d-flex flex-wrap">
-                <div class="textbox2">
-                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
-                    <p>Contact Us</p>
-                    <img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30">
-                    <img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30">
-                    <img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30">
-                    <img class="Con" src="img/email.png" alt="email" width="30" height="30">
+        <div class="footer-content">
+            <div class="footer-logo-section">
+                <a href="index.html"><img src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+                <p>Contact Us</p>
+                <div class="social-icons">
+                    <img src="img/facebook.png" alt="facebook">
+                    <img src="img/instagram.png" alt="instagram">
+                    <img src="img/twitter.png" alt="twitter">
+                    <img src="img/email.png" alt="email">
                 </div>
-                <div class="d-flex">
-                    <div class="first">
-                        <a href="index.html">Home</a>
-                        <a href="news.html">News</a>
-                        <a href="aboutus.html">About us</a>
-                        <a href="introduction.html">What is vtuber?</a>
-                    </div>
-                    <div class="second">
-                        <a href="commnuity.html">Community</a>
-                        <a href="faq.html">FAQ</a>
-                        <a href="ranking.html">Top Vtuber</a>
-                    </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <a href="index.html">Home</a>
+                    <a href="news.html">News</a>
+                    <a href="aboutus.html">About us</a>
+                    <a href="introduction.html">What is vtuber?</a>
+                </div>
+                <div class="footer-column">
+                    <a href="community.html">Community</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="ranking.html">Top Vtuber</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/hamburger.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navbar = document.querySelector('.navbar');
+
+        hamburger.addEventListener('click', function() {
+            navbar.classList.toggle('active');
+            
+            // Animate hamburger bars
+            const bars = this.querySelectorAll('.bar');
+            bars[0].style.transform = navbar.classList.contains('active') ? 'rotate(-45deg) translate(-5px, 6px)' : 'none';
+            bars[1].style.opacity = navbar.classList.contains('active') ? '0' : '1';
+            bars[2].style.transform = navbar.classList.contains('active') ? 'rotate(45deg) translate(-5px, -6px)' : 'none';
+        });
 
         // Tab switching functionality - Smooth scroll to card
         document.querySelectorAll('.agency-tab').forEach(tab => {
