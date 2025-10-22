@@ -1,6 +1,15 @@
 @import url('headerfooter.css');
 
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
+            
+            padding-top: 100px; /* เพิ่ม padding-top ให้มากขึ้น */
             background-image: url(../../img/background.jpg);
         }
 
@@ -20,13 +29,16 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            margin-bottom: 80px;
+            padding: 0;
         }
 
         .header1 {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             background: #f5f5f5;
-            border-bottom: 2px solid #ddd;
+            border-bottom: 0.5px solid #ddd;
             font-weight: bold;
             padding: 15px 20px;
             align-items: center;
@@ -65,26 +77,15 @@
             overflow: hidden;
             background-size: cover;
             background-position: center;
-            border: 2px solid #ccc;
-
+            border: 0.5px solid #ccc;
+            object-fit: cover;
         }
 
-        .flag-jp {
-            background-image: url('img/flag/jp.png');
-        }
-
-        .flag-th {
-            background-image: url('img/flag/th.png');
-            border: white;
-        
-        }
-
-        .flag-cn {
-            background-image: url('img/flag/cn.png');
-        }
-
-        .flag-us {
-            background-image: url('img/flag/us.png');
+        .flagth {
+            width: 35px;
+            height: 30px;
+            border-radius: 4px;
+            object-fit: cover;
         }
 
         .profile-cell {
@@ -97,8 +98,7 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background-image: url('img/ochite-miro-portrait-66.jpg');
-            border: 2px solid #ccc;
+            border: 0.5px solid #ccc;
         }
 
         .name-cell a {
@@ -131,11 +131,11 @@
         }
 
         /* Tablet Layout */
-        @media (max-width: 1024px) and (min-width: 601px) {
+        @media (max-width: 1024px) and (min-width: 769px) {
             .header1 {
                 grid-template-columns: 1fr 1fr 1fr 1fr;
                 padding: 12px 15px;
-                font-size: 14px;
+                font-size: 10px;
             }
 
             .talent-row {
@@ -157,7 +157,7 @@
         /* Mobile Layout */
         @media (max-width: 600px) {
             body {
-                padding: 10px;
+                padding-top: 100px; /* เพิ่ม padding-top สำหรับมือถือด้วย */
             }
 
             .breadcrumb {
@@ -177,20 +177,26 @@
 
             .flag {
                 width: 30px;
-                height: 22px;
+                height: 25px;
+                background-size: cover;
+                border: 0.5px solid #ccc;
             }
-
+            .flagth {
+                width: 30px;
+                height: 25px;
+            }
 
             .profile-img {
                 width: 45px;
                 height: 45px;
+                border: 0.5px solid #ccc;
             }
 
             .name-cell a {
-                font-size: 13px;
+                font-size: 9px;
             }
 
             .agency-cell {
-                font-size: 12px;
+                font-size: 11px;
             }
         }

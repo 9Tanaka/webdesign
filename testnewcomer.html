@@ -4,218 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agency - Talent - New comer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 100%);
-            padding: 20px;
-            background-image: url(../../img/background.jpg);
-        }
-
-        .breadcrumb {
-            font-size: 14px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .breadcrumb a {
-            color: #333;
-            text-decoration: none;
-        }
-
-        .container {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            background: #f5f5f5;
-            border-bottom: 2px solid #ddd;
-            font-weight: bold;
-            padding: 15px 20px;
-            align-items: center;
-        }
-
-        .header > div {
-            text-align: center;
-        }
-
-        .talent-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            align-items: center;
-        }
-
-        .talent-row:last-child {
-            border-bottom: none;
-        }
-
-        .flag-cell {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-
-        .flag {
-            width: 40px;
-            height: 30px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            border: 2px solid #ccc;
-
-        }
-
-        .flag-jp {
-            background-image: url('img/flag/jp.png');
-        }
-
-        .flag-th {
-            background-image: url('img/flag/th.png');
-            border: white;
-        
-        }
-
-        .flag-cn {
-            background-image: url('img/flag/cn.png');
-        }
-
-        .flag-us {
-            background-image: url('img/flag/us.png');
-        }
-
-        .profile-cell {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-image: url('img/ochite-miro-portrait-66.jpg');
-            border: 2px solid #ccc;
-        }
-
-        .name-cell a {
-            color: #2196F3;
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-            text-align: center;
-        }
-
-        .name-cell a:hover {
-            text-decoration: underline;
-        }
-
-        .agency-cell {
-            color: #333;
-            text-align: center;
-        }
-
-        .pagination {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-        }
-
-        .pagination a {
-            color: #2196F3;
-            text-decoration: none;
-            margin: 0 5px;
-        }
-
-        /* Tablet Layout */
-        @media (max-width: 1024px) and (min-width: 601px) {
-            .header {
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                padding: 12px 15px;
-                font-size: 14px;
-            }
-
-            .talent-row {
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                padding: 15px;
-            }
-
-            .flag {
-                width: 35px;
-                height: 25px;
-            }
-
-            .profile-img {
-                width: 50px;
-                height: 50px;
-            }
-        }
-
-        /* Mobile Layout */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-
-            .breadcrumb {
-                font-size: 12px;
-            }
-
-            .header {
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                padding: 10px;
-                font-size: 12px;
-            }
-
-            .talent-row {
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                padding: 12px 10px;
-            }
-
-            .flag {
-                width: 30px;
-                height: 22px;
-            }
-
-
-            .profile-img {
-                width: 45px;
-                height: 45px;
-            }
-
-            .name-cell a {
-                font-size: 13px;
-            }
-
-            .agency-cell {
-                font-size: 12px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cunny.css">
 </head>
 <body>
+        <!-- header -->
+    <div class="header">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Vfan logo" width="130" height="60">
+        </a>
+        <nav class="navbar">
+            <a class="nav-link" aria-label="go to Home page" href="index.html">Home</a>
+    
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Vtuber
+                </a>
+                <ul class="dropdown-menu">
+                    
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="vtuber_introduction.html">Introduction</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="culture.html">Culture</a></li>
+                        </ul>
+                    </li>
+                    
+                 
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="agency.html">Agency</a>
+                        <ul class="dropdown-menu">
+                         
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="newcomer.html">Talent</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="ranking.html">Ranking</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li><a class="dropdown-item" href="Event Calendar">Event Calendar</a></li>
+                    <li><a class="dropdown-item" href="stats.html">Stats</a></li>
+                </ul>
+            </div>
+
+        
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Community
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="forum.html">Discuss</a></li>
+                    <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+
+            <a class="nav-link" aria-label="go to news page" href="news.html">News</a>
+            
+           
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="About.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    About us
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="rules.html">Rules</a></li>
+                </ul>
+            </div>
+        </nav>
+   
+         <div class="icon-container">
+        <a class="nav-link" href="search.html">
+            <img src="img/icon/search.png" alt="search" width="30" height="30">
+        </a>
+        <a href="profile.html">
+            <img class="profile" src="img/icon/avatar.png" alt="profile" width="30" height="30">
+        </a>
+    </div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <!-- End header -->
     <div class="breadcrumb">
         Agency > <a href="#">Talent</a> > New comer
     </div>
 
     <div class="container">
-        <div class="header">
+        <div class="header1">
             <div>Nationality</div>
             <div>Profile</div>
             <div>Name</div>
@@ -224,7 +102,7 @@
 
 <div class="talent-row">
             <div class="flag-cell">
-                <div class="flag flag-jp"></div>
+                <img src="img/flag/jp.png" alt="jp" class="flag">
             </div>
             <div class="profile-cell">
                 <img src="img/ochite-miro-portrait-66.jpg" alt="Ochite Miro" class="profile-img">
@@ -237,7 +115,7 @@
 
         <div class="talent-row">
             <div class="flag-cell">
-                <div class="flag flag-th"></div>
+                <img src="img/flag/th.png" alt="th" class="flagth">
             </div>
             <div class="profile-cell">
                 <img src="img/210ri-portrait-66.jpg" alt="210RI" class="profile-img">
@@ -250,7 +128,7 @@
 
         <div class="talent-row">
             <div class="flag-cell">
-                <div class="flag flag-cn"></div>
+                <img src="img/flag/jp.png" alt="jp" class="flag">
             </div>
             <div class="profile-cell">
                 <img src="img/kobo-kanaeru-portrait-66.jpg" alt="Kobo Kanaeru" class="profile-img">
@@ -263,7 +141,7 @@
 
         <div class="talent-row">
             <div class="flag-cell">
-                <div class="flag flag-th"></div>
+                <img src="img/flag/th.png" alt="th" class="flagth">
             </div>
             <div class="profile-cell">
                 <img src="img/fumi-hausu-portrait-66.jpg" alt="Fumi Hausu" class="profile-img">
@@ -276,7 +154,7 @@
 
         <div class="talent-row">
             <div class="flag-cell">
-                <div class="flag flag-us"></div>
+                <img src="img/flag/us.png" alt="jp" class="flag">
             </div>
             <div class="profile-cell">
                 <img src="img/sameko-saba-portrait-66.jpg" alt="Sameko Saba" class="profile-img">
@@ -289,7 +167,7 @@
 
         <div class="talent-row">
             <div class="flag-cell">
-                <div class="flag flag-jp"></div>
+                <img src="img/flag/jp.png" alt="Ochite Miro" class="flag">
             </div>
             <div class="profile-cell">
                 <img src="img/hoshimachi-suisei-portrait-66.jpg" alt="Hoshimachi Suisei" class="profile-img">
@@ -304,5 +182,35 @@
             1 <a href="#">2</a> ... <a href="#">8</a> ▸
         </div>
     </div>
+
+        <div class="footer">
+        <div class="containert">
+            <div class="d-flex flex-wrap">
+                <div class="textbox2">
+                    <a href="index.html"><img class="logo" src="img/logo.jpg" alt="Vfan logo" width="230" height="110"></a>
+                    <p>Contact Us</p>
+                    <a href="https://www.facebook.com/pupboi.kung.1"><img class="Con" src="img/facebook.png" alt="facebook" width="30" height="30"></a>
+                    <a href="https://www.instagram.com/9tanaka1/"><img class="Con" src="img/instagram.png" alt="instagram" width="30" height="30"></a>
+                    <a href="https://x.com/9Tanaka_"><img class="Con" src="img/twitter.png" alt="twitter" width="30" height="30"></a>
+                    <a href="https://www.google.com/?gws_rd=ssl"><img class="Con" src="img/email.png" alt="email" width="30" height="30"></a>
+                </div>
+                <div class="d-flex">
+                    <div class="first">
+                        <a href="index.html">Home</a>
+                        <a href="news.html">News</a>
+                        <a href="introduction.html">What is vtuber?</a>
+                    </div>
+                    <div class="second">
+                        <a href="forum.html">Community</a>
+                        <a href="rule.html">rule</a>
+                        <a href="ranking.html">Top Vtuber</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/hamburger.js"></script>
 </body>
 </html>
