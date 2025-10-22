@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency - Talent - New comer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 100%);
+            padding: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .breadcrumb a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background: #f5f5f5;
+            border-bottom: 2px solid #ddd;
+            font-weight: bold;
+            padding: 15px 20px;
+            align-items: center;
+        }
+
+        .header > div {
+            text-align: center;
+        }
+
+        .talent-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .talent-row:last-child {
+            border-bottom: none;
+        }
+
+        .flag-cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flag {
+            width: 40px;
+            height: 30px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+
+        .profile-cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            border: 2px solid #ddd;
+        }
+
+        .name-cell a {
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            text-align: center;
+        }
+
+        .name-cell a:hover {
+            text-decoration: underline;
+        }
+
+        .agency-cell {
+            color: #333;
+            text-align: center;
+        }
+
+        .pagination {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .pagination a {
+            color: #2196F3;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        /* Tablet Layout */
+        @media (max-width: 1024px) and (min-width: 601px) {
+            .header {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .talent-row {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                padding: 15px;
+            }
+
+            .flag {
+                width: 35px;
+                height: 25px;
+            }
+
+            .profile-img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .breadcrumb {
+                font-size: 12px;
+            }
+
+            .header {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .talent-row {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                padding: 12px 10px;
+            }
+
+            .flag {
+                width: 30px;
+                height: 22px;
+            }
+
+
+            .profile-img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .name-cell a {
+                font-size: 13px;
+            }
+
+            .agency-cell {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="breadcrumb">
+        Agency > <a href="#">Talent</a> > New comer
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div>Nationality</div>
+            <div>Profile</div>
+            <div>Name</div>
+            <div>Agency</div>
+        </div>
+
+        <div class="talent-row">
+            <div class="flag-cell">
+                <div class="flag flag-jp"></div>
+            </div>
+            <div class="profile-cell">
+                <div class="profile-img"></div>
+            </div>
+            <div class="name-cell">
+                <a href="#">Ochite Miro</a>
+            </div>
+            <div class="agency-cell">Luminaria Production</div>
+        </div>
+
+        <div class="talent-row">
+            <div class="flag-cell">
+                <div class="flag flag-th"></div>
+            </div>
+            <div class="profile-cell">
+                <div class="profile-img"></div>
+            </div>
+            <div class="name-cell">
+                <a href="#">210RI</a>
+            </div>
+            <div class="agency-cell">Independent</div>
+        </div>
+
+        <div class="talent-row">
+            <div class="flag-cell">
+                <div class="flag flag-cn"></div>
+            </div>
+            <div class="profile-cell">
+                <div class="profile-img"></div>
+            </div>
+            <div class="name-cell">
+                <a href="#">Kobo Kanaeru</a>
+            </div>
+            <div class="agency-cell">hololive production</div>
+        </div>
+
+        <div class="talent-row">
+            <div class="flag-cell">
+                <div class="flag flag-th"></div>
+            </div>
+            <div class="profile-cell">
+                <div class="profile-img"></div>
+            </div>
+            <div class="name-cell">
+                <a href="#">Fumi Hausu</a>
+            </div>
+            <div class="agency-cell">Polygon Project</div>
+        </div>
+
+        <div class="talent-row">
+            <div class="flag-cell">
+                <div class="flag flag-us"></div>
+            </div>
+            <div class="profile-cell">
+                <div class="profile-img"></div>
+            </div>
+            <div class="name-cell">
+                <a href="#">Sameko Saba</a>
+            </div>
+            <div class="agency-cell">Independent</div>
+        </div>
+
+        <div class="talent-row">
+            <div class="flag-cell">
+                <div class="flag flag-jp"></div>
+            </div>
+            <div class="profile-cell">
+                <div class="profile-img"></div>
+            </div>
+            <div class="name-cell">
+                <a href="#">Hoshimachi Suisei</a>
+            </div>
+            <div class="agency-cell">hololive production</div>
+        </div>
+
+        <div class="pagination">
+            1 <a href="#">2</a> ... <a href="#">8</a> ▸
+        </div>
+    </div>
+</body>
+</html>
