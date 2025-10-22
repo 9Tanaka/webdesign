@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agency - Talent - New comer</title>
-    <style>
+
+@import url('headerfooter.css');
+
+
         * {
             margin: 0;
             padding: 0;
@@ -12,7 +9,6 @@
         }
 
         body {
-            background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 100%);
             padding: 20px;
             background-image: url(../../img/background.jpg);
         }
@@ -207,102 +203,3 @@
                 font-size: 12px;
             }
         }
-    </style>
-</head>
-<body>
-    <div class="breadcrumb">
-        Agency > <a href="#">Talent</a> > New comer
-    </div>
-
-    <div class="container">
-        <div class="header">
-            <div>Nationality</div>
-            <div>Profile</div>
-            <div>Name</div>
-            <div>Agency</div>
-        </div>
-
-<div class="talent-row">
-            <div class="flag-cell">
-                <div class="flag flag-jp"></div>
-            </div>
-            <div class="profile-cell">
-                <img src="img/ochite-miro-portrait-66.jpg" alt="Ochite Miro" class="profile-img">
-            </div>
-            <div class="name-cell">
-                <a href="#">Ochite Miro</a>
-            </div>
-            <div class="agency-cell">Luminaria Production</div>
-        </div>
-
-        <div class="talent-row">
-            <div class="flag-cell">
-                <div class="flag flag-th"></div>
-            </div>
-            <div class="profile-cell">
-                <img src="img/210ri-portrait-66.jpg" alt="210RI" class="profile-img">
-            </div>
-            <div class="name-cell">
-                <a href="#">210RI</a>
-            </div>
-            <div class="agency-cell">Independent</div>
-        </div>
-
-        <div class="talent-row">
-            <div class="flag-cell">
-                <div class="flag flag-cn"></div>
-            </div>
-            <div class="profile-cell">
-                <img src="img/kobo-kanaeru-portrait-66.jpg" alt="Kobo Kanaeru" class="profile-img">
-            </div>
-            <div class="name-cell">
-                <a href="#">Kobo Kanaeru</a>
-            </div>
-            <div class="agency-cell">hololive production</div>
-        </div>
-
-        <div class="talent-row">
-            <div class="flag-cell">
-                <div class="flag flag-th"></div>
-            </div>
-            <div class="profile-cell">
-                <img src="img/fumi-hausu-portrait-66.jpg" alt="Fumi Hausu" class="profile-img">
-            </div>
-            <div class="name-cell">
-                <a href="#">Fumi Hausu</a>
-            </div>
-            <div class="agency-cell">Polygon Project</div>
-        </div>
-
-        <div class="talent-row">
-            <div class="flag-cell">
-                <div class="flag flag-us"></div>
-            </div>
-            <div class="profile-cell">
-                <img src="img/sameko-saba-portrait-66.jpg" alt="Sameko Saba" class="profile-img">
-            </div>
-            <div class="name-cell">
-                <a href="#">Sameko Saba</a>
-            </div>
-            <div class="agency-cell">Independent</div>
-        </div>
-
-        <div class="talent-row">
-            <div class="flag-cell">
-                <div class="flag flag-jp"></div>
-            </div>
-            <div class="profile-cell">
-                <img src="img/hoshimachi-suisei-portrait-66.jpg" alt="Hoshimachi Suisei" class="profile-img">
-            </div>
-            <div class="name-cell">
-                <a href="#">Hoshimachi Suisei</a>
-            </div>
-            <div class="agency-cell">hololive production</div>
-        </div>
-
-        <div class="pagination">
-            1 <a href="#">2</a> ... <a href="#">8</a> ▸
-        </div>
-    </div>
-</body>
-</html>
